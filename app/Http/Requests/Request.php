@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 abstract class Request extends FormRequest
 {
@@ -15,9 +16,17 @@ abstract class Request extends FormRequest
      */
     public function filterAll($filter = array())
     {
-        return $this->except(array_merge(['_token','_method','uni_title','uni_mac','uni_name','uni_room', '_jumpUrl', '_cmd'],$filter));
+        return $this->except(array_merge(['_token','_method'],$filter));
     }
 
+    /**
+     * 重写错误返回
+     * @param Validator $validator
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json($this->formatErrors($validator)));
+    }
     /**
      * 重新定义验证失败响应信息
      * @param Validator $validator
@@ -41,7 +50,7 @@ abstract class Request extends FormRequest
     public function response(array $errors)
     {
         if (($this->ajax() && ! $this->pjax()) || $this->wantsJson()) {
-            return new JsonResponse($errors, 200);
+            return new JsonResponse($errors, 300);
         }
 
         return $this->redirector->to($this->getRedirectUrl())

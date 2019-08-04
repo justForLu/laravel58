@@ -90,7 +90,7 @@ class MenuController extends BaseController
             $flag = $this->menu->update($data->getAttributes(), $data->id);
 
             if($flag){
-                return $this->ajaxSuccess(null,'添加成功',url('admin/manager'));
+                return $this->ajaxSuccess(null,'添加成功',url('admin/menu'));
             }else{
                 return $this->ajaxError('添加失败');
             }
