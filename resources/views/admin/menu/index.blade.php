@@ -6,7 +6,9 @@
     </fieldset>
 
     <div class="main-toolbar">
-            <div class="main-toolbar-item"><a href="{{url('admin/menu/create')}}" class="btn btn-sm bg-olive J_layer_dialog" title="创建菜单">创建菜单</a></div>
+        @can('menu.create')
+        <div class="main-toolbar-item"><a href="{{url('admin/menu/create')}}" class="btn btn-sm bg-olive J_layer_dialog" title="创建菜单">创建菜单</a></div>
+        @endcan
     </div>
 
     <div class="box">
@@ -48,8 +50,12 @@
                 <td>{{$data->grade}}</td>
                 <td>{{\App\Enums\BasicEnum::getDesc($data->status)}}</td>
                 <td>
+                    @can('menu.edit')
                     <a href="menu/{{$data->id}}/edit" class="btn bg-olive btn-xs J_layer_dialog"><i class="fa fa-pencil"></i>编辑</a>
+                    @endcan
+                    @can('menu.destroy')
                     <a href="{{url('admin/menu',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" data-token="{{csrf_token()}}"><i class="fa fa-trash-o"></i>删除</a>
+                    @endcan
                 </td>
             </tr>
         @endforeach

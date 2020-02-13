@@ -16,6 +16,8 @@
         </div>
     </div>
     <div class="form-group hide">
+        @can('role.store')
         <button type="submit" class="J_ajax_submit_btn"></button>
+        @endcan
     </div>
 </form>

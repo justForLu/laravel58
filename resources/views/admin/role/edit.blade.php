@@ -16,6 +16,8 @@
         </div>
     </div>
     <div class="layui-form-item hide">
+        @can('role.update')
         <button type="submit" class="J_ajax_submit_btn"></button>
+        @endcan
     </div>
 </form>

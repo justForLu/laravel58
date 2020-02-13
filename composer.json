@@ -17,13 +17,9 @@
         "barryvdh/laravel-debugbar":"~3.2",
         "artisaninweb/laravel-enum": "^1.0",
         "tymon/jwt-auth": "^1.0@dev",
-        "intervention/image": "^2.3",
-        "maatwebsite/excel": "~3.1.13",
         "guzzlehttp/guzzle": "~6.3",
         "php-amqplib/thumper": "^0.5.0",
-        "dflydev/apache-mime-types": "^1.0",
-        "overtrue/laravel-lang": "dev-master",
-        "cncal/getui": "0.1.2"
+        "dflydev/apache-mime-types": "^1.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

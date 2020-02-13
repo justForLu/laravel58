@@ -49,7 +49,9 @@
                             </div>
                             <div class="box-footer">
                                 <div class="col-xs-2 col-md-1 col-sm-offset-3">
+                                    @can('manager.update')
                                     <button type="submit" class="btn btn-primary J_ajax_submit_btn">提交</button>
+                                    @endcan
                                 </div>
                                 <div class="col-xs-2 col-md-1">
                                     <a href="{{url('admin/manager')}}" class="btn btn-default">取消</a>

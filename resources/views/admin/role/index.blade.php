@@ -7,7 +7,9 @@
 
     <div class="main-toolbar">
         <div class="main-toolbar-item">
+            @can('role.create')
             <a href="{{url('admin/role/create',array('module'=>$params['module']))}}" class="btn btn-sm bg-olive J_layer_dialog" title="添加角色">添加角色</a>
+            @endcan
         </div>
     </div>
 
@@ -47,12 +49,18 @@
                 <td>{{\App\Enums\BoolEnum::getDesc($data->is_system)}}</td>
                 <td>{{$data->gmt_create}}</td>
                 <td>
+                    @can('role.edit')
                     <a href="role/{{$data->id}}/edit" class="btn bg-olive btn-xs J_layer_dialog" title="编辑"><i class="fa fa-pencil"></i> 编辑</a>
+                    @endcan
                     @if(!$data->is_system)
                         @if($data->parent == Auth::user()->roles[0]->id)
+                            @can('role.authority')
                             <a href="{{url('admin/role/authority',array($data->id))}}" class="btn btn-info btn-xs layui-btn-normal" title="授权"><i class="fa fa-check-square-o"></i>授权</a>
+                            @endcan
                         @endif
+                        @can('role.destroy')
                         <a href="{{url('admin/role',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" title="删除" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i>删除</a>
+                        @endcan
                     @endif
                 </td>
             </tr>

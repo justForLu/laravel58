@@ -47,7 +47,9 @@
         </div>
     </div>
     <div class="form-group hide">
+        @can('permission.update')
         <button type="submit" class="J_ajax_submit_btn"></button>
+        @endcan
     </div>
 </form>
 

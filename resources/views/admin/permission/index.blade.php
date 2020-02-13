@@ -7,7 +7,9 @@
 
     <div class="main-toolbar">
         <div class="main-toolbar-item">
+            @can('permission.create')
             <a href="{{url('admin/permission/create')}}" class="btn btn-sm bg-olive J_layer_dialog" title="创建权限">创建权限</a>
+            @endcan
         </div>
     </div>
 
@@ -42,8 +44,12 @@
                 <td>{{$data->menu->name}}</td>
                 <td>{{$data->code}}</td>
                 <td>
+                    @can('permission.edit')
                     <a href="permission/{{$data->id}}/edit" class="btn bg-olive btn-xs J_layer_dialog" title="编辑权限"><i class="fa fa-edit"></i>编辑</a>
+                    @endcan
+                    @can('permission.destroy')
                     <a href="{{url('admin/permission',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" title="删除" data-token="{{ csrf_token() }}"><i class="fa fa-trash-o"></i>删除</a>
+                    @endcan
                 </td>
             </tr>
         @endforeach

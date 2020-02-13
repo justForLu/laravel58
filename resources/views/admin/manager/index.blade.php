@@ -7,7 +7,9 @@
 
     <div class="main-toolbar">
         <div class="main-toolbar-item">
+            @can('manager.create')
             <a href="{{url('admin/manager/create')}}" class="btn btn-sm bg-olive" title="添加管理员">创建管理员</a>
+            @endcan
         </div>
     </div>
 
@@ -50,10 +52,14 @@
                 <td>{{$data->last_ip}}</td>
                 <td>{{$data->gmt_create}}</td>
                 <td>
+                    @can('manage.edit')
                     <a href="manager/{{$data->id}}/edit" class="btn bg-olive btn-xs"><i class="fa fa-pencil"></i>编辑</a>
+                    @endcan
                     @if(!$data->is_system)
                         @if($data->id != Auth::user()->id)
+                            @can('manager.destroy')
                             <a href="{{url('admin/manager',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" data-token="{{csrf_token()}}"><i class="fa fa-trash-o"></i>删除</a>
+                            @endcan
                         @endif
                     @endif
                 </td>
