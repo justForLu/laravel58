@@ -33,7 +33,8 @@ class BaseEnum extends Enum {
     /**
      * 获取枚举类的描述
      * @param $value
-     * @return null
+     * @return |null
+     * @throws \ReflectionException
      */
     public static function getDesc($value)
     {
@@ -52,9 +53,9 @@ class BaseEnum extends Enum {
      * @param $select
      * @param null $default
      * @param null $name
-     * @param $class
+     * @param string $class
      * @param array $except
-     * @return string
+     * @throws \ReflectionException
      */
     public static function enumSelect($select,$default=null,$name=null,$class='form-control',$except=array())
     {
@@ -87,6 +88,7 @@ class BaseEnum extends Enum {
     /**
      * 读取枚举数组
      * @return array
+     * @throws \ReflectionException
      */
     public static function enumItems()
     {
@@ -112,6 +114,7 @@ class BaseEnum extends Enum {
      * @param null $name
      * @param string $class
      * @param array $except
+     * @throws \ReflectionException
      */
     public static function enumRadio($select,$name=null,$class='radio-inline',$except=array())
     {

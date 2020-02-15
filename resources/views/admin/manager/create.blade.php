@@ -17,18 +17,18 @@
                         <div class="form-group">
                             <label for="username" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-8">
-                                <input type="text" name="username" class="form-control" id="username">
+                                <input type="text" name="username" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="password" class="col-sm-3 control-label">密码</label>
                             <div class="col-sm-8">
                                 <input type="hidden">
-                                <input type="password" name="password" class="form-control" id="password" autocomplete="new-password" >
+                                <input type="password" name="password" class="form-control" autocomplete="new-password" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="sort" class="col-sm-3 control-label">角色</label>
+                            <label class="col-sm-3 control-label">角色</label>
                             <div class="col-sm-8">
                                 @foreach($roleList as $role)
                                     <label class="radio-inline">
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="sort" class="col-sm-3 control-label">状态</label>
+                            <label class="col-sm-3 control-label">状态</label>
                             <div class="col-sm-8">
                                 {{\App\Enums\BasicEnum::enumSelect(\App\Enums\BasicEnum::ACTIVE,false,'status')}}
                             </div>

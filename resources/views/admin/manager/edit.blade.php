@@ -19,17 +19,17 @@
                             <div class="form-group">
                                 <label for="username" class="col-sm-3 control-label">用户名</label>
                                 <div class="col-sm-8">
-                                    <input type="text" name="username" class="form-control" id="username" value="{{$data->username}}" @if($data->is_system)readonly="readonly"@endif>
+                                    <input type="text" name="username" class="form-control" value="{{$data->username}}" @if($data->is_system)readonly="readonly"@endif>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="password" class="col-sm-3 control-label">密码</label>
                                 <div class="col-sm-8">
-                                    <input type="password" name="password" class="form-control" value="" id="password" autocomplete="off">
+                                    <input type="password" name="password" class="form-control" value="" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="sort" class="col-sm-3 control-label">角色</label>
+                                <label class="col-sm-3 control-label">角色</label>
                                 <div class="col-sm-8">
                                     @foreach($roleList as $role)
                                         <label class="radio-inline">
@@ -42,7 +42,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="sort" class="col-sm-3 control-label">状态</label>
+                                <label class="col-sm-3 control-label">状态</label>
                                 <div class="col-sm-8">
                                     {{\App\Enums\BasicEnum::enumSelect($data->status,false,'status')}}
                                 </div>

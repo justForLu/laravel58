@@ -3,17 +3,17 @@
     <div class="form-group">
         <label for="name" class="col-sm-3 control-label">权限名称</label>
         <div class="col-sm-8">
-            <input type="text" name="name" class="form-control" id="name">
+            <input type="text" name="name" class="form-control">
         </div>
     </div>
     <div class="form-group">
         <label for="code" class="col-sm-3 control-label">权限编码</label>
         <div class="col-sm-8">
-            <input type="text" name="code" class="form-control" id="code">
+            <input type="text" name="code" class="form-control">
         </div>
     </div>
     <div class="form-group">
-        <label for="menu_id" class="col-sm-3 control-label">所属菜单</label>
+        <label class="col-sm-3 control-label">所属菜单</label>
         <div class="col-sm-8">
             <select name="menu_id" class="form-control">
                 @foreach($list as $menuLevel1)
@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="code" class="col-sm-3 control-label">权限描述</label>
+        <label for="desc" class="col-sm-3 control-label">权限描述</label>
         <div class="col-sm-8">
             <textarea name="desc" class="form-control"></textarea>
         </div>
