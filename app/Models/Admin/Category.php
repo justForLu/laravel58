@@ -9,8 +9,8 @@ class Category extends Base
     // 模型对应表名
     protected $table = 'category';
 
-    protected $fillable = ['name','pid','type','sort','status','image','create_time','update_time'];
+    protected $fillable = ['name','pid','type','sort','status','image'];
 
-    public $timestamps = false;
+
 
 }

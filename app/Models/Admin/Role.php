@@ -6,13 +6,14 @@ namespace App\Models\Admin;
 use App\Enums\BoolEnum;
 use App\Enums\ModuleEnum;
 use App\Models\Base;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Role extends Base
 {
     // 模型对应表名
     protected $table = 'role';
 
-    protected $fillable = ['parent','name','desc','module','is_system','gmt_create','gmt_update'];
+    protected $fillable = ['parent','name','desc','module','is_system'];
 
     protected $attributes = array(
         'is_system' => BoolEnum::NO

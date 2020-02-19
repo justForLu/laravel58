@@ -11,6 +11,5 @@ class Feedback extends Base
 
     protected $fillable = ['name','mobile','email','content','status','remark','admin_id'];
 
-    public $timestamps = false;
 
 }
