@@ -16,7 +16,7 @@ class Manager extends Authenticatable
     // 模型对应表名
     protected $table = 'manager';
 
-    protected $fillable = ['id','username','password','remember_token','gmt_last_login','last_ip','status','parent','path','is_system','gmt_create','gmt_update','gmt_delete'];
+    protected $fillable = ['id','username','password','remember_token','gmt_last_login','last_ip','status','parent','path','is_system'];
 
     protected $attributes = array(
         'status' => BasicEnum::ACTIVE,
