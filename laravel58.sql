@@ -11,7 +11,7 @@
  Target Server Version : 50726
  File Encoding         : 65001
 
- Date: 15/02/2020 13:24:57
+ Date: 19/02/2020 13:17:48
 */
 
 SET NAMES utf8mb4;
@@ -31,16 +31,17 @@ CREATE TABLE `ss_category` (
   `image` varchar(32) NOT NULL DEFAULT '' COMMENT '分类图标',
   `create_time` int(11) NOT NULL DEFAULT '0',
   `update_time` int(11) NOT NULL DEFAULT '0',
+  `delete_time` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `name` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='网站分类表';
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COMMENT='网站分类表';
 
 -- ----------------------------
 -- Records of ss_category
 -- ----------------------------
 BEGIN;
-INSERT INTO `ss_category` VALUES (1, '行业新闻', 0, 1, 0, 1, '', 1581737949, 0);
-INSERT INTO `ss_category` VALUES (2, '公司新闻', 0, 1, 0, 1, '', 1581737974, 1581738606);
+INSERT INTO `ss_category` VALUES (1, '行业新闻', 0, 1, 0, 1, '', 1581737949, 0, 0);
+INSERT INTO `ss_category` VALUES (2, '公司新闻', 0, 1, 0, 1, '', 1581737974, 1581738606, 0);
 COMMIT;
 
 -- ----------------------------
@@ -127,19 +128,19 @@ CREATE TABLE `ss_manager` (
   `path` varchar(100) NOT NULL DEFAULT '' COMMENT '路径',
   `status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '状态',
   `is_system` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否系统用户',
-  `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
-  `gmt_update` datetime DEFAULT NULL COMMENT '修改时间',
-  `gmt_delete` datetime DEFAULT NULL COMMENT '删除时间',
+  `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='管理员表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='管理员表';
 
 -- ----------------------------
 -- Records of ss_manager
 -- ----------------------------
 BEGIN;
-INSERT INTO `ss_manager` VALUES (1, 'admin', '$2y$10$K9ZqSDPveI6zuQjOgJj3OeWibeAevedhv5E6vOSLCo2qizF1GAUw.', 'w5FkrwnY2zzxs1i1lOONfVYU98Bv6wJF5ADOmEXWyoV8JVN5MIcTOtMEcrsn', '2020-02-15 12:04:45', '127.0.0.1', 1, '0,1,1,', 1, 1, '2016-11-25 09:40:30', '2019-05-30 00:44:38', NULL, '2020-02-15 12:04:45');
-INSERT INTO `ss_manager` VALUES (2, 'test', '$2y$10$Ujyg8YXL9SGVaqNFf9slbOwNhaWBO3hqvpMEpLozqM8u6E7vP9hZK', 'PtmQwtKVTFPenmidu7NxC7DF1NzOn5DojN2vxkfzIL9WBw6nSfavItdQZOCQ', '2020-02-13 09:46:46', '127.0.0.1', 1, '0,1,1,2,', 1, 0, '2017-11-23 09:28:10', '2019-05-29 06:27:38', NULL, '2020-02-14 09:35:37');
+INSERT INTO `ss_manager` VALUES (1, 'admin', '$2y$10$K9ZqSDPveI6zuQjOgJj3OeWibeAevedhv5E6vOSLCo2qizF1GAUw.', 'w5FkrwnY2zzxs1i1lOONfVYU98Bv6wJF5ADOmEXWyoV8JVN5MIcTOtMEcrsn', '2020-02-19 09:54:30', '127.0.0.1', 1, '0,1,1,', 1, 1, NULL, '2020-02-19 09:54:30', NULL);
+INSERT INTO `ss_manager` VALUES (2, 'test11', '$2y$10$Ujyg8YXL9SGVaqNFf9slbOwNhaWBO3hqvpMEpLozqM8u6E7vP9hZK', 'PtmQwtKVTFPenmidu7NxC7DF1NzOn5DojN2vxkfzIL9WBw6nSfavItdQZOCQ', '2020-02-13 09:46:46', '127.0.0.1', 1, '0,1,1,2,', 1, 0, NULL, '2020-02-19 09:54:43', NULL);
+INSERT INTO `ss_manager` VALUES (3, 'ssss', '$2y$10$w4kWVn6/JZrnziMkV0/bJ.KoAfAIrN9vAXtOFO5ZQh9mjfQoK.jhm', '', NULL, '', 1, '0,1,1,3,', 1, 0, '2020-02-19 09:55:12', '2020-02-19 09:55:12', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -189,7 +190,7 @@ CREATE TABLE `ss_permission` (
   `is_system` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否系统权限',
   PRIMARY KEY (`id`),
   UNIQUE KEY `wx_permissions_code_unique` (`code`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COMMENT='权限表';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COMMENT='权限表';
 
 -- ----------------------------
 -- Records of ss_permission
@@ -265,11 +266,11 @@ CREATE TABLE `ss_role` (
   `parent` int(10) NOT NULL DEFAULT '0' COMMENT '父级角色id',
   `path` varchar(100) NOT NULL DEFAULT '' COMMENT '路径',
   `name` varchar(255) NOT NULL DEFAULT '',
-  `desc` varchar(255) NOT NULL DEFAULT '',
+  `desc` varchar(255) DEFAULT NULL,
   `module` tinyint(4) NOT NULL DEFAULT '0' COMMENT '所属模块',
   `is_system` tinyint(4) NOT NULL DEFAULT '0',
-  `gmt_create` datetime DEFAULT NULL,
-  `gmt_update` datetime DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  `update_time` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='角色表';
 
@@ -277,9 +278,9 @@ CREATE TABLE `ss_role` (
 -- Records of ss_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `ss_role` VALUES (1, 1, '0,1,', '超级管理员', '这是超级管理员', 1, 1, '2016-12-02 09:24:01', '2016-12-02 22:53:56');
-INSERT INTO `ss_role` VALUES (2, 1, '0,1,2,', '测试管理员', '', 1, 0, '2017-11-23 09:27:55', '2017-11-23 09:27:55');
-INSERT INTO `ss_role` VALUES (3, 1, '0,1,3,', '测试', '', 1, 0, '2018-12-16 21:58:56', '2018-12-16 21:58:56');
+INSERT INTO `ss_role` VALUES (1, 1, '0,1,', '超级管理员', '这是超级管理员', 1, 1, 0, 0);
+INSERT INTO `ss_role` VALUES (2, 1, '0,1,2,', '测试管理员', '', 1, 0, 0, 0);
+INSERT INTO `ss_role` VALUES (3, 1, '0,1,3,', '测试', NULL, 1, 0, 0, 1582088917);
 COMMIT;
 
 -- ----------------------------
@@ -292,7 +293,7 @@ CREATE TABLE `ss_role_user` (
   `role_id` int(10) unsigned NOT NULL,
   `module` tinyint(4) NOT NULL DEFAULT '0' COMMENT '所属模块',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='管理员角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COMMENT='管理员角色表';
 
 -- ----------------------------
 -- Records of ss_role_user
@@ -300,6 +301,7 @@ CREATE TABLE `ss_role_user` (
 BEGIN;
 INSERT INTO `ss_role_user` VALUES (1, 1, 1, 1);
 INSERT INTO `ss_role_user` VALUES (2, 2, 2, 1);
+INSERT INTO `ss_role_user` VALUES (3, 3, 2, 1);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
