@@ -200,3 +200,28 @@ if (! function_exists('auth')) {
         return app(AuthFactory::class)->guard($guard);
     }
 }
+
+/**
+ * 验证是否是手机号
+ */
+if(!function_exists('check_mobile')){
+    function check_mobile($str = ''){
+        if(preg_match("/^1[3456789]{1}\d{9}$/",$str)){
+            return true;
+        }
+        return false;
+    }
+}
+
+/**
+ * 验证是否是邮箱
+ */
+if(!function_exists('check_email')) {
+    function check_email($str = ''){
+        if(preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix",$str)){
+            return true;
+        }
+        return false;
+    }
+}
+
