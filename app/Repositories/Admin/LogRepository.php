@@ -4,6 +4,7 @@ namespace App\Repositories\Admin;
 
 
 use App\Enums\BasicEnum;
+use App\Enums\ModuleEnum;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,8 +18,9 @@ class LogRepository extends BaseRepository
     /**
      * 记录操作日志
      * @param $request
+     * @param $content
      */
-    public function writeOperateLog($request){
+    public function writeOperateLog($request, $content = ''){
         // 记录post请求
         if($request->isMethod('post') || $request->isMethod('put') || $request->isMethod('delete')){
             $action = get_action_name();
@@ -26,15 +28,14 @@ class LogRepository extends BaseRepository
             unset($params['_token']);unset($params['_method']);
 
             $log = array(
-                'user_type' => 1,
                 'user_id' => Auth::guard()->user()->id,
                 'operate_module' => $action['controller'],
                 'operate_action' => $action['method'],
-                'operate_params' => json_encode($params,JSON_UNESCAPED_UNICODE),
                 'operate_url' => $request->getRequestUri(),
+                'content' => $content,
                 'ip' => get_client_ip(),
-                'gmt_operate' => get_date(),
-                'status' => BasicEnum::ACTIVE
+                'module' => ModuleEnum::ADMIN,
+                'create_time' => time()
             );
 
             $this->saveModel($log);

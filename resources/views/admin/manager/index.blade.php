@@ -50,7 +50,7 @@
                 <td>{{\App\Enums\BasicEnum::getDesc($data->status)}}</td>
                 <td>{{$data->gmt_last_login}}</td>
                 <td>{{$data->last_ip}}</td>
-                <td>{{$data->gmt_create}}</td>
+                <td>{{$data->created_at}}</td>
                 <td>
                     @can('manage.edit')
                     <a href="manager/{{$data->id}}/edit" class="btn bg-olive btn-xs"><i class="fa fa-pencil"></i>编辑</a>

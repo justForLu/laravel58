@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\CategoryRequest;
 use App\Repositories\Admin\Criteria\CategoryCriteria;
 use App\Repositories\Admin\CategoryRepository as Category;
+use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Config;
 
 class CategoryController extends BaseController
@@ -13,12 +14,14 @@ class CategoryController extends BaseController
      * @var Category
      */
     protected $category;
+    protected $log;
 
-    public function __construct(Category $category)
+    public function __construct(Category $category, LogRepository $log)
     {
         parent::__construct();
 
         $this->category = $category;
+        $this->log = $log;
     }
     /**
      * Display a listing of the resource.
@@ -59,6 +62,7 @@ class CategoryController extends BaseController
      *
      * @param CategoryRequest $request
      * @return \Illuminate\Http\JsonResponse
+     * @throws \Bosnadev\Repositories\Exceptions\RepositoryException
      */
     public function store(CategoryRequest $request)
     {
@@ -74,6 +78,7 @@ class CategoryController extends BaseController
         ];
 
         $result = $this->category->create($data);
+        $this->log->writeOperateLog($request,'新增分类');   //日志记录
 
         return $this->ajaxAuto($result,'添加',url('admin/category'));
     }
@@ -123,6 +128,7 @@ class CategoryController extends BaseController
         ];
 
         $result = $this->category->update($data,$id);
+        $this->log->writeOperateLog($request,'编辑分类'); //日志记录
 
         return $this->ajaxAuto($result,'修改',url('admin/category'));
     }

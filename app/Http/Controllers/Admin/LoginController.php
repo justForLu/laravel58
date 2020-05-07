@@ -10,7 +10,7 @@ use App\Services\TreeService;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Repositories\Admin\ManagerRepository as Manager;
-use Illuminate\Support\Facades\Log;
+use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Lang;
 
@@ -39,16 +39,19 @@ class LoginController extends Controller
      */
     protected $menu;
 
+    protected $log;
+
     /**
      * LoginController constructor.
      * @param Manager $manager
      * @param Menu $menu
      */
-    public function __construct(Manager $manager,Menu $menu)
+    public function __construct(Manager $manager,Menu $menu, LogRepository $log)
     {
 //        $this->middleware('guest')->except('logout');
         $this->manager = $manager;
         $this->menu = $menu;
+        $this->log = $log;
     }
 
     /**
@@ -100,7 +103,7 @@ class LoginController extends Controller
 
             // 缓存用户菜单
             Cache::store('file')->forever('menu_user_' . $uid,json_encode($userMenus));
-
+            $this->log->writeOperateLog($loginRequest, '登录后台');
             return response()->json(['status' => 'success','code' => '200','msg' => Lang::get('auth.success'),'referrer' => $this->redirectPath()]);
 
         }

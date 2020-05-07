@@ -39,6 +39,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::resource('/permission', 'PermissionController');
         Route::resource('/menu', 'MenuController');
         Route::resource('/role', 'RoleController');
+        Route::resource('/log', 'LogController');
         Route::match(['get', 'post'],'/role/authority/{id?}', 'RoleController@authority');
         Route::post('/file/uploadPic','FileController@uploadPic');
         Route::post('/file/uploadFile','FileController@uploadFile');

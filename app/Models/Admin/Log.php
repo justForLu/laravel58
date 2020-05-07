@@ -9,6 +9,8 @@ class Log extends Base
     // 模型对应表名
     protected $table = 'log';
 
+    protected $fillable = ['id','user_id','operate_module','operate_action','operate_url','ip','content','module'];
+
     public $timestamps = false;
 
     /**

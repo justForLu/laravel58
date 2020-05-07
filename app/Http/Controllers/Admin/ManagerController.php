@@ -10,6 +10,7 @@ use App\Repositories\Admin\Criteria\ManagerCriteria;
 use App\Repositories\Admin\Criteria\RoleCriteria;
 use App\Repositories\Admin\ManagerRepository as Manager;
 use App\Repositories\Admin\RoleRepository as Role;
+use App\Repositories\Admin\LogRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -29,12 +30,15 @@ class ManagerController extends BaseController
      */
     protected $manager;
 
-    public function __construct(Role $role,Manager $manager)
+    protected $log;
+
+    public function __construct(Role $role,Manager $manager, LogRepository $log)
     {
         parent::__construct();
 
         $this->role = $role;
         $this->manager = $manager;
+        $this->log = $log;
     }
 
     /**
@@ -101,6 +105,7 @@ class ManagerController extends BaseController
 
             if($flag && $flag1){
                 DB::commit();
+                $this->log->writeOperateLog($request,'添加管理员');  //日志记录
                 return $this->ajaxSuccess(null,'添加成功',url('admin/manager'));
             }else{
                 DB::rollBack();
@@ -183,6 +188,7 @@ class ManagerController extends BaseController
 
                 if($flag !== false){
                     DB::commit();
+                    $this->log->writeOperateLog($request,'更新管理员信息');    //日志记录
                     return $this->ajaxSuccess(null,'更新成功',url('admin/manager'));
                 }else{
                     DB::rollBack();

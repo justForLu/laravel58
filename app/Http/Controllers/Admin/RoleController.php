@@ -12,6 +12,7 @@ use App\Repositories\Admin\Criteria\RoleCriteria;
 use App\Repositories\Admin\RoleRepository as Role;
 use App\Repositories\Admin\MenuRepository as Menu;
 use App\Repositories\Admin\PermissionRoleRepository as PermissionRole;
+use App\Repositories\Admin\LogRepository;
 use App\Services\TreeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -37,8 +38,9 @@ class RoleController extends BaseController
      */
     protected $permissionRole;
 
+    protected $log;
 
-    public function __construct(Role $role,Menu $menu,Permission $permission,PermissionRole $permissionRole)
+    public function __construct(Role $role,Menu $menu,Permission $permission,PermissionRole $permissionRole,LogRepository $log)
     {
         parent::__construct();
 
@@ -46,6 +48,7 @@ class RoleController extends BaseController
         $this->menu = $menu;
         $this->permission = $permission;
         $this->permissionRole = $permissionRole;
+        $this->log = $log;
     }
 
     /**
@@ -114,6 +117,7 @@ class RoleController extends BaseController
             $flag = $this->role->update($data->getAttributes(), $data->id);
 
             if($flag){
+                $this->log->writeOperateLog($request,'添加角色');   //日志记录
                 return $this->ajaxSuccess(null,'添加成功');
             }else{
                 return $this->ajaxError('添加失败');
@@ -171,6 +175,7 @@ class RoleController extends BaseController
             $data['path'] = $parentData->path . $id . ',';
         }
         $result = $this->role->update($data,$id);
+        $this->log->writeOperateLog($request,'编辑角色');   //日志记录
 
         return $this->ajaxAuto($result,'修改');
     }

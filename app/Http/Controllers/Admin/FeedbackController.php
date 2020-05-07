@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\Admin\FeedbackRequest;
 use App\Repositories\Admin\Criteria\FeedbackCriteria;
 use App\Repositories\Admin\FeedbackRepository as Feedback;
+use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
@@ -14,12 +15,14 @@ class FeedbackController extends BaseController
      * @var Feedback
      */
     protected $feedback;
+    protected $log;
 
-    public function __construct(Feedback $feedback)
+    public function __construct(Feedback $feedback, LogRepository $log)
     {
         parent::__construct();
 
         $this->feedback = $feedback;
+        $this->log = $log;
     }
     /**
      * Display a listing of the resource.
@@ -108,6 +111,7 @@ class FeedbackController extends BaseController
         ];
 
         $result = $this->feedback->update($data,$id);
+        $this->log->writeOperateLog($request,'编辑意见反馈'); //日志记录
 
         return $this->ajaxAuto($result,'修改',url('admin/feedback'));
     }

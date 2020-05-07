@@ -41,7 +41,7 @@
             <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->name}}</td>
-                <td>{{$data->menu->name}}</td>
+                <td>{{$data->menu->name or ''}}</td>
                 <td>{{$data->code}}</td>
                 <td>
                     @can('permission.edit')

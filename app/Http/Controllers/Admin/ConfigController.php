@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Admin\ConfigRequest;
 use App\Repositories\Admin\ConfigRepository;
+use App\Repositories\Admin\LogRepository;
 
 class ConfigController extends BaseController
 {
@@ -11,12 +12,14 @@ class ConfigController extends BaseController
      * @var ConfigRepository
      */
     protected $config;
+    protected $log;
 
-    public function __construct(ConfigRepository $config)
+    public function __construct(ConfigRepository $config, LogRepository $log)
     {
         parent::__construct();
 
         $this->config = $config;
+        $this->log = $log;
     }
     /**
      * Display a listing of the resource.
@@ -94,6 +97,7 @@ class ConfigController extends BaseController
         ];
 
         $result = $this->config->update($data,$id);
+        $this->log->writeOperateLog($request,'编辑网站配置'); //日志记录
 
         return $this->ajaxAuto($result,'修改',url('admin/config'));
     }

@@ -9,7 +9,7 @@
                 <input type="text" name="username" placeholder="账号" value="admin"/>
             </div>
             <div class="login-item">
-                <input type="password" name="password" placeholder="密码" value="xianxin2016"/>
+                <input type="password" name="password" placeholder="密码" value=""/>
             </div>
             <button type="submit" class="login-btn J_ajax_submit_btn">登录</button>
         </form>

@@ -6,6 +6,7 @@ use App\Enums\ModuleEnum;
 use App\Http\Requests\Admin\MenuRequest;
 use App\Repositories\Admin\Criteria\MenuCriteria;
 use App\Repositories\Admin\MenuRepository as Menu;
+use App\Repositories\Admin\LogRepository;
 use App\Services\TreeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,12 +19,14 @@ class MenuController extends BaseController
      * @var Menu
      */
     protected $menu;
+    protected $log;
 
-    public function __construct(Menu $menu)
+    public function __construct(Menu $menu,LogRepository $log)
     {
         parent::__construct();
 
         $this->menu = $menu;
+        $this->log = $log;
     }
     /**
      * Display a listing of the resource.
@@ -90,6 +93,7 @@ class MenuController extends BaseController
             $flag = $this->menu->update($data->getAttributes(), $data->id);
 
             if($flag){
+                $this->log->writeOperateLog($request,'添加菜单');   //日志记录
                 return $this->ajaxSuccess(null,'添加成功',url('admin/menu'));
             }else{
                 return $this->ajaxError('添加失败');
@@ -159,6 +163,8 @@ class MenuController extends BaseController
 
             // 缓存用户菜单
             Cache::store('file')->forever('menu_user_' . $uid,json_encode($userMenus));
+
+            $this->log->writeOperateLog($request, '更新菜单');  //日志记录
         }
         return $this->ajaxAuto($result,'修改');
     }

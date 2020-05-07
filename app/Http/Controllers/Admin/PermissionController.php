@@ -8,6 +8,7 @@ use App\Repositories\Admin\Criteria\MenuCriteria;
 use App\Repositories\Admin\Criteria\PermissionCriteria;
 use App\Repositories\Admin\MenuRepository as Menu;
 use App\Repositories\Admin\PermissionRepository as Permission;
+use App\Repositories\Admin\LogRepository;
 use App\Services\TreeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -21,12 +22,15 @@ class PermissionController extends BaseController
 
     protected $permission;
 
-    public function __construct(Menu $menu,Permission $permission)
+    protected $log;
+
+    public function __construct(Menu $menu,Permission $permission, LogRepository $log)
     {
         parent::__construct();
 
         $this->menu = $menu;
         $this->permission = $permission;
+        $this->log = $log;
     }
 
     /**
@@ -83,6 +87,7 @@ class PermissionController extends BaseController
         $data = $this->permission->create($data);
 
         if($data){
+            $this->log->writeOperateLog($request,'添加权限');   //日志记录
             return $this->ajaxSuccess(null,'添加成功',url('admin/permission'));
         }else{
             return $this->ajaxError('添加失败');
@@ -134,7 +139,7 @@ class PermissionController extends BaseController
     public function update(PermissionRequest $request, $id)
     {
         $result = $this->permission->update($request->filterAll(),$id);
-
+        $this->log->writeOperateLog($request,'更改权限');   //日志记录
         return $this->ajaxAuto($result,'修改');
     }
 
