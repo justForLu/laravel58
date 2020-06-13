@@ -33,7 +33,7 @@
         @foreach ($list as $data)
             <tr>
                 <td>{{$data->id}}</td>
-                <td>{{$data->manager->username or ''}}</td>
+                <td>{{$data->username}}</td>
                 <td>{{$data->operate_url}}</td>
                 <td>{{$data->content}}</td>
                 <td>{{$data->ip}}</td>
