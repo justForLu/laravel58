@@ -8,7 +8,7 @@
     <div class="main-toolbar">
         <div class="main-toolbar-item">
             @can('role.create')
-            <a href="{{url('admin/role/create',array('module'=>$params['module']))}}" class="btn btn-sm bg-olive J_layer_dialog" title="添加角色">添加角色</a>
+            <a href="{{url('admin/role/create')}}" class="btn btn-sm bg-olive J_layer_dialog" title="添加角色">添加角色</a>
             @endcan
         </div>
     </div>
