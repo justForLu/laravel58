@@ -8,6 +8,7 @@ use App\Repositories\Admin\FeedbackRepository as Feedback;
 use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Http\Request;
 
 class FeedbackController extends BaseController
 {
@@ -27,10 +28,10 @@ class FeedbackController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @param FeedbackRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(FeedbackRequest $request)
+    public function index(Request $request)
     {
         $params = $request->all();
 

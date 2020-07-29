@@ -7,6 +7,7 @@ use App\Repositories\Admin\Criteria\CategoryCriteria;
 use App\Repositories\Admin\CategoryRepository as Category;
 use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Http\Request;
 
 class CategoryController extends BaseController
 {
@@ -26,10 +27,10 @@ class CategoryController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryRequest $request)
+    public function index(Request $request)
     {
         $params = $request->all();
 
