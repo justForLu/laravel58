@@ -50,10 +50,10 @@ class CategoryController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(CategoryRequest $request)
+    public function create(Request $request)
     {
         return view('admin.category.create');
     }
@@ -98,10 +98,10 @@ class CategoryController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,CategoryRequest $request)
+    public function edit($id,Request $request)
     {
         $data = $this->category->find($id);
 

@@ -78,10 +78,10 @@ class FeedbackController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @param FeedbackRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,FeedbackRequest $request)
+    public function edit($id,Request $request)
     {
         $params = $request->all();
         $params['id'] = $id;
