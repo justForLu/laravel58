@@ -23,8 +23,6 @@ Route::get('/getImg/{id}/{w?}/{h?}', function ($id,$w,$h) {
     return redirect()->route('getImg', ['id'=>$id,'w'=>$w,'h'=>$h]);
 });
 
-
-
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
 
     Route::get('/login', 'LoginController@index');
@@ -34,7 +32,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
 
     Route::group(['middleware' => ['admin.auth','admin.log']], function(){
         Route::get('/index', 'IndexController@index');
-
         Route::resource('/manager', 'ManagerController');
         Route::resource('/permission', 'PermissionController');
         Route::resource('/menu', 'MenuController');
@@ -43,9 +40,18 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::match(['get', 'post'],'/role/authority/{id?}', 'RoleController@authority');
         Route::post('/file/uploadPic','FileController@uploadPic');
         Route::post('/file/uploadFile','FileController@uploadFile');
+        Route::resource('/city', 'CityController');
+        Route::get('/get_city_list', 'CityController@get_city_list');
         Route::resource('/category', 'CategoryController');
         Route::get('/category/getCategory/{type}', 'CategoryController@getCategory');
         Route::resource('/config', 'ConfigController');
         Route::resource('/feedback', 'FeedbackController');
+        Route::resource('/banner', 'BannerController');
+        Route::resource('/label', 'LabelController');
+        Route::resource('/news', 'NewsController');
+        Route::resource('/position', 'PositionController');
+        Route::resource('/recruit', 'RecruitController');
+        Route::resource('/shop', 'ShopController');
+        Route::resource('/users', 'UsersController');
     });
 });

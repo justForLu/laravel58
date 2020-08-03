@@ -18,14 +18,14 @@
                                 {{\App\Enums\CategoryEnum::enumSelect($data->type,false,'type')}}
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">父级分类</label>
-                            <div class="col-sm-8">
-                                <select name="pid" class="form-control">
-                                    <option value="0">顶级分类</option>
-                                </select>
-                            </div>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label class="col-sm-3 control-label">父级分类</label>--}}
+{{--                            <div class="col-sm-8">--}}
+{{--                                <select name="pid" class="form-control">--}}
+{{--                                    <option value="0">顶级分类</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <label class="col-sm-3 control-label">分类名称</label>
                             <div class="col-sm-8">

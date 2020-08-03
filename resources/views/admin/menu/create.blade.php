@@ -7,9 +7,11 @@
                 <option value="0">顶级菜单</option>
                 @foreach($list as $menuLevel1)
                     <option value="{{$menuLevel1->id}}">{{$menuLevel1->name}}</option>
-                    @foreach($menuLevel1->children as $menuLevel2)
-                        <option value="{{$menuLevel2->id}}">&nbsp;&nbsp;&nbsp;{{$menuLevel2->name}}</option>
-                    @endforeach
+                    @if($menuLevel1->children)
+                        @foreach($menuLevel1->children as $menuLevel2)
+                            <option value="{{$menuLevel2->id}}">&nbsp;&nbsp;&nbsp;{{$menuLevel2->name}}</option>
+                        @endforeach
+                    @endif
                 @endforeach
             </select>
         </div>

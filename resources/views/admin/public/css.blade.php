@@ -1,3 +1,4 @@
+<link rel="shortcut icon" href="{{asset("/assets/favicon.ico")}}" type="image/x-icon">
 <link rel="stylesheet" href="{{asset("/assets/plugins/bootstrap/css/bootstrap.min.css")}}">
 <link rel="stylesheet" href="{{asset("/assets/plugins/awesome/css/font-awesome.min.css")}}">
 <link rel="stylesheet" href="{{asset("/assets/plugins/adminlte/AdminLTE.min.css")}}">

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Enums\BasicEnum;
 use App\Http\Requests\Admin\CategoryRequest;
 use App\Repositories\Admin\Criteria\CategoryCriteria;
 use App\Repositories\Admin\CategoryRepository as Category;
 use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Http\Request;
 
 class CategoryController extends BaseController
 {
@@ -26,10 +28,10 @@ class CategoryController extends BaseController
     /**
      * Display a listing of the resource.
      *
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function index(CategoryRequest $request)
+    public function index(Request $request)
     {
         $params = $request->all();
 
@@ -49,10 +51,10 @@ class CategoryController extends BaseController
     /**
      * Show the form for creating a new resource.
      *
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function create(CategoryRequest $request)
+    public function create(Request $request)
     {
         return view('admin.category.create');
     }
@@ -73,7 +75,7 @@ class CategoryController extends BaseController
             'pid' => $params['pid'] ?? 0,
             'name' => $params['name'] ?? '',
             'sort' => $params['sort'] ?? 0,
-            'status' => $params['status'] ?? 1,
+            'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'create_time' => time()
         ];
 
@@ -97,10 +99,10 @@ class CategoryController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param  int $id
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,CategoryRequest $request)
+    public function edit($id,Request $request)
     {
         $data = $this->category->find($id);
 
@@ -123,7 +125,7 @@ class CategoryController extends BaseController
             'pid' => $params['pid'] ?? 0,
             'name' => $params['name'] ?? '',
             'sort' => $params['sort'] ?? 0,
-            'status' => $params['status'] ?? 1,
+            'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'update_time' => time()
         ];
 

@@ -183,6 +183,23 @@ if(!function_exists('is_mobile')){
     }
 }
 
+if(!function_exists('set_index'))
+{
+    function set_index($array = [], $key = '', $key_val = '')
+    {
+        $result = [];
+        if (! $array || ! is_array($array) || ! $key) {
+            return $result;
+        }
+        foreach ($array as $val)
+        {
+            if(isset($val[$key])){
+                $result[$val[$key]][] = $key_val ? $val[$key_val] : $val;
+            }
+        }
+        return $result;
+    }
+}
 
 if (! function_exists('auth')) {
     /**

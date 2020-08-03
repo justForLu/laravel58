@@ -13,7 +13,7 @@ class Menu extends Base
     // 模型对应表名
     protected $table = 'menu';
 
-    protected $fillable = ['name','code','parent','path','url','grade','sort','status','module','is_system'];
+    protected $fillable = ['name','code','parent','path','url','grade','sort','status','icon','module','is_system'];
 
     public $timestamps = false;
 

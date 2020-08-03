@@ -31,4 +31,18 @@ class ManagerRepository extends BaseRepository
             return false;
         }
     }
+
+    public function getListById($id = 0)
+    {
+        $list = [];
+        if(is_array($id)){
+            $list = $this->model->select('id','username')->whereIn('id', $id)
+                ->get()->toArray();
+        }elseif (is_numeric($id)){
+            $list = $this->model->select('id','username')->where('id',$id)
+                ->get()->toArray();
+        }
+
+        return $list;
+    }
 }

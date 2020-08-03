@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Admin;
 
+use App\Enums\BasicEnum;
 use App\Repositories\BaseRepository;
 
 class CategoryRepository extends BaseRepository
@@ -34,5 +35,24 @@ class CategoryRepository extends BaseRepository
         }
 
         return [];
+    }
+
+    /**
+     * 根据type获取分类列表
+     * @param int $type
+     * @return array
+     */
+    public function getListByType($type = 0)
+    {
+        $list = [];
+
+        if($type){
+            $list = $this->model->where('type', $type)
+                ->where('status', BasicEnum::ACTIVE)
+                ->where('pid',0)
+                ->get();
+        }
+
+        return $list;
     }
 }
