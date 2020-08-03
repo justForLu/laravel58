@@ -6,7 +6,7 @@
         <form class="J_ajaxForm" method="post" action="{{url('admin/login')}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
             <div class="login-item">
-                <input type="text" name="username" placeholder="账号" value="admin"/>
+                <input type="text" name="username" placeholder="账号" value=""/>
             </div>
             <div class="login-item">
                 <input type="password" name="password" placeholder="密码" value=""/>
