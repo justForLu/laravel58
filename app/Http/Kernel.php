@@ -37,7 +37,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'api' => [
+        'home' => [
             'throttle:60,1',
             'bindings',
         ],
@@ -51,6 +51,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'home.auth' => \App\Http\Middleware\HomeAuthenticate::class,
         'admin.auth' => \App\Http\Middleware\AdminAuthenticate::class,
         'admin.check' => \App\Http\Middleware\AdminCheckPermission::class,
         'admin.log' => \App\Http\Middleware\AdminWriteLog::class,

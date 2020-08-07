@@ -37,6 +37,8 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->mapApiRoutes();
 
+        $this->mapHomeRoutes();
+
         $this->mapWebRoutes();
 
         //
@@ -54,6 +56,20 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/admin.php'));
+    }
+
+    /**
+     * Define the "home" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
+    protected function mapHomeRoutes()
+    {
+        Route::middleware('home')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/home.php'));
     }
 
     /**
