@@ -24,53 +24,64 @@
             <dl class="lists first">
                 <dt class="titles">工资：</dt>
                 <dd>
-                    <a href="" class="eq_all active" rel="nofollow"><span>不限</span></a>
-                    <a href="javascript:search_url(3, {salary_zonghe_min:2, salary_zonghe_max:3000});"><span>3000元以下</span></a>
-                    <a href="javascript:search_url(3, {salary_zonghe_min:3000, salary_zonghe_max:4000});"><span>3000元-4000元</span></a>
-                    <a href="javascript:search_url(3, {salary_zonghe_min:4000, salary_zonghe_max:5000});"><span>4000元-5000元</span></a>
-                    <a href="javascript:search_url(3, {salary_zonghe_min:5000, salary_zonghe_max:6000});"><span>5000元-6000元</span></a>
-                    <a href="javascript:search_url(3, {salary_zonghe_min:6000, salary_zonghe_max:30000});"><span>6000元以上  </span></a>
+                    <label>
+                        <input type="radio" checked class="salary" name="salary" value="0">
+                        <div>不限</div>
+                    </label>
+                    <label>
+                        <input type="radio" class="salary" name="salary" value="1">
+                        <div>3000元以下</div>
+                    </label>
+                    <label>
+                        <input type="radio" class="salary" name="salary" value="2">
+                        <div>3000元-4000元</div>
+                    </label>
+                    <label>
+                        <input type="radio" class="salary" name="salary" value="3">
+                        <div>4000元-5000元</div>
+                    </label>
+                    <label>
+                        <input type="radio" class="salary" name="salary" value="4">
+                        <div>5000元-6000元</div>
+                    </label>
+                    <label>
+                        <input type="radio" class="salary" name="salary" value="5">
+                        <div>6000元以上</div>
+                    </label>
                 </dd>
             </dl>
             <dl class="lists">
                 <dt class="titles">职位：</dt>
                 <dd>
-                    <a href="" class="eq_all active" rel="nofollow"><span>不限</span></a>
-                    <a href="javascript:search_url(4, &#39;储备干部&#39;);"><span>储备干部</span></a>
-                    <a href="javascript:search_url(4, &#39;长期工&#39;);"><span>长期工</span></a>
-                    <a href="javascript:search_url(4, &#39;小时工&#39;);"><span>小时工</span></a>
-                    <a href="javascript:search_url(4, &#39;安全乘务员&#39;);"><span>安全乘务员</span></a>
-                    <a href="javascript:search_url(4, &#39;派出所辅警&#39;);"><span>派出所辅警</span></a>
-                    <a href="javascript:search_url(4, &#39;叉车工&#39;);"><span>叉车工</span></a>
-                    <a href="javascript:search_url(4, &#39;普工&#39;);"><span>普工</span></a>
-                    <a href="javascript:search_url(4, &#39;客服&#39;);"><span>客服</span></a>
-                    <a href="javascript:search_url(4, &#39;司机&#39;);"><span>司机</span></a>
-                    <a href="javascript:search_url(4, &#39;技工&#39;);"><span>技工</span></a>
-                    <a href="javascript:search_url(4, &#39;销售&#39;);"><span>销售</span></a>
-                    <a href="javascript:search_url(4, &#39;其他&#39;);"><span>其他</span></a>
+                    <label>
+                        <input type="radio" checked class="position" name="position" value="0">
+                        <div>不限</div>
+                    </label>
+                    @if($position)
+                        @foreach($position as $v)
+                            <label>
+                                <input type="radio" class="position" name="position" value="{{$v['id']}}">
+                                <div>{{$v['name']}}</div>
+                            </label>
+                        @endforeach
+                    @endif
                 </dd>
             </dl>
             <dl class="lists">
                 <dt class="titles">福利：</dt>
                 <dd>
-                    <a href="" class="eq_all active" rel="nofollow"><span>不限</span></a>
-                    <a href="javascript:search_url(5, &#39;名企&#39;);"><span>名企</span></a>
-                    <a href="javascript:search_url(5, &#39;帅哥美女多&#39;);"><span>帅哥美女多</span></a>
-                    <a href="javascript:search_url(5, &#39;工作轻松&#39;);"><span>工作轻松</span></a>
-                    <a href="javascript:search_url(5, &#39;不穿无尘服&#39;);"><span>不穿无尘服</span></a>
-                    <a href="javascript:search_url(5, &#39;年终奖&#39;);"><span>年终奖</span></a>
-                    <a href="javascript:search_url(5, &#39;多帅哥美女&#39;);"><span>多帅哥美女</span></a>
-                    <a href="javascript:search_url(5, &#39;坐着上班&#39;);"><span>坐着上班</span></a>
-                    <a href="javascript:search_url(5, &#39;夜班津贴&#39;);"><span>夜班津贴</span></a>
-                    <a href="javascript:search_url(5, &#39;包吃包住&#39;);"><span>包吃包住</span></a>
-                    <a href="javascript:search_url(5, &#39;空调宿舍&#39;);"><span>空调宿舍</span></a>
-                    <a href="javascript:search_url(5, &#39;吃住在厂&#39;);"><span>吃住在厂</span></a>
-                    <a href="javascript:search_url(5, &#39;加班多&#39;);"><span>加班多</span></a>
-                    <a href="javascript:search_url(5, &#39;绩效奖金&#39;);"><span>绩效奖金</span></a>
-                    <a href="javascript:search_url(5, &#39;WIFI覆盖&#39;);"><span>WIFI覆盖</span></a>
-                    <a href="javascript:search_url(5, &#39;五险一金&#39;);"><span>五险一金</span></a>
-                    <a href="javascript:search_url(5, &#39;附近热闹&#39;);"><span>附近热闹</span></a>
-                    <a href="javascript:search_url(5, &#39;环境优美&#39;);"><span>环境优美</span></a>
+                    <label>
+                        <input type="radio" checked class="label" name="label" value="0">
+                        <div>不限</div>
+                    </label>
+                    @if($label)
+                        @foreach($label as $v)
+                            <label>
+                                <input type="radio" class="label" name="label" value="{{$v['id']}}">
+                                <div>{{$v['name']}}</div>
+                            </label>
+                        @endforeach
+                    @endif
                 </dd>
             </dl>
         </div>
@@ -82,203 +93,41 @@
                         <li><a href="javascript:search_url(6, &#39;2,1&#39;);">发布时间</a></li>
                         <li><a href="javascript:search_url(6, &#39;3,1&#39;);">招聘人数</a></li>
                     </ul>
-                    <span class="nums">共为您找到<em>225</em>条信息</span>
+                    <span class="nums">共为您找到<em>{{$list->total()}}</em>条信息</span>
                 </div>
                 <ul class="fac_list">
-                    <li class="first">
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop1.jpg")}}" alt="长沙知名大型电子厂22元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>5500-6500</em>元/月</span>
-                                <h4><a href="" target="_blank">长沙知名大型电子厂22元/小时</a></h4>
+                    @foreach($list as $k => $data)
+                        <li @if($k == 0) class="first" @endif>
+                            <a href="{{url("/home/recruit/detail".$data->id.".html")}}" target="_blank" class="imgs">
+                                <img src="{{$data->image}}" alt="{{$data->title}}" class="imgs">
+                            </a>
+                            <div class="cons">
+                                <div class="names">
+                                    <span class="prices"><em>{{$data->salary_up}}-{{$data->salary_down}}</em>元/月</span>
+                                    <h4><a href="" target="_blank">{{$data->title}}</a></h4>
+                                </div>
+                                <p class="des">
+                                    <a href="javascript:largeMap(&#39;118.379187&#39;, &#39;32.387349&#39;, &#39;安徽省滁州市琅琊区永阳路8号&#39;)" class="to_map">
+                                        <i class="ic ic_fac_lmap"></i>电子地图
+                                    </a>
+                                    <span class="titles">招聘人数：</span>{{$data->num}}人 <span class="titles title2">企业规模：</span>{{$data->scale}}人<br>
+                                    <span class="titles">招聘岗位：</span>{{$data->posts}}<br>
+                                    <span class="titles">招聘要求：</span>@if($data->edu_ask) {{$data->edu_ask}} @endif<i class="line"></i>
+                                        @if($data->sex_ask) {{$data->sex_ask}} <i class="line"></i>@endif @if($data->age_ask) {{$data->age_ask}} <i class="line"></i> @endif
+                                </p>
+                                <p class="fac_tag">
+                                    <a href="{{url("/home/recruit/detail".$data->id.".html")}}" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
+                                    @if($data->label_arr)
+                                        @foreach($data->label_arr as $v)
+                                            <em>{{$v['name']}}</em>
+                                        @endforeach
+                                    @endif
+                                </p>
                             </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;113.415911&#39;, &#39;28.224532&#39;, &#39;长沙市浏阳市&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>500人 <span class="titles title2">企业规模：</span>2000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">小时工</span><br>
-                                <span class="titles">招聘要求：</span>男女不限<i class="line"></i>18-48岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>工作轻松</em><em>空调宿舍</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop2.jpg")}}" alt="滁州电子22元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>5000-5500</em>元/月</span>
-                                <h4><a href="" target="_blank">滁州电子22元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;118.379187&#39;, &#39;32.387349&#39;, &#39;安徽省滁州市琅琊区永阳路8号&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>800人 <span class="titles title2">企业规模：</span>20000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">普工</span><br>
-                                <span class="titles">招聘要求：</span>男:18-42岁<i class="line"></i>女:18-45岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>帅哥美女多</em><em>坐着上班</em><em>空调宿舍</em><em>吃住在厂</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop3.jpg")}}" alt="昆山联滔22元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>5500-6000</em>元/月</span>
-                                <h4><a href="http://www.gonglf.com/Company/110.html" target="_blank">昆山联滔22元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;120.964145&#39;, &#39;31.189555&#39;, &#39;锦溪镇百胜路399号&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>800人 <span class="titles title2">企业规模：</span>20000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">普工</span><br>
-                                <span class="titles">招聘要求：</span>男:18-40岁<i class="line"></i>女:18-42岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>工作轻松</em><em>不穿无尘服</em><em>多帅哥美女</em><em>环境优美</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop4.jpg")}}" alt="南京华宝21元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>5000-6000</em>元/月</span>
-                                <h4><a href="" target="_blank">南京华宝21元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;118.816084&#39;, &#39;31.89309&#39;, &#39;江苏省南京市江宁区苏源大道68&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>1000人 <span class="titles title2">企业规模：</span>15000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">小时工</span><br>
-                                <span class="titles">招聘要求：</span>男:18-40岁<i class="line"></i>女:18-45岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>工作轻松</em><em>空调宿舍</em><em>环境优美</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop5.jpg")}}" alt="昆山淳华20元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>4500-5500</em>元/月</span>
-                                <h4><a href="" target="_blank">昆山淳华20元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;120.975385&#39;, &#39;31.430006&#39;, &#39;昆山市汉浦路1399号&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>500人 <span class="titles title2">企业规模：</span>16000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">小时工</span><br>
-                                <span class="titles">招聘要求：</span>男:16-42岁<i class="line"></i>女:16-45岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>帅哥美女多</em><em>工作轻松</em><em>环境优美</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop1.jpg")}}" alt="昆山仁宝18元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>4000-5000</em>元/月</span>
-                                <h4><a href="" target="_blank">昆山仁宝18元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;120.990842&#39;, &#39;31.359444&#39;, &#39;江苏省昆山市经济技术开发区出口加工区第一大道58号&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>1000人 <span class="titles title2">企业规模：</span>15000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">小时工</span><br>
-                                <span class="titles">招聘要求：</span>男女不限<i class="line"></i>18-45岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>工作轻松</em><em>空调宿舍</em><em>环境优美</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop2.jpg")}}" alt="宿迁可成22元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>4500-5000</em>元/月</span>
-                                <h4><a href="" target="_blank">宿迁可成22元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;118.202417&#39;, &#39;33.945008&#39;, &#39;苏宿工业园区&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>1500人 <span class="titles title2">企业规模：</span>32000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">小时工</span><br>
-                                <span class="titles">招聘要求：</span>男女不限<i class="line"></i>18岁以上
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>帅哥美女多</em><em>工作轻松</em><em>不穿无尘服</em><em>空调宿舍</em>
-                            </p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="" target="_blank" class="imgs">
-                            <img src="{{asset("/assets/home/images/shop3.jpg")}}" alt="南京英华达17元/小时" class="imgs">
-                        </a>
-                        <div class="cons">
-                            <div class="names">
-                                <span class="prices"><em>4000-5000</em>元/月</span>
-                                <h4><a href="" target="_blank">南京英华达17元/小时</a></h4>
-                            </div>
-                            <p class="des">
-                                <a href="javascript:largeMap(&#39;118.797822&#39;, &#39;31.90831&#39;, &#39;南京市江宁区将军大道133号&#39;)" class="to_map">
-                                    <i class="ic ic_fac_lmap"></i>电子地图
-                                </a>
-                                <span class="titles">招聘人数：</span>800人 <span class="titles title2">企业规模：</span>13000人<br>
-                                <span class="titles">招聘岗位：</span><span class="tp">长期工</span><span class="tp">小时工</span><br>
-                                <span class="titles">招聘要求：</span>男:23-40岁<i class="line"></i>女:23-45岁
-                            </p>
-                            <p class="fac_tag">
-                                <a href="" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
-                                <em>工作轻松</em><em>不穿无尘服</em><em>多帅哥美女</em><em>包吃包住</em><em>环境优美</em>
-                            </p>
-                        </div>
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
-                <div class="pagenation">
-                    <a rel="nofollow"><span class="active">1</span></a>
-                    <a rel="nofollow" rel="nofollow" href="">3</a>
-                    <a rel="nofollow" rel="nofollow" href="">5</a>
-                    <a rel="nofollow" rel="nofollow" href="">7</a>
-                    <a rel="nofollow" href="">8</a>
-                    <a rel="nofollow" href="">下一页<i class="ic ic_page_r"></i></a>
-                    <a rel="nofollow" href="">末页</a>
-                </div>
+                @include('home.public.pages')
             </div>
             <div class="s_r"><!-- 热招企业 -->
                 <div class="fac_hot fac_rlist">
@@ -523,6 +372,10 @@
 @section('scripts')
     <script src="{{asset("/assets/home/js/fac.js")}}"></script>
     <script type="text/javascript">
+
+
+
+        //排行榜样式调整
         $("#fac_rank>li>a").hover(function(){
             $("#fac_rank>li>a").removeClass();
             $(this).addClass('hover');

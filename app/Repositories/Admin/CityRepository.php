@@ -8,7 +8,7 @@ class CityRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\City';
+        return 'App\Models\Common\City';
     }
 
     public function updatePath($parent,$id){

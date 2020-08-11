@@ -154,12 +154,14 @@ class CityController extends BaseController
         $cityName='';
 
         do{
-            $city = \App\Models\Admin\City::select('*')->where('id',$id)->first($id);
-            $cityArr[$cityLabel[$city->grade-1]] = $city->title;
-            $cityId[$cityLabel[$city->grade-1]] = $city->id;
-            $cityName=$city->title.$cityName;
-            $id = $city->parent;
-        }while($city->parent != 0);
+            $city = \App\Models\Common\City::select('*')->where('id',$id)->first($id);
+            if($city){
+                $cityArr[$cityLabel[$city->grade-1]] = $city->title;
+                $cityId[$cityLabel[$city->grade-1]] = $city->id;
+                $cityName=$city->title.$cityName;
+                $id = $city->parent;
+            }
+        }while(isset($city->parent) && $city->parent != 0);
 
         if($type == 'string'){
             return $cityName;//返回字符串

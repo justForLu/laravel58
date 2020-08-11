@@ -21,7 +21,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">幻灯片</label>
                             <div class="col-sm-8">
-                                <div class="J_upload_image" data-id="image" data-_token="{{ csrf_token() }}">
+                                <div class="J_upload_image" data-id="image" data-width="1920" data-_token="{{ csrf_token() }}">
                                     @if(!empty($data->image))
                                         <input type="hidden" name="image_val" value="{{ $data->image }}">
                                         <input type="hidden" name="image_path[]" value="{{ $data->image }}">

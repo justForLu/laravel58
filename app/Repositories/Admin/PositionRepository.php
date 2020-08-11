@@ -8,7 +8,7 @@ class PositionRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Position';
+        return 'App\Models\Common\Position';
     }
 
 }

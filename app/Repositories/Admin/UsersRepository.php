@@ -8,7 +8,7 @@ class UsersRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Users';
+        return 'App\Models\Common\Users';
     }
 
 }

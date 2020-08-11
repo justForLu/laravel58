@@ -1,20 +1,39 @@
 <?php
 namespace App\Http\Controllers\Home;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class ShopController extends BaseController
 {
 
-	public function index()
+    public function __construct()
     {
+        parent::__construct();
+
+
+        view()->share('menu','Shop');
+    }
+
+
+    /**
+     * 门店列表页
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+	public function index(Request $request)
+    {
+        $params = $request->all();
 
 
         return view('home.shop.index');
     }
 
-    public function detail()
+    /**
+     * 门店详情页
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function detail($id)
     {
 
 

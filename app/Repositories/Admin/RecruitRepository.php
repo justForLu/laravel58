@@ -8,7 +8,7 @@ class RecruitRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Recruit';
+        return 'App\Models\Common\Recruit';
     }
 
 }

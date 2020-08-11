@@ -6,7 +6,7 @@
     </fieldset>
     <div class="main-toolbar">
         @can('label.create')
-        <div class="main-toolbar-item"><a href="{{url('admin/label/create')}}" class="btn btn-sm bg-olive">添加标签</a></div>
+        <div class="main-toolbar-item"><a href="{{url('admin/label/create')}}" class="btn btn-sm bg-olive J_layer_dialog" title="添加标签">添加标签</a></div>
         @endcan
     </div>
 
@@ -47,7 +47,7 @@
                 <td>{{\App\Enums\BasicEnum::getDesc($data->status)}}</td>
                 <td>
                     @can('label.edit')
-                    <a href="label/{{$data->id}}/edit" class="btn bg-olive btn-xs"><i class="fa fa-pencil"></i>编辑</a>
+                    <a href="label/{{$data->id}}/edit" class="btn bg-olive btn-xs J_layer_dialog"><i class="fa fa-pencil"></i>编辑</a>
                     @endcan
                     @can('label.destroy')
                     <a href="{{url('admin/label',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" data-token="{{csrf_token()}}"><i class="fa fa-trash-o"></i>删除</a>

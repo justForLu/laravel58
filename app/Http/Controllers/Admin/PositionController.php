@@ -67,6 +67,7 @@ class PositionController extends BaseController
 
         $data = [
             'name' => $params['name'] ?? '',
+            'type' => $params['type'] ?? 0,
             'sort' => $params['sort'] ?? 0,
             'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'create_time' => time()
@@ -115,6 +116,7 @@ class PositionController extends BaseController
 
         $data = [
             'name' => $params['name'] ?? '',
+            'type' => $params['type'] ?? 0,
             'sort' => $params['sort'] ?? 0,
             'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'update_time' => time()

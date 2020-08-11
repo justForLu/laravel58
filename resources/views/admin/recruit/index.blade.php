@@ -6,7 +6,7 @@
     </fieldset>
     <div class="main-toolbar">
         @can('recruit.create')
-{{--        <div class="main-toolbar-item"><a href="{{url('admin/recruit/create')}}" class="btn btn-sm bg-olive">添加招聘信息</a></div>--}}
+        <div class="main-toolbar-item"><a href="{{url('admin/recruit/create')}}" class="btn btn-sm bg-olive">添加招聘信息</a></div>
         @endcan
     </div>
 
@@ -53,7 +53,7 @@
                 <td>{{\App\Enums\RecruitEnum::getDesc($data->type)}}</td>
                 <td>{{$data->num}}</td>
                 <td>{{$data->sign_up}}</td>
-                <td>{{$data->salary}}</td>
+                <td>{{$data->salary_up}}—{{$data->salary_down}}元/月</td>
                 <td>{{$data->sex_ask}}|{{$data->age_ask}}</td>
                 <td>{{\App\Enums\BasicEnum::getDesc($data->status)}}</td>
                 <td>{{$data->sort}}</td>
@@ -64,7 +64,7 @@
                         <a href="recruit/{{$data->id}}/edit" class="btn bg-olive btn-xs"><i class="fa fa-pencil"></i>编辑</a>
                     @endcan
                     @can('recruit.show')
-                        <a href="recruit/{{$data->id}}/show" class="btn bg-olive btn-xs"><i class="fa fa-search"></i>查看</a>
+                        <a href="recruit/{{$data->id}}/show" class="btn bg-info btn-xs"><i class="fa fa-search"></i>查看</a>
                     @endcan
                     @can('recruit.destroy')
                         <a href="{{url('admin/recruit',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" data-token="{{csrf_token()}}"><i class="fa fa-trash-o"></i>删除</a>

@@ -38,7 +38,7 @@
 <div class="head wrap">
     <div class="section clearfix">
         <h1 class="logo">
-            <a href="" title="濮工网">
+            <a href="{{url("/home/index.html")}}" title="濮工网">
                 <img src="{{asset("/assets/home/images/logo.png")}}" alt="濮工网打工网"/>
             </a>
         </h1>
@@ -50,24 +50,44 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="" class="cur">首页<i class="ic_up"></i></a>
+                <a href="{{url("/home/index.html")}}" @if($menu == 'Index') class="cur" @endif>首页<i class="ic_up"></i></a>
             </li>
             <li>
-                <a href="">找工作<i class="ic_up"></i></a>
+                <a href="{{url("/home/recruit/index.html")}}" @if($menu == 'Recruit') class="cur" @endif>找工作<i class="ic_up"></i></a>
             </li>
             <li>
-                <a href="">找门店<i class="ic_up"></i></a>
+                <a href="{{url("/home/shop/index.html")}}" @if($menu == 'Shop') class="cur" @endif>找门店<i class="ic_up"></i></a>
             </li>
             <li>
-                <a href="" >资讯<i class="ic_up"></i></a>
-            </li>
-            <li>
-                <a href="">加盟<i class="ic_up"></i></a>
+                <a href="{{url("/home/news/index.html")}}" @if($menu == 'News') class="cur" @endif>资讯<i class="ic_up"></i></a>
             </li>
         </ul>
         <div class="head_login">
-            <a class="btns hover" href="" rel="nofollow">登录</a>
-            <a class="btns" href="" rel="nofollow">注册</a>
+            <a class="btns hover" href="{{url("/home/login.html")}}" target="_blank" rel="nofollow">登录</a>
+            <a class="btns" href="{{url("/home/register.html")}}" target="_blank" rel="nofollow">注册</a>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=a9ef099582b8abffad85df7a65246f36&plugin=AMap.CitySearch"></script>
+<script type="text/javascript">
+    function showCityInfo() {
+        //实例化城市查询类
+        var citysearch = new AMap.CitySearch();
+        //自动获取用户IP，返回当前城市
+        citysearch.getLocalCity(function(status, result) {
+            if (status === 'complete' && result.info === 'OK') {
+                if (result && result.city && result.bounds) {
+                    var cityinfo = result.city;
+                    document.getElementById('cur_site').innerHTML = cityinfo;
+                }
+            } else {
+                document.getElementById('info').innerHTML = result.info;
+            }
+        });
+    }
+
+    showCityInfo();
+</script>
+
+

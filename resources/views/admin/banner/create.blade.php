@@ -20,7 +20,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">幻灯片</label>
                             <div class="col-sm-8">
-                                <div class="J_upload_image" data-id="image" data-_token="{{ csrf_token() }}" data-type="multiple" data-num="1">
+                                <div class="J_upload_image" data-id="image" data-_token="{{ csrf_token() }}"  data-width="1920" data-type="multiple" data-num="1">
                                 </div>
                             </div>
                         </div>

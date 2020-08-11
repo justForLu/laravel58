@@ -25,36 +25,6 @@
                     <a href="" >新闻动态</a>
                 </dd>
             </dl>
-            <dl>
-                <dt>
-                    <i class="ic ic_n_type2"></i>
-                    <a  href="">专题</a>
-                </dt>
-                <dd>
-                    <a href="" rel="external nofollow">七月七婚恋</a>
-                </dd>
-                <dd>
-                    <a href="" >现场直击</a>
-                </dd>
-                <dd>
-                    <a href="" >热门活动</a>
-                </dd>
-            </dl>
-            <dl>
-                <dt>
-                    <i class="ic ic_n_type3"></i>
-                    <a href="">视频</a>
-                </dt>
-                <dd>
-                    <a href="" >搞笑</a>
-                </dd>
-                <dd>
-                    <a href="">社会</a>
-                </dd>
-                <dd>
-                    <a href="" >推荐</a>
-                </dd>
-            </dl>
         </div>
     </div>
 
@@ -150,7 +120,7 @@
                     <a href="">新闻动态</a>
                 </div>
             </div>
-            <div class="ne_i_xmain clearfix">
+            <div class="ne_i_xmain clearfix" style="margin-bottom: 50px;">
                 <ul class="neix_l neix_img">
                     <li class="first">
                         <a href="">
@@ -249,39 +219,6 @@
                     </ul>
                 </div>
             </div>
-            <div class="ne_i_tit">
-                <h2>专题</h2>
-                <div class="types" style="white-space: nowrap;">
-                    <a href="">七月七婚恋</a>
-                    <a href="">现场直击</a>
-                    <a href="">热门活动</a>
-                </div>
-            </div>
-            <ul class="ne_i_zlist clearfix">
-                <li>
-                    <a href="">
-                        <img src="{{asset("/assets/home/images/news-img9.jpg")}}" alt="要你爽，狂撒钱-工立方百万福利等你拿">
-                        <p>要你爽，狂撒钱-工立方百万...</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="{{asset("/assets/home/images/news-img8.jpg")}}" alt="“助学扶贫 放飞梦想”村村美第二届助学金发放仪式圆满成功">
-                        <p>“助学扶贫 放飞梦想”村村...</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="{{asset("/assets/home/images/news-img7.jpg")}}" alt="东泰集团·工立方打工网品牌招商加盟说明书">
-                        <p>东泰集团·工立方打工网品牌...</p>
-                    </a>
-                </li><li>
-                    <a href="">
-                        <img src="{{asset("/assets/home/images/news-img6.jpg")}}" alt="2018东泰集团工立方打工网年终盛典">
-                        <p>2018东泰集团工立方打工...</p>
-                    </a>
-                </li>
-            </ul>
         </div>
     </div>
 @endsection

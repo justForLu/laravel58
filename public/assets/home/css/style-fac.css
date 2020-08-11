@@ -1930,66 +1930,6 @@ h3.title2 .line {
     border-bottom: 1px solid #e6e6e6
 }
 
-.fac_filter_city {
-    width: 270px;
-    float: left;
-    position: relative;
-    margin-right: 20px;
-    border-radius: 2px;
-    border: 1px solid #2698e4;
-    background: #2698e4
-}
-
-.fac_filter_city .city_v {
-    width: 238px;
-    height: 38px;
-    line-height: 38px;
-    color: #fff;
-    padding: 0 16px;
-    display: block
-}
-
-.fac_filter_city .ic {
-    float: right;
-    margin-top: 16px
-}
-
-.fac_filter_city ul {
-    background: #fff;
-    position: absolute;
-    left: -1px;
-    width: 270px;
-    top: 38px;
-    display: none;
-    border: 1px solid transparent;
-    height: 500px;
-    overflow: auto;
-    border-radius: 0 0 2px 2px
-}
-
-.fac_filter_city ul a {
-    height: 39px;
-    line-height: 39px;
-    border-top: 1px solid #e6e6e6;
-    display: block;
-    padding: 0 16px
-}
-
-.fac_filter_city:hover {
-    border: 1px solid #2698e4;
-    border-radius: 2px
-}
-
-.fac_filter_city:hover .city_v {
-    background: #fff;
-    color: #444
-}
-
-.fac_filter_city:hover ul {
-    display: block;
-    border: 1px solid #2698e4
-}
-
 .fac_filter_search input {
     border-radius: 2px;
     border: 1px solid #e6e6e6;
@@ -2029,12 +1969,39 @@ h3.title2 .line {
 }
 
 .fac_filter .lists .eq_all {
-    margin-left: -68px
+
 }
 
 .fac_filter .lists dd {
-    margin-left: 68px;
-    padding-left: 78px
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.fac_filter .lists dd>label {
+    display:block;
+    float:left;
+    margin:0 10px 10px 0;
+    position:relative;
+    overflow:hidden;
+}
+.fac_filter .lists dd>label>input {
+    position:absolute;
+    top:0;
+    left:-20px;
+}
+.fac_filter .lists dd>label>div {
+    padding: 1px 15px;
+    text-align: center;
+    color: #666666;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+    margin-top: 3px;
+}
+.fac_filter .lists dd>label>input:checked + div {
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 16px;
 }
 
 .fac_filter .lists a {

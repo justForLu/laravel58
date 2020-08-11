@@ -981,3 +981,45 @@ tr.thead td,tr.thead:hover td{ background:#feefe6;font-size:16px;}
 	border: 0;
     background-position:center center
 }
+
+/*页码*/
+.pull-left {
+
+}
+.pull-left .pagination {
+
+}
+.pull-right {
+	overflow: hidden;
+	height: 50px;
+	padding: 20px 0px;
+	width: 100%;
+	border-top: 1px #e6e6e6 solid;
+}
+.pull-right .pagination {
+	float: right;
+	margin-right: 5%;
+}
+.pull-right .pagination li {
+	float: left;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px #e6e6e6 solid;
+	margin-right: 15px;
+	border-radius: 5px;
+}
+.pull-right .pagination li a{
+	color: #999;
+	display: block;
+	width: 32px;
+	height: 32px;
+}
+.pull-right .pagination li.active {
+	background-color: #2798e4;
+	color: #fff;
+}
+.pull-right .pagination li.disabled {
+
+}

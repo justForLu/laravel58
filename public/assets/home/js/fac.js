@@ -31,10 +31,6 @@ function tabInit(a, b, act, callback) {
 	}
 
 function initMap() {
-    /*var longitude = 118.202417;
-    var latitude = 33.945008;
-    var address = '苏宿工业园区';
-    var city = '321300';*/
 
     // 百度地图API功能
     var map = new BMap.Map("fac_maps");
@@ -60,7 +56,7 @@ function initMap() {
 
 //查看大地图
 function largeMap(longitude, latitude, address) {
-    var url = "/Company/largeMap/longitude/latitude/address.html";
+    var url = "/home/ejectMap/longitude/latitude/address.html";
     url = url.replace('longitude', longitude).replace('latitude', latitude).replace('address', address);
     //console.log(url);return false;
     var left = $(window).width();

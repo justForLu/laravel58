@@ -8,7 +8,7 @@ class NewsRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\News';
+        return 'App\Models\Common\News';
     }
 
 }

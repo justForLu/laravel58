@@ -9,7 +9,7 @@ class CategoryRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Category';
+        return 'App\Models\Common\Category';
     }
 
     /**

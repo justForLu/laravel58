@@ -8,6 +8,12 @@
         </div>
     </div>
     <div class="form-group">
+        <label class="col-sm-3 control-label">招聘类型</label>
+        <div class="col-sm-8">
+            {{\App\Enums\RecruitEnum::enumSelect($data->type,false,'type')}}
+        </div>
+    </div>
+    <div class="form-group">
         <label class="col-sm-3 control-label">排序</label>
         <div class="col-sm-8">
             <input type="text" name="sort" autocomplete="off" class="form-control length4" value="{{$data->sort}}">

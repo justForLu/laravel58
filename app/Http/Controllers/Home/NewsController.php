@@ -7,6 +7,14 @@ use Illuminate\Support\Facades\Auth;
 class NewsController extends BaseController
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+
+
+        view()->share('menu','News');
+    }
+
 	public function index()
     {
 

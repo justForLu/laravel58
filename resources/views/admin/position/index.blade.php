@@ -29,6 +29,7 @@
         <tr>
             <th>ID</th>
             <th>职位名称</th>
+            <th>招聘类型</th>
             <th>排序</th>
             <th>状态</th>
             <th>操作</th>
@@ -39,6 +40,7 @@
             <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->name}}</td>
+                <td>{{\App\Enums\RecruitEnum::getDesc($data->type)}}</td>
                 <td>{{$data->sort}}</td>
                 <td>{{\App\Enums\BasicEnum::getDesc($data->status)}}</td>
                 <td>

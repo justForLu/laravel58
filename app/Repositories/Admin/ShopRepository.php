@@ -8,7 +8,7 @@ class ShopRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Admin\Shop';
+        return 'App\Models\Common\Shop';
     }
 
 }

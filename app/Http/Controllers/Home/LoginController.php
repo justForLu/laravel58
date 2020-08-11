@@ -7,23 +7,34 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends BaseController
 {
 
-	public function login()
+	public function login_page()
     {
 
 
         return view('home.login.login');
     }
 
-    public function register()
+    public function login()
+    {
+
+    }
+
+
+    public function register_page()
     {
 
 
         return view('home.login.register');
     }
 
-    public function index()
+    public function register()
     {
 
+    }
+
+
+    public function index()
+    {
 
         return view('home.login.login');
     }

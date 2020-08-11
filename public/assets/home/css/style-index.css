@@ -709,7 +709,7 @@
 
 .list_news h3 {
     margin: 15px 0 10px;
-    text-indent: -9999em
+    color: #2798e4;
 }
 
 .list_news li {
@@ -787,4 +787,7 @@
 
 .news_video.playing .news_video_play {
     display: none
+}
+.dggl_right li:before {
+    content: none;
 }

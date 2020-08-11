@@ -25,4 +25,11 @@ class BaseController extends Controller
     }
 
 
+    /**
+     * 获取友情链接
+     */
+    public function getLinks()
+    {
+
+    }
 }

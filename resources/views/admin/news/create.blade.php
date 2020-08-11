@@ -33,7 +33,7 @@
                         <div class="form-group">
                             <label for="name" class="col-sm-3 control-label">新闻简介</label>
                             <div class="col-sm-8">
-                                <textarea name="desc" cols="30" rows="5"></textarea>
+                                <textarea name="desc" class="form-control" cols="30" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">新闻内容</label>
                             <div class="col-sm-8">
-                                <script id="editor" name="content" type="text/plain">
+                                <script id="editor" name="content" style="min-height: 500px" type="text/plain">
 
                                 </script>
                             </div>
