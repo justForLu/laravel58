@@ -53,5 +53,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::resource('/recruit', 'RecruitController');
         Route::resource('/shop', 'ShopController');
         Route::resource('/users', 'UsersController');
+        Route::resource('/factory', 'FactoryController');
     });
 });

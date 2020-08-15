@@ -1,15 +1,15 @@
 <?php
 namespace App\Http\Controllers\Home;
 
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Http\Request;
 
 class NewsController extends BaseController
 {
 
-    public function __construct()
+    public function __construct(Request $request)
     {
-        parent::__construct();
+        parent::__construct($request);
 
 
         view()->share('menu','News');

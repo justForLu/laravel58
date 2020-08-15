@@ -2,10 +2,10 @@
 
 @section('content')
     <style>
-        .fuli{
+        .zhiwei{
             padding-right: 15px;
         }
-        .fuli input{
+        .zhiwei input{
             margin-right: 3px;
             position: relative;
             top: 2px;
@@ -22,9 +22,16 @@
                     <form class="form-horizontal J_ajaxForm" style="margin:10px 20px;" role="form" id="form" action="{{url('admin/recruit')}}" method="post">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">招聘类型</label>
+                            <label class="col-sm-3 control-label">招工工厂</label>
                             <div class="col-sm-8">
-                                {{\App\Enums\RecruitEnum::enumSelect(\App\Enums\RecruitEnum::FACTORY,false,'type')}}
+                                <select name="factory_id" class="form-control">
+                                    <option value="0">请选择工厂</option>
+                                    @if($factory_arr)
+                                        @foreach($factory_arr as $v)
+                                            <option value="{{$v['id']}}">{{$v['name']}}</option>
+                                        @endforeach
+                                    @endif
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
@@ -36,27 +43,21 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">招聘岗位</label>
                             <div class="col-sm-8">
-                                <input type="text" name="posts" class="form-control">
+                                @if($position_arr)
+                                    @foreach($position_arr as $v)
+                                        <label class="zhiwei">
+                                            <input type="checkbox" name="posts[]" value="{{$v['id']}}">{{$v['name']}}
+                                        </label>
+                                    @endforeach
+                                @else
+                                    暂无可选职位
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label">招工人数</label>
                             <div class="col-sm-8">
                                 <input type="text" name="num" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">招工信息封面</label>
-                            <div class="col-sm-8">
-                                <div class="J_upload_image" data-id="image" data-_token="{{ csrf_token() }}" data-type="multiple" data-with="" data-num="1">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">招工信息图集</label>
-                            <div class="col-sm-8">
-                                <div class="J_upload_image" data-id="picture" data-_token="{{ csrf_token() }}" data-type="multiple" data-num="10">
-                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -74,20 +75,6 @@
                             <div class="col-sm-8"><span class="tips red">综合薪资均为xxxx元/月，并且是数字</span></div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-3 control-label">福利标签</label>
-                            <div class="col-sm-8">
-                                @if($label_arr)
-                                    @foreach($label_arr as $v)
-                                        <label class="fuli">
-                                            <input type="checkbox" name="label[]" value="{{$v['id']}}">{{$v['name']}}
-                                        </label>
-                                    @endforeach
-                                @else
-                                    暂无可选标签
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="col-sm-3 control-label">学历要求</label>
                             <div class="col-sm-8">
                                 <input type="text" name="edu_ask" class="form-control">
@@ -103,34 +90,6 @@
                             <label class="col-sm-3 control-label">年龄要求</label>
                             <div class="col-sm-8">
                                 <input type="text" name="age_ask" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">上班地址</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="address" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">拾取经纬度</label>
-                            <div class="col-sm-8">
-                                <div class="col-sm-2">
-                                    <a href="https://lbs.amap.com/console/show/picker" target="_blank">拾取经纬度</a>
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" name="longitude" class="form-control" placeholder="经度  如：113.657679">
-                                </div>
-                                <div class="col-sm-4">
-                                    <input type="text" name="latitude" class="form-control" placeholder="纬度  如：34.747098">
-                                </div>
-                            </div>
-                            <div class="col-sm-3"></div>
-                            <div class="col-sm-8"><span class="tips red">请仔细阅读，不要复制错了经纬度</span></div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">服务热线</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="mobile" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
@@ -215,54 +174,6 @@
                             <label class="col-sm-3 control-label">面试时间</label>
                             <div class="col-sm-8">
                                 <input type="text" name="interview_date" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">企业名称</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="business" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">企业规模</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="scale" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">企业行业</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="trade" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">平均月薪</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="avg_salary" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">企业简介</label>
-                            <div class="col-sm-8">
-                                <textarea name="business_desc" class="form-control" cols="50" rows="5"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">企业位置</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="business_add" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">乘车路线</label>
-                            <div class="col-sm-8">
-                                <input type="text" name="bus_line" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label">接站地址</label>
-                            <div class="col-sm-8">
-                                <textarea name="meet" class="form-control" cols="50" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="form-group">

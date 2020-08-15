@@ -26,7 +26,6 @@ class AdminCheckPermission
      */
     public function handle($request, Closure $next)
     {
-        Log::info('这里');
         // 获取控制器和方法名
         $action = get_action_name();
 

@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Enums\BasicEnum;
 use App\Enums\BoolEnum;
-use App\Enums\LabelEnum;
+use App\Enums\RecruitEnum;
 use App\Http\Requests\Admin\RecruitRequest;
 use App\Repositories\Admin\Criteria\RecruitCriteria;
 use App\Repositories\Admin\RecruitRepository as Recruit;
-use App\Repositories\Admin\LabelRepository as Label;
+use App\Repositories\Admin\PositionRepository as Position;
+use App\Repositories\Admin\FactoryRepository as Factory;
 use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Http\Request;
@@ -19,15 +20,17 @@ class RecruitController extends BaseController
      * @var Recruit
      */
     protected $recruit;
-    protected $label;
+    protected $factory;
+    protected $position;
     protected $log;
 
-    public function __construct(Recruit $recruit, Label $label, LogRepository $log)
+    public function __construct(Recruit $recruit, Factory $factory, Position $position, LogRepository $log)
     {
         parent::__construct();
 
         $this->recruit = $recruit;
-        $this->label = $label;
+        $this->factory = $factory;
+        $this->position = $position;
         $this->log = $log;
     }
     /**
@@ -55,11 +58,15 @@ class RecruitController extends BaseController
      */
     public function create(Request $request)
     {
-        //获取标签列表
-        $label_arr = $this->label->getList(LabelEnum::WELFARE);
+        //获取工厂列表
+        $select1 = ['id','name'];
+        $factory_arr = $this->factory->getList($select1);
 
+        //获取职位
+        $where2['type'] = RecruitEnum::FACTORY;
+        $position_arr = $this->position->getList($where2);
 
-        return view('admin.recruit.create', compact('label_arr'));
+        return view('admin.recruit.create', compact('factory_arr','position_arr'));
     }
 
     /**
@@ -72,34 +79,36 @@ class RecruitController extends BaseController
     public function store(RecruitRequest $request)
     {
         $params = $request->all();
-        //处理封面图片链接地址，存储封面图片链接
-        $image_path = array_values(FileController::getFilePath($params['image']));
-        $image_path = $image_path[0] ?? '';
-        //福利标签
-        if($params['label']){
-            $label = implode(',',$params['label']);
+
+        //每个工厂禁止发布多条招聘信息
+        $where1 = [];
+        if($params['factory_id'] ?? 0){
+            $where1['factory_id'] = $params['factory_id'] ?? 0;
+        }
+        if($where1){
+            $is_exist = $this->recruit->getList('*',$where1);
+            if($is_exist){
+                return $this->ajaxError("每个工厂只能发布一条招工信息");
+            }
+        }
+
+        //招聘职位
+        if($params['posts']){
+            $posts = implode(',',$params['posts']);
         }else{
-            $label = '';
+            $posts = '';
         }
 
         $data = [
-            'shop_id' => 0, //TODO
-            'type' => $params['type'] ?? 0,
+            'factory_id' => $params['factory_id'] ?? 0,
             'title' => $params['title'] ?? '',
-            'posts' => $params['posts'] ?? '',
+            'posts' => $posts,
             'num' => $params['num'] ?? 0,
-            'image' => $image_path,
-            'picture' => $params['picture'] ?? 0,
             'salary_up' => $params['salary_up'] ?? 0,
             'salary_down' => $params['salary_down'] ?? 0,
-            'label' => $label,
             'edu_ask' => $params['edu_ask'] ?? '',
             'sex_ask' => $params['sex_ask'] ?? '',
             'age_ask' => $params['age_ask'] ?? '',
-            'address' => $params['address'] ?? '',
-            'longitude' => $params['longitude'] ?? '',
-            'latitude' => $params['latitude'] ?? '',
-            'mobile' => $params['mobile'] ?? '',
             'base_salary' => $params['base_salary'] ?? 0,
             'hourly' => $params['hourly'] ?? 0,
             'payday' => $params['payday'] ?? '',
@@ -114,14 +123,6 @@ class RecruitController extends BaseController
             'interview' => $params['interview'] ?? '',
             'physical' => $params['physical'] ?? '',
             'interview_date' => $params['interview_date'] ?? '',
-            'business' => $params['business'] ?? '',
-            'scale' => $params['scale'] ?? '',
-            'trade' => $params['trade'] ?? '',
-            'avg_salary' => $params['avg_salary'] ?? 0,
-            'business_desc' => $params['business_desc'] ?? '',
-            'business_add' => $params['business_add'] ?? '',
-            'bus_line' => $params['bus_line'] ?? '',
-            'meet' => $params['meet'] ?? '',
             'sort' => $params['sort'] ?? 0,
             'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'is_top' => $params['is_top'] ?? BoolEnum::NO,
@@ -155,13 +156,24 @@ class RecruitController extends BaseController
     public function edit($id,Request $request)
     {
         $data = $this->recruit->find($id);
-        $labels = $data->label ?? '';
-        $labels = explode(',',$labels);
-        //获取标签列表
-        $label_arr = $this->label->getList(LabelEnum::WELFARE);
-        if($label_arr){
-            foreach ($label_arr as &$v){
-                if(in_array($v['id'],$labels)){
+
+        //获取工厂列表
+        $factory_id = $data->factory_id;
+        $select1 = ['id','name'];
+        $where1 = [];
+        if($factory_id){
+            $where1['id'] = $factory_id;
+        }
+        $factory_arr = $this->factory->getList($select1,$where1);
+
+        //获取职位列表
+        $posts = $data->posts ?? '';
+        $posts = explode(',',$posts);
+        $where2['type'] = RecruitEnum::FACTORY;
+        $position_arr = $this->position->getList($where2);
+        if($position_arr){
+            foreach ($position_arr as &$v){
+                if(in_array($v['id'],$posts)){
                     $v['checked'] = 1;
                 }else{
                     $v['checked'] = 0;
@@ -169,9 +181,7 @@ class RecruitController extends BaseController
             }
         }
 
-        $data->picture_path = array_values(FileController::getFilePath($data->picture));
-
-        return view('admin.recruit.edit',compact('data','label_arr'));
+        return view('admin.recruit.edit',compact('data','factory_arr','position_arr'));
     }
 
     /**
@@ -184,40 +194,37 @@ class RecruitController extends BaseController
     public function update(RecruitRequest $request, $id)
     {
         $params = $request->filterAll();
-        //处理封面链接地址，存储封面链接
-        if(strlen($params['image']) > 20){
-            $image_path = $params['image'];
-        }else{
-            $image_path = array_values(FileController::getFilePath($params['image']));
-            $image_path = $image_path[0] ?? '';
+        //每个工厂禁止发布多条招聘信息
+        $where1 = [];
+        if($params['factory_id'] ?? 0){
+            $where1['factory_id'] = $params['factory_id'] ?? 0;
         }
-        //福利标签
-        if(isset($params['label']) && $params['label']){
-            $label = implode(',',$params['label']);
+        if($where1){
+            $is_exist = $this->recruit->getList('*',$where1);
+            if($is_exist){
+                return $this->ajaxError("每个工厂只能发布一条招工信息");
+            }
+        }
+
+        //招聘职位
+        if(isset($params['posts']) && $params['posts']){
+            $posts = implode(',',$params['posts']);
         }else{
-            $label = '';
+            $posts = '';
         }
 
         $data = [
-            'shop_id' => 0, //TODO
-            'type' => $params['type'] ?? 0,
+            'factory_id' => $params['factory_id'] ?? 0,
             'title' => $params['title'] ?? '',
-            'posts' => $params['posts'] ?? '',
+            'posts' => $posts,
             'num' => $params['num'] ?? 0,
-            'image' => $image_path,
-            'picture' => $params['picture'] ?? 0,
             'salary_up' => $params['salary_up'] ?? 0,
             'salary_down' => $params['salary_down'] ?? 0,
-            'label' => $label,
             'edu_ask' => $params['edu_ask'] ?? '',
             'sex_ask' => $params['sex_ask'] ?? '',
             'age_ask' => $params['age_ask'] ?? '',
-            'address' => $params['address'] ?? '',
-            'longitude' => $params['longitude'] ?? '',
-            'latitude' => $params['latitude'] ?? '',
-            'mobile' => $params['mobile'] ?? '',
-            'base_salary' => $params['base_salary'] ?? '',
-            'hourly' => $params['hourly'] ?? '',
+            'base_salary' => $params['base_salary'] ?? 0,
+            'hourly' => $params['hourly'] ?? 0,
             'payday' => $params['payday'] ?? '',
             'food_sub' => $params['food_sub'] ?? '',
             'put_up' => $params['put_up'] ?? '',
@@ -230,14 +237,6 @@ class RecruitController extends BaseController
             'interview' => $params['interview'] ?? '',
             'physical' => $params['physical'] ?? '',
             'interview_date' => $params['interview_date'] ?? '',
-            'business' => $params['business'] ?? '',
-            'scale' => $params['scale'] ?? '',
-            'trade' => $params['trade'] ?? '',
-            'avg_salary' => $params['avg_salary'] ?? 0,
-            'business_desc' => $params['business_desc'] ?? '',
-            'business_add' => $params['business_add'] ?? '',
-            'bus_line' => $params['bus_line'] ?? '',
-            'meet' => $params['meet'] ?? '',
             'sort' => $params['sort'] ?? 0,
             'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'is_top' => $params['is_top'] ?? BoolEnum::NO,

@@ -9,6 +9,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    const CREATED_AT='create_time';
+    const UPDATED_AT='update_time';
+    const DELETED_AT='delete_time';
+
+    protected $dateFormat = 'U';
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +21,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'mobile', 'email', 'password',
     ];
 
     /**

@@ -5,16 +5,16 @@ namespace App\Repositories\Home;
 use App\Enums\BasicEnum;
 use App\Repositories\BaseRepository;
 
-class ShopRepository extends BaseRepository
+class FactoryRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Common\Shop';
+        return 'App\Models\Common\Factory';
     }
 
 
     /**
-     * 获取门店列表（无分页）
+     * 获取工厂列表（无分页）
      * @param string $select
      * @param array $where
      * @param int $limit

@@ -40,7 +40,7 @@ class CityRepository extends BaseRepository
         return $data;
     }
     public function getCityList($params){
-        return $this->model->where($params)->get()->toArray();
+        return $this->model->where($params)->orderBy('sort','DESC')->orderBy('id','ASC')->get()->toArray();
     }
     public static function getCityName($id){
         return City::where('id',$id)->pluck('title');

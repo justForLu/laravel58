@@ -28,5 +28,7 @@
 
 <div class="reg_foot ta_center">Copyright © 2016 濮工网 All Rights Reserved 豫ICP备16088888号-2</div>
 @include('home.public.js')
+
+@yield('scripts')
 </body>
 </html>

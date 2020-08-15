@@ -172,20 +172,4 @@ class CityController extends BaseController
         }
     }
 
-
-    /**
-     * 根据省市ID，返回以省市ID为下标的数组
-     * @param array $arr
-     * @return array
-     */
-    static function getCityIndexIdArr($arr = [])
-    {
-        $cityArr = [];
-
-        if($arr){
-
-        }
-
-        return $cityArr;
-    }
 }

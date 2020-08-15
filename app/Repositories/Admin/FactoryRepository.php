@@ -5,15 +5,15 @@ namespace App\Repositories\Admin;
 use App\Enums\BasicEnum;
 use App\Repositories\BaseRepository;
 
-class RecruitRepository extends BaseRepository
+class FactoryRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Common\Recruit';
+        return 'App\Models\Common\Factory';
     }
 
     /**
-     * 获取招聘列表
+     * 获取工厂列表
      * @param string $select
      * @param array $where
      * @return array

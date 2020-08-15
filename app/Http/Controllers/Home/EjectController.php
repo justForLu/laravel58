@@ -1,19 +1,16 @@
 <?php
 namespace App\Http\Controllers\Home;
 
+
 use Illuminate\Http\Request;
 
 class EjectController extends BaseController
 {
 
-    /**
-     * 弹出层控制器
-     * EjectController constructor.
-     */
 
-    public function __construct()
+    public function __construct(Request $request)
     {
-        parent::__construct();
+        parent::__construct($request);
 
 
     }

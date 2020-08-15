@@ -10,7 +10,7 @@ class Shop extends Base
     protected $table = 'shop';
 
     protected $fillable = ['name','image','picture','job','num','purpose','province','city','area','address','longitude',
-        'latitude','phone','mobile','sort','status','is_top','is_recommend',
+        'latitude','phone','mobile','sort','status','is_top','is_recommend','job_num'
     ];
     
 

@@ -31,8 +31,6 @@
         <tr>
             <th>ID</th>
             <th>招聘标题</th>
-            <th>门店</th>
-            <th>招聘类型</th>
             <th>招聘人数</th>
             <th>报名人数</th>
             <th>综合薪资</th>
@@ -49,8 +47,6 @@
             <tr>
                 <td>{{$data->id}}</td>
                 <td>{{$data->title}}</td>
-                <td>{{$data->shop_name}}</td>
-                <td>{{\App\Enums\RecruitEnum::getDesc($data->type)}}</td>
                 <td>{{$data->num}}</td>
                 <td>{{$data->sign_up}}</td>
                 <td>{{$data->salary_up}}—{{$data->salary_down}}元/月</td>

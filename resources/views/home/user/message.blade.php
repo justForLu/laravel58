@@ -34,8 +34,8 @@
         <div class="s_l">
             <div class="user_left c_border">
                 <ul class="user_left_nav">
-                    <li class="active"><a href=""><i class="ic iconfont">&#xe652;</i>消息中心</a></li>
-                    <li><a href=""><i class="ic iconfont">&#xe650;</i>我的资料</a></li>
+{{--                    <li class="active"><a href=""><i class="ic iconfont">&#xe652;</i>消息中心</a></li>--}}
+                    <li class="active"><a href=""><i class="ic iconfont">&#xe650;</i>我的资料</a></li>
                     <li><a href=""><i class="ic iconfont">&#xe669;</i>提现资料</a></li>
                     <li><a href=""><i class="ic iconfont">&#xe669;</i>工资明细</a></li>
                     <li><a href=""><i class="ic iconfont">&#xe674;</i>我的收藏</a></li>

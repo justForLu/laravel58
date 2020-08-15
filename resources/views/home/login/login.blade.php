@@ -12,18 +12,18 @@
     <div class="w1200 of_hide reg_main">
         <div class="left reg_left">
             <div class="reg_lhead font_18" id="login_meth">
-                <a href="" class="cur">账号密码登录</a>
-                <a href="">手机验证码登录</a>
+                <a id="login-btn1" class="cur">账号密码登录</a>
+                <a id="login-btn2" class="">手机验证码登录</a>
             </div>
-            <div class="login_item  show">
-                <form role="form" action="" method="post" id="form1">
-                    <input type="hidden" name="redirect_url" value="">
+            <div id="login_item1" class="login_item show">
+                <form class="J_ajaxForm" method="post" action="{{url("home/login")}}">
+                    {{csrf_field()}}
                     <table class="reg_lcont font_16" cellspacing="20">
                         <tbody>
                         <tr>
                             <td class="reg_label">用户名</td>
                             <td>
-                                <input type="text" name="log_name" class="reg_input3">
+                                <input type="text" name="username" class="reg_input3">
                             </td>
                             <td class="reg_tip">请输入您的手机号或身份证号</td>
                         </tr>
@@ -38,14 +38,13 @@
                             <td></td>
                             <td class="grey">
                                 <a href="" class="right grey">忘记密码？</a>
-                                <label><input name="auto" type="checkbox" value="1"> 下次自动登录</label>
                             </td>
                             <td></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td class="grey">
-                                <a href="javascript:void(0)" onclick="login(1)" class="reg_btn mt_30">登录</a>
+                                <button type="submit" class="reg_btn mt_30 J_ajax_submit_btn">登录</button>
                             </td>
                             <td></td>
                         </tr>
@@ -53,8 +52,8 @@
                     </table>
                 </form>
             </div>
-            <div class="login_item ">
-                <form role="form" action="" method="post" id="form2">
+            <div id="login_item2" class="login_item">
+                <form role="form" action="" method="post" class="J_ajaxForm" id="form2">
                     <table class="reg_lcont font_16" cellspacing="20">
                         <tbody>
                         <tr>
@@ -129,3 +128,21 @@
         </div>
     </div>
 @endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        $("#login-btn1").click(function () {
+            $("#login_item1").attr("class","login_item show");
+            $("#login_item2").attr("class","login_item");
+            $("#login-btn1").attr("class","cur");
+            $("#login-btn2").attr("class","");
+        });
+        $("#login-btn2").click(function () {
+            $("#login_item1").attr("class","login_item");
+            $("#login_item2").attr("class","login_item show");
+            $("#login-btn1").attr("class","");
+            $("#login-btn2").attr("class","cur");
+        });
+    </script>
+@endsection
+

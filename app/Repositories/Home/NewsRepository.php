@@ -15,23 +15,25 @@ class NewsRepository extends BaseRepository
 
     /**
      * 获取新闻列表（无分页）
+     * @param string $select
      * @param array $where
      * @param int $limit
+     * @param array $with
+     * @param array $order
      * @return array
      */
-    public function getList($where = [], $limit = 0)
+    public function getList($select = '*', $where = [], $limit = 0, $with = [], $order = [])
     {
-        $model = $this->model->where($where)
-            ->where('status',BasicEnum::ACTIVE)
-            ->orderBy('is_top','DESC')
-            ->orderBy('is_recommend','DESC')
-            ->orderBy('sort','DESC');
-
-        if($limit){
-            $model = $model->limit($limit);
+        //处理一下默认排序
+        if(empty($order)){
+            $order = array(
+                ['is_top','DESC'],
+                ['is_recommend','DESC'],
+                ['sort','DESC']
+            );
         }
 
-        $list =  $model->get()->toArray();
+        $list = $this->getLists($this->model, $select, $where , $limit, $with, $order);
 
         return $list;
     }

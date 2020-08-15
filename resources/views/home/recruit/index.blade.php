@@ -98,8 +98,8 @@
                 <ul class="fac_list">
                     @foreach($list as $k => $data)
                         <li @if($k == 0) class="first" @endif>
-                            <a href="{{url("/home/recruit/detail".$data->id.".html")}}" target="_blank" class="imgs">
-                                <img src="{{$data->image}}" alt="{{$data->title}}" class="imgs">
+                            <a href="{{url("/home/recruit/detail/".$data->id.".html")}}" target="_blank" class="imgs">
+                                <img src="{{$data->factory->image}}" alt="{{$data->title}}" class="imgs">
                             </a>
                             <div class="cons">
                                 <div class="names">
@@ -107,16 +107,16 @@
                                     <h4><a href="" target="_blank">{{$data->title}}</a></h4>
                                 </div>
                                 <p class="des">
-                                    <a href="javascript:largeMap(&#39;118.379187&#39;, &#39;32.387349&#39;, &#39;安徽省滁州市琅琊区永阳路8号&#39;)" class="to_map">
+                                    <a href="javascript:largeMap(&#39;{{$data->factory->longitude}}&#39;, &#39;{{$data->factory->latitude}}&#39;, &#39;{{$data->factory->address}}&#39;)" class="to_map">
                                         <i class="ic ic_fac_lmap"></i>电子地图
                                     </a>
-                                    <span class="titles">招聘人数：</span>{{$data->num}}人 <span class="titles title2">企业规模：</span>{{$data->scale}}人<br>
-                                    <span class="titles">招聘岗位：</span>{{$data->posts}}<br>
+                                    <span class="titles">招聘人数：</span>{{$data->num}}人 <span class="titles title2">企业规模：</span>{{$data->factory->scale}}人<br>
+                                    <span class="titles">招聘岗位：</span>@if($data->posts_arr) @foreach($data->posts_arr as $v) <span class="tp">{{$v['name']}}</span> @endforeach @endif<br>
                                     <span class="titles">招聘要求：</span>@if($data->edu_ask) {{$data->edu_ask}} @endif<i class="line"></i>
                                         @if($data->sex_ask) {{$data->sex_ask}} <i class="line"></i>@endif @if($data->age_ask) {{$data->age_ask}} <i class="line"></i> @endif
                                 </p>
                                 <p class="fac_tag">
-                                    <a href="{{url("/home/recruit/detail".$data->id.".html")}}" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
+                                    <a href="{{url("/home/recruit/detail/".$data->id.".html")}}" target="_blank" class="to_fac btn btn_blue btn_m btn_round">查看</a>
                                     @if($data->label_arr)
                                         @foreach($data->label_arr as $v)
                                             <em>{{$v['name']}}</em>
@@ -135,11 +135,11 @@
                         <i class="ic ic_fac_hottitle"></i>
                     </h3>
                     <ul class="fac_hot_list">
-                        <li><a href="" target="_blank">长沙知名大型电子厂 （5500--6500元/月）</a></li>
-                        <li><a href="" target="_blank">滁州电子有限公司 （5000--5500元/月）</a></li>
-                        <li><a href="" target="_blank">联滔电子（昆山）有限公司（5500--6000元/月）</a></li>
-                        <li><a href="" target="_blank">华宝（南京）科技有限公司（5000--6000元/月）</a></li>
-                        <li><a href="" target="_blank">淳华科技（昆山）有限公司（4500--5500元/月）</a></li>
+                        @if($recruit_hot)
+                            @foreach($recruit as $v)
+                                <li><a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank">{{$v['factory']['name']}} （{{$v['salary_up']}}--{{$v['salary_down']}}元/月）</a></li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div><!-- 报名排行榜 -->
                 <div class="fac_rank fac_rlist">
@@ -148,51 +148,19 @@
                         <h3>报名排行榜</h3>
                     </div>
                     <ul id="fac_rank">
-                        <li class="tops">
-                            <a href="" target="_blank" class="hover">
-                                <img src="{{asset("/assets/home/images/store.jpg")}}" alt="">
-                                <div class="cons">
-                                    <p><span class="eqs">1</span>天津市金桥焊材集团有限公司</p>
-                                    <span class="nums">已报名3035人</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="tops">
-                            <a href="" target="_blank">
-                                <img src="{{asset("/assets/home/images/store.jpg")}}" alt="">
-                                <div class="cons">
-                                    <p><span class="eqs">2</span>天津市金桥焊材集团有限公司</p>
-                                    <span class="nums">已报名3035人</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="tops">
-                            <a href="" target="_blank">
-                                <img src="{{asset("/assets/home/images/store.jpg")}}" alt="">
-                                <div class="cons">
-                                    <p><span class="eqs">3</span>天津市金桥焊材集团有限公司</p>
-                                    <span class="nums">已报名3035人</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" target="_blank">
-                                <img src="{{asset("/assets/home/images/store.jpg")}}" alt="">
-                                <div class="cons">
-                                    <p><span class="eqs">4</span>天津市金桥焊材集团有限公司</p>
-                                    <span class="nums">已报名3035人</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" target="_blank">
-                                <img src="{{asset("/assets/home/images/store.jpg")}}" alt="">
-                                <div class="cons">
-                                    <p><span class="eqs">5</span>天津市金桥焊材集团有限公司</p>
-                                    <span class="nums">已报名3035人</span>
-                                </div>
-                            </a>
-                        </li>
+                        @if($factory_top)
+                            @foreach($factory_top as $k => $v)
+                                <li @if($k < 3) class="tops" @endif>
+                                    <a href="{{url("/home/recruit/detail/".$v['recruit_id'].".html")}}" target="_blank" @if($k == 0) class="hover" @endif>
+                                        <img src="{{$v['image']}}" alt="">
+                                        <div class="cons">
+                                            <p><span class="eqs">{{$k + 1}}</span>{{$v['name']}}</p>
+                                            <span class="nums">已报名{{$v['sign_up']}}人</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            @endforeach
+                        @endif
                     </ul>
                 </div><!-- 最近浏览 -->
                 <div class="fac_vhistory fac_rlist">
@@ -241,66 +209,24 @@
                 <h3>大家都想去</h3>
             </div>
             <ul class="fac_recom_list">
-                <li>
-                    <a href="" class="imgs" target="_blank">
-                        <img src="{{asset("/assets/home/images/shop1.jpg")}}" alt="常州瑞声">
-                    </a>
-                    <div class="con">
-                        <a href="" target="_blank" class="name">常州瑞声</a>
-                        <p class="des">
-                            男女不限<i class="line"></i> 18-40岁
-                        </p>
-                        <p class="price">￥5500-6500元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="imgs" target="_blank">
-                        <img src="{{asset("/assets/home/images/shop2.jpg")}}" alt="立讯精密工业（滁州）有限公司">
-                    </a>
-                    <div class="con">
-                        <a href="" target="_blank" class="name">立讯精密工业（滁州）有限公司</a>
-                        <p class="des">
-                            男:16-40岁&nbsp;女:16-45岁
-                        </p>
-                        <p class="price">￥6000-7000元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="imgs" target="_blank">
-                        <img src="{{asset("/assets/home/images/shop3.jpg")}}" alt="昆山淳华">
-                    </a>
-                    <div class="con">
-                        <a href="" target="_blank" class="name">昆山淳华</a>
-                        <p class="des">
-                            男女不限<i class="line"></i> 16-40岁
-                        </p>
-                        <p class="price">￥4000-5000元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="imgs" target="_blank">
-                        <img src="{{asset("/assets/home/images/shop4.jpg")}}" alt="华宝（南京）科技有限公司">
-                    </a>
-                    <div class="con">
-                        <a href="" target="_blank" class="name">华宝（南京）科技有限公司</a>
-                        <p class="des">
-                            男:18-40岁&nbsp;女:18-45岁
-                        </p>
-                        <p class="price">￥7000-7500元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="imgs" target="_blank">
-                        <img src="{{asset("/assets/home/images/shop5.jpg")}}" alt="山东歌尔声学股份有限公司">
-                    </a>
-                    <div class="con">
-                        <a href="" target="_blank" class="name">山东歌尔声学股份有限公司</a>
-                        <p class="des">
-                            男女不限<i class="line"></i> 16-42岁
-                        </p>
-                        <p class="price">￥4500-5500元/月</p>
-                    </div>
-                </li>
+                @if($recruit)
+                    @foreach($recruit as $v)
+                        <li>
+                            <a href="{{url("/home/recruit/detail/".$v['id'].'.html')}}" class="imgs" target="_blank">
+                                <img src="{{$v['factory']['image']}}" alt="{{$v['factory']['name']}}">
+                            </a>
+                            <div class="con">
+                                <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank" class="name">{{$v['factory']['name']}}</a>
+                                <p class="des">
+                                    @if($v['edu_ask']) {{$v['edu_ask']}}<i class="line"></i> @endif
+                                    @if($v['sex_ask']) {{$v['sex_ask']}}<i class="line"></i> @endif
+                                    @if($v['age_ask']) {{$v['age_ask']}} @endif
+                                </p>
+                                <p class="price">￥{{$v['salary_up']}}-{{$v['salary_down']}}元/月</p>
+                            </div>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
         </div>
         <div class="store_recom section">
@@ -309,61 +235,21 @@
                 <h3>选择附近的门店报名</h3>
             </div>
             <ul class="store_recom_list">
-                <li>
-                    <a href="">
-                        <div class="imgs">
-                            <img src="{{asset("/assets/home/images/shop1.jpg")}}">
-                        </div>
-                        <div class="con">
-                            <span class="name">工立方尉氏县就业服务站</span>
-                            <p><i class="ic ic_ind_address"></i>尉氏县汽车北站红绿灯北50路西</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgs">
-                            <img src="{{"/assets/home/images/shop2.jpg"}}">
-                        </div>
-                        <div class="con">
-                            <span class="name">工立方大营镇就业服务站</span>
-                            <p><i class="ic ic_ind_address"></i>尉氏大营乡黄家村</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgs">
-                            <img src="{{asset("/assets/home/images/shop3.jpg")}}">
-                        </div>
-                        <div class="con">
-                            <span class="name">工立方庄头乡就业服务站</span>
-                            <p><i class="ic ic_ind_address"></i>尉氏县庄头镇陈家村县道017路边</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgs">
-                            <img src="{{asset("/assets/home/images/shop4.jpg")}}">
-                        </div>
-                        <div class="con">
-                            <span class="name">工立方蔡庄镇就业服务站</span>
-                            <p><i class="ic ic_ind_address"></i>尉氏县蔡庄镇一中东临</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <div class="imgs">
-                            <img src="{{asset("/assets/home/images/shop5.jpg")}}">
-                        </div>
-                        <div class="con">
-                            <span class="name">工立方朱曲镇就业服务站</span>
-                            <p><i class="ic ic_ind_address"></i>朱曲镇西桥往西160米</p>
-                        </div>
-                    </a>
-                </li>
+                @if($shop)
+                    @foreach($shop as $v)
+                        <li>
+                            <a href="{{url("/home/shop/detail/".$v['id'].".html")}}">
+                                <div class="imgs">
+                                    <img src="{{$v['image']}}">
+                                </div>
+                                <div class="con">
+                                    <span class="name">{{$v['name']}}</span>
+                                    <p><i class="ic ic_ind_address"></i>{{$v['address']}}</p>
+                                </div>
+                            </a>
+                        </li>
+                    @endforeach
+                @endif
             </ul>
         </div>
     </div>

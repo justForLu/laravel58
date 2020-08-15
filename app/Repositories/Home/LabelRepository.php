@@ -19,8 +19,17 @@ class LabelRepository extends BaseRepository
      */
     public function getList($where = [])
     {
-        $list = $this->model->where($where)
-            ->where('status',BasicEnum::ACTIVE)
+        $model = $this->model;
+        if($where){
+            foreach ($where as $k => $v){
+                if(is_array($v)){
+                    $model = $model->whereIn($k, $v);
+                }else{
+                    $model = $model->where($k, $v);
+                }
+            }
+        }
+        $list = $model->where('status',BasicEnum::ACTIVE)
             ->orderBy('sort','DESC')
             ->get()->toArray();
 

@@ -62,10 +62,23 @@
                 <a href="{{url("/home/news/index.html")}}" @if($menu == 'News') class="cur" @endif>资讯<i class="ic_up"></i></a>
             </li>
         </ul>
-        <div class="head_login">
-            <a class="btns hover" href="{{url("/home/login.html")}}" target="_blank" rel="nofollow">登录</a>
-            <a class="btns" href="{{url("/home/register.html")}}" target="_blank" rel="nofollow">注册</a>
-        </div>
+        @if(isset($userInfo) && $userInfo)
+            <div class="head_user">
+                <div class="users">
+                    <img src="@if($userInfo->image) {{$userInfo->image}}  @else {{asset("/assets/home/images/default_user_img.png")}}  @endif" alt="" class="head_avt">工立方_0778<i class="ic_down"></i>
+                </div>
+                <ul>
+                    <li><a href="{{url("/home/info")}}" rel="nofollow">个人中心</a></li>
+                    <li><a href="{{url("/home/portrait")}}" rel="nofollow">修改头像</a></li>
+                    <li><a href="{{url("/home/logout")}}" rel="nofollow">退出</a></li>
+                </ul>
+            </div>
+        @else
+            <div class="head_login">
+                <a class="btns hover" href="{{url("/home/login.html")}}" target="_blank" rel="nofollow">登录</a>
+                <a class="btns" href="{{url("/home/register.html")}}" target="_blank" rel="nofollow">注册</a>
+            </div>
+        @endif
     </div>
 </div>
 

@@ -1,11 +1,10 @@
 <?php
-
-namespace App\Repositories\Admin\Criteria;
+namespace App\Repositories\Home\Criteria;
 
 use Bosnadev\Repositories\Criteria\Criteria;
 use Bosnadev\Repositories\Contracts\RepositoryInterface as Repository;
 
-class RecruitCriteria extends Criteria {
+class FactoryCriteria extends Criteria {
 
     private $conditions;
 
@@ -20,13 +19,8 @@ class RecruitCriteria extends Criteria {
      */
     public function apply($model, Repository $repository)
     {
-        if(isset($this->conditions['title']) && !empty($this->conditions['title'])){
-            $model = $model->where('title', 'like','%' . $this->conditions['title'] . '%');
-        }
 
-        $model = $model->orderBy('is_top','DESC');
-        $model = $model->orderBy('is_recommend','DESC');
-        $model = $model->orderBy('sort','DESC');
+        $model = $model->orderBy('id','ASC');
 
         return $model;
     }

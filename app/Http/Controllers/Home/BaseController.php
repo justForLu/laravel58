@@ -3,15 +3,13 @@ namespace App\Http\Controllers\Home;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Admin\Manager;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Request;
 
 class BaseController extends Controller
 {
 
+    protected $callback;
     protected $currentUser;
     protected $auth;
     protected $userInfo;
@@ -21,7 +19,19 @@ class BaseController extends Controller
      * BaseController constructor.
      */
     public function __construct(){
+        $this->callback = isset($_SERVER['HTTP_REFERER']) ? urlencode($_SERVER['HTTP_REFERER']) : '';
 
+        $this->middleware(function ($request, $next) {
+            if(Auth::guard('home')->check()){
+                $userInfo = Auth::guard('home')->user();
+                $this->userInfo = $userInfo;
+                view()->share('userInfo',$userInfo);
+            }
+
+            return $next($request);
+        });
+
+        view()->share('callback',$this->callback);
     }
 
 

@@ -68,7 +68,7 @@
                         <li>
                             <div class="ii_pic">
                                 <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank">
-                                    <img src="{{$v['image']}}" alt="{{$v['title']}}"/>
+                                    <img src="{{$v['factory']['image']}}" alt="{{$v['title']}}"/>
                                     <i class="ic_hot ic_ind_fachot"></i>
                                 </a>
                             </div>
@@ -102,7 +102,7 @@
                         <li>
                             <div class="ii_pic">
                                 <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank">
-                                    <img src="{{$v['image']}}" alt="{{$v['title']}}"/></a>
+                                    <img src="{{$v['factory']['image']}}" alt="{{$v['title']}}"/></a>
                             </div>
                             <div class="ii_con">
                                 <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" class="name" target="_blank">{{$v['title']}}</a>
