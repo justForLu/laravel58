@@ -81,18 +81,23 @@
         <div class="right reg_right ta_center">
             <p class="mt_50 orange bold font_18">下载工立方APP</p>
             <p>手机报名 入职速度快50%</p>
-            <p class="mt_20"><img src="./【电子厂招聘_普工招工网_工厂直招信息平台】-工立方打工网_files/app-ewm.png" width="122" height="122"></p>
+            <p class="mt_20">
+                <img src="{{asset("/assets/home/images/app-ewm.png")}}" width="122" height="122">
+            </p>
             <p>扫一扫即刻体验</p>
             <div class="reg_rfoot grey">
-                已有账号？<a href="http://www.gonglf.com/Login/index.html" class="orange">立即登录</a>
+                已有账号？<a href="{{url("/home/login")}}" class="orange">立即登录</a>
                 <p class="mt_20">还可以使用以下方式登录</p>
                 <p class="reg_www mt_20">
-                    <a href="https://api.weibo.com/oauth2/authorize?display=&amp;redirect_uri=http%3A%2F%2Fwww.gonglf.com%2FLogin%2Fcallback%3Fauth_type%3D3&amp;state=cfda162b43eeec9709015251a19fb37c&amp;client_id=3631661381"><i
-                                id="i1" class="iconfont"></i></a>
-                    <a href="https://graph.qq.com/oauth2.0/authorize?response_type=code&amp;redirect_uri=http%3A%2F%2Fwww.gonglf.com%2FLogin%2Fcallback%3Fauth_type%3D2&amp;state=b18bed1621278052483b7c1f3f6d9c92&amp;client_id=101429543"><i
-                                id="i2" class="iconfont"></i></a>
-                    <a href="https://open.weixin.qq.com/connect/qrconnect?response_type=code&amp;scope=snsapi_login&amp;redirect_uri=http%3A%2F%2Fwww.gonglf.com%2FLogin%2Fcallback%3Fauth_type%3D1&amp;state=926077bca08e6e3313694b604650ee0e&amp;appid=wxf8b5e4422720d698#wechat_redirect"><i
-                                id="i3" class="iconfont"></i></a>
+                    <a href="">
+                        <i id="i1" class="iconfont">微博</i>
+                    </a>
+                    <a href="">
+                        <i id="i2" class="iconfont">QQ</i>
+                    </a>
+                    <a href="">
+                        <i id="i3" class="iconfont">微信</i>
+                    </a>
                 </p>
             </div>
         </div>

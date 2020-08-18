@@ -91,7 +91,7 @@
             <div class="ii_head">
                 <div class="ii_key">
                     <div class="ii_key">
-                        <a href="{{url("/home/recruit/index.html")}}" target="_blank">更多企业 ></a>
+                        <a href="{{url("/home/shop/index.html")}}" target="_blank">更多企业 ></a>
                     </div>
                 </div>
                 <h2 class="ii_tit"><em>推荐</em>企业</h2>

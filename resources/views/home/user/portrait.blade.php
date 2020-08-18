@@ -10,22 +10,19 @@
         <div class="section">
             <div class="user_top_avt">
                 <div class="imgs">
-                    <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="">
+                    <img src="@if($userInfo->image) {{$userInfo->image}}  @else {{asset("/assets/home/images/default_user_img.png")}}  @endif" alt="">
                     <a href="" class="to_avt">
                         <i class="ic ic_avt_ico"></i>
                     </a>
                 </div>
-                <p>欢迎你，亲爱的 <em>工立方_0778</em>！</p>
+                <p>欢迎你，亲爱的 <em>{{$userInfo->nickname}}</em>！</p>
             </div>
             <div class="user_top_num">
-                <a href="" class="nums">
+                <a href="{{url("/home/user/message.html")}}" class="nums">
                     消息<em>0</em>
                 </a>
-                <a href="" class="nums">
-                    我的推荐<em>0</em>
-                </a>
-                <a href="" class="nums">
-                    我的收藏<em>0</em>
+                <a href="{{url("/home/user/collect_recruit.html")}}" class="nums">
+                    我的收藏<em>{{$count_collect}}</em>
                 </a>
             </div>
         </div>
@@ -35,19 +32,21 @@
     <style>
         .av_btn{width:100%; display:block; background:#f8f8f8; line-height:40px;border-radius:50px; text-align:center;cursor:pointer;}
         .av_btn:hover{ background:#ddd; color:#000}
+        label {position: relative;display: inline-block;background: #D0EEFF;border: 1px solid #99D3F5;border-radius: 4px;padding: 4px 12px;overflow: hidden;color: #1E88C7;text-decoration: none;text-indent: 0;line-height: 20px;cursor: pointer;}
+        /*隐藏默认样式*/
+        input[id=file_image] {width: 82px;height: 30px;opacity: 0;position: relative;bottom: 40px;}
     </style>
     <div class="user_main">
         <div class="section">
             <div class="s_l">
                 <div class="user_left c_border">
                     <ul class="user_left_nav">
-                        <li class="active"><a href=""><i class="ic iconfont">&#xe652;</i>消息中心</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe650;</i>我的资料</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe669;</i>提现资料</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe669;</i>工资明细</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe674;</i>我的收藏</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe651;</i>头像设置</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe63c;</i>帐号管理</a></li>
+                        <li @if($menu == 'message') class="active" @endif><a href="{{url("/home/user/message.html")}}"><i class="ic iconfont">&#xe652;</i>消息中心</a></li>
+                        <li @if($menu == 'info') class="active" @endif><a href="{{url("/home/user/info.html")}}"><i class="ic iconfont">&#xe650;</i>我的资料</a></li>
+{{--                        <li @if($menu == 'cash_out') class="active" @endif><a href="{{url("/home/user/cash_out.html")}}"><i class="ic iconfont">&#xe669;</i>提现资料</a></li>--}}
+                        <li @if($menu == 'collect') class="active" @endif><a href="{{url("/home/user/collect_recruit.html")}}"><i class="ic iconfont">&#xe674;</i>我的收藏</a></li>
+                        <li @if($menu == 'portrait') class="active" @endif><a href="{{url("/home/user/portrait.html")}}"><i class="ic iconfont">&#xe651;</i>头像设置</a></li>
+                        <li @if($menu == 'account') class="active" @endif><a href="{{url("/home/user/account.html")}}"><i class="ic iconfont">&#xe63c;</i>帐号管理</a></li>
                     </ul>
                     <div class="user_lapp">
                         <img src="{{asset("/assets/home/images/weixin.jpg")}}" alt="">
@@ -61,114 +60,58 @@
                     <h3>头像设置</h3>
                 </div>
                 <div class="c_border">
-                    <div class="avt_sel">
-                        <div class="avt_dis">
-                            <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="" class="cover">
-                            <a href="javascript:void(0)" class="">
-                                <div id="cover"></div>
-                            </a>
-                        </div>
-                        <p class="con">选一张您喜欢的照片做头像吧 ( 建议图片尺寸不小于200×200 ; 支持jpg、jpeg、gif、png、bmp格式的图片，大小不超过2M )。</p>
-                    </div>
-                    <div class="avt_show">
-                        <div class="avt_f">
-                            <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="" class="cover">
-                            <a href="javascript:void(0);"  id="saveImgBtn" class="btn_m btn_round btn btn_orange">保存</a>
-                            <a href="javascript:void(0);" class="btn_m btn_round btn btn_ignore"  onclick="location.reload()">取消</a>
-                        </div>
-                        <div class="con">
-                            <p>头像预览</p>
-                            <div class="avt_s s1">
-                                <span class="img_vt">
-                                    <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="" class="cover">
-                                </span>
-                                180*180像素
+                    <form action="{{url("/home/user/sub_portrait")}}" method="post" id='form' class="J_ajaxForm">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="avt_sel">
+                            <div class="avt_dis">
+                                <img src="{{$image}}" alt="" class="portrait-cover cover">
+                                <div class="J_upload_portrait" data-id="image" data-_token="{{ csrf_token() }}">
+                                    @if(!empty($image))
+                                        <input type="hidden" name="image_val" value="{{ $image }}">
+                                        <input type="hidden" name="image_path[]" value="{{ $image }}">
+                                    @endif
+                                </div>
                             </div>
-                            <div class="avt_s s2">
-                                <span class="img_vt">
-                                    <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="" class="cover">
-                                </span>
-                                100*100像素
+                            <p class="con">选一张您喜欢的照片做头像吧 ( 建议图片尺寸不小于200×200 ; 支持jpg、jpeg、gif、png、bmp格式的图片，大小不超过2M )。</p>
+                        </div>
+                        <div class="avt_show">
+                            <div class="avt_f">
+                                <img src="{{$image}}" alt="" class="portrait-cover cover">
+                                <button type="submit"  id="saveImgBtn" class="btn_m btn_round btn btn_orange J_ajax_submit_btn">保存</button>
+                                <a href="{{url("/home/user/portrait.html")}}" class="btn_m btn_round btn btn_ignore">取消</a>
                             </div>
-                            <div class="avt_s s3">
+                            <div class="con">
+                                <p>头像预览</p>
+                                <div class="avt_s s1">
                                 <span class="img_vt">
-                                    <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="" class="cover">
+                                    <img src="{{$image}}" alt="" class="portrait-cover cover">
                                 </span>
-                                50*50像素
+                                    180*180像素
+                                </div>
+                                <div class="avt_s s2">
+                                <span class="img_vt">
+                                    <img src="{{$image}}" alt="" class="portrait-cover cover">
+                                </span>
+                                    100*100像素
+                                </div>
+                                <div class="avt_s s3">
+                                <span class="img_vt">
+                                    <img src="{{$image}}" alt="" class="portrait-cover cover">
+                                </span>
+                                    50*50像素
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-
-    <input type="hidden" name="cover" />
-    <div id="some_file_queue" style="display:none;"></div>
-
-
-    <link href="{{asset("/assets/plugins/webuploader-0.1.5/css/webuploader.css")}}" rel="stylesheet" type="text/css">
-    <style>
-        .webuploader-pick{width: 160px;}
-    </style>
-    <script type="text/javascript" src="{{asset("/assets/plugins/webuploader-0.1.5/dist/webuploader.min.js")}}"></script>
-    <script>
-        var host = "http://www.baidu.com/";
-        function createWebuploader(){
-            //初始化webuploader
-            var uploader = WebUploader.create({
-                pick: {
-                    id: '#cover',
-                    innerHTML: '<div class="upbtn">上传头像</div>'
-                },
-                fileVal:'fileupload',
-                swf: '/Public/Admin/webuploader-0.1.5/Uploader.swf',
-                server: "/User/upload.html",//上传的URL
-                auto: true,
-                formData:{ 'dir' : 'user' },
-                accept: {
-                    title: '图片文件',
-                    extensions: 'jpg,jpeg,png,bmp',
-                    mimeTypes:'image/jpeg,image/bmp'
-                }
-            });
-            uploader.on('uploadSuccess',function(file, response){
-                var data = response;
-                if(data.status == 0){
-                    layer.alert(data.msg, {title:'温馨提示'});
-                }else{
-                    $("input[name='cover']").val(data.data);
-                    $(".cover").attr('src', host+data.data);
-                }
-                uploader.destroy();
-                createWebuploader();
-            });
-        }
-        $("#saveImgBtn").click(function(){
-            var cover = $("input[name='cover']").val();
-            if(cover == ''){
-                layer.alert('没有上传图片', {title:'温馨提示'});
-                return false;
-            }
-            var loadA = layer.load(2);	//弹出加载框
-            $.post("/User/cover.html", {cover:cover}, function(data){
-                layer.close(loadA);
-                //console.log(data);
-                layer.alert(data['msg'], {title:'温馨提示'});
-                if(data.status == 1){
-                    location.reload();
-                }
-            }, 'json');
-        });
-
-        $(document).ready(function(){
-            createWebuploader();
-        });
-    </script>
 @endsection
 
 @section('scripts')
     <script src="{{asset("/assets/home/js/user.js")}}"></script>
+    <script src="{{asset("/assets/plugins/weui/lrz.min.js")}}"></script>
 @endsection
 
 

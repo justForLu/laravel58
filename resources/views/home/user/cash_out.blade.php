@@ -9,22 +9,19 @@
         <div class="section">
             <div class="user_top_avt">
                 <div class="imgs">
-                    <img src="{{asset("/assets/home/images/default_user_img.png")}}" alt="">
+                    <img src="@if($userInfo->image) {{$userInfo->image}}  @else {{asset("/assets/home/images/default_user_img.png")}}  @endif" alt="">
                     <a href="" class="to_avt">
                         <i class="ic ic_avt_ico"></i>
                     </a>
                 </div>
-                <p>欢迎你，亲爱的 <em>工立方_0778</em>！</p>
+                <p>欢迎你，亲爱的 <em>{{$userInfo->nickname}}</em>！</p>
             </div>
             <div class="user_top_num">
                 <a href="" class="nums">
                     消息<em>0</em>
                 </a>
                 <a href="" class="nums">
-                    我的推荐<em>0</em>
-                </a>
-                <a href="" class="nums">
-                    我的收藏<em>0</em>
+                    我的收藏<em>{{$count_collect}}</em>
                 </a>
             </div>
         </div>
@@ -35,13 +32,12 @@
             <div class="s_l">
                 <div class="user_left c_border">
                     <ul class="user_left_nav">
-                        <li class="active"><a href=""><i class="ic iconfont">&#xe652;</i>消息中心</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe650;</i>我的资料</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe669;</i>提现资料</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe669;</i>工资明细</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe674;</i>我的收藏</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe651;</i>头像设置</a></li>
-                        <li><a href=""><i class="ic iconfont">&#xe63c;</i>帐号管理</a></li>
+                        <li @if($menu == 'message') class="active" @endif><a href="{{url("/home/user/message.html")}}"><i class="ic iconfont">&#xe652;</i>消息中心</a></li>
+                        <li @if($menu == 'info') class="active" @endif><a href="{{url("/home/user/info.html")}}"><i class="ic iconfont">&#xe650;</i>我的资料</a></li>
+{{--                        <li @if($menu == 'cash_out') class="active" @endif><a href="{{url("/home/user/cash_out.html")}}"><i class="ic iconfont">&#xe669;</i>提现资料</a></li>--}}
+                        <li @if($menu == 'collect') class="active" @endif><a href="{{url("/home/user/collect_recruit.html")}}"><i class="ic iconfont">&#xe674;</i>我的收藏</a></li>
+                        <li @if($menu == 'portrait') class="active" @endif><a href="{{url("/home/user/portrait.html")}}"><i class="ic iconfont">&#xe651;</i>头像设置</a></li>
+                        <li @if($menu == 'account') class="active" @endif><a href="{{url("/home/user/account.html")}}"><i class="ic iconfont">&#xe63c;</i>帐号管理</a></li>
                     </ul>
                     <div class="user_lapp">
                         <img src="{{asset("/assets/home/images/weixin.jpg")}}" alt="">

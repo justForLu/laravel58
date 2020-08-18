@@ -406,14 +406,14 @@ if (ajax_select.length) {
 }
 
 /**
- * 图片上传
+ * 头像上传
  */
-var J_upload_image = $(".J_upload_image");
-if (J_upload_image.length) {
-  J_upload_image.each(function () {
+var J_upload_portrait = $(".J_upload_portrait");
+if (J_upload_portrait.length) {
+  J_upload_portrait.each(function () {
     var picId = $(this).data('id');
     var picWidth = ($(this).data('width') == '' || $(this).data('width') == undefined) ? 640 : $(this).data('width');
-    var url = ($(this).data('url') == '' || $(this).data('url') == undefined) ? window.location.protocol + "//" + window.location.host + '/admin/file/uploadPic' : $(this).data('url');
+    var url = ($(this).data('url') == '' || $(this).data('url') == undefined) ? window.location.protocol + "//" + window.location.host + '/home/file/uploadPic' : $(this).data('url');
     var token = $(this).data('_token');
     var type = ($(this).data('type') == 'multiple') ? 'multiple' : 'single';
     var image_val = ($(this).find("input[name='image_val']").val() == undefined) ? '' : $(this).find("input[name='image_val']").val();
@@ -425,33 +425,15 @@ if (J_upload_image.length) {
     if (picId != '' && token != '') {
       var ori_image = '';
       if (image_val != '' && image_val != undefined) {
-        if (type == 'single') {
-          ori_image = '<li onclick="var delimg=$(this);var input=$(\'#' + picId + '\');layer.confirm(\'您确定要删除吗?\',{icon: 3, title:\'提示\',btn:[\'确定\',\'取消\']},function(){delimg.remove();input.val(\'\');layer.msg(\'删除成功\');},function(){});" class="weui_uploader_file weui_uploader_status" style="background-image:url(' + image_path[0][0] + ')">' +
+        ori_image = '<li onclick="var delimg=$(this);var input=$(\'#' + picId + '\');layer.confirm(\'您确定要删除吗?\',{icon: 3, title:\'提示\',btn:[\'确定\',\'取消\']},function(){delimg.remove();input.val(\'\');layer.msg(\'删除成功\');},function(){});" class="weui_uploader_file weui_uploader_status" style="background-image:url(' + image_path[0][0] + ')">' +
             '<div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>';
-        } else {
-          $.each(image_path, function () {
-            ori_image += '<li onclick="var delimg=$(this);var input=$(\'#' + picId + '\');layer.confirm(\'您确定要删除吗?\',{icon: 3, title:\'提示\',btn:[\'确定\',\'取消\']},function(){delimg.remove();var pics = input.val().split(\',\');pics.splice($.inArray(\'' + $(this)[1] + '\',pics),1);input.val(pics.join());layer.msg(\'删除成功\');},function(){});" ' +
-              'class="weui_uploader_file weui_uploader_status" style="background-image:url(' + $(this)[0] + ')">' +
-              '<div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>'
-          })
-        }
       }
 
-      if (type == 'single') {
-        var html = '<div class="weui_uploader_bd"><ul class="weui_uploader_files" id="img_' + picId + '">' + ori_image + '</ul>' +
+      var html = '<label for="file" id="upFile">上传头像</label>' +
           '<div class="weui_uploader_input_wrp">' +
           '<input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif" id="file_' + picId + '" />' +
           '<input  type="hidden"  id="' + picId + '" name="' + picId + '" value="' + image_val + '"/>' +
           '</div></div>';
-      } else {
-        var num = ($(this).data('num') == '' || $(this).data('num') == undefined) ? 5 : $(this).data('num');
-        var html = ' <div class="weui_uploader_bd">' +
-          '<ul class="weui_uploader_files" id="img_' + picId + '">' + ori_image + '</ul>' +
-          '<div class="weui_uploader_input_wrp" id="input_' + picId + '">' +
-          '<input class="weui_uploader_input" type="file" accept="image/jpg,image/jpeg,image/png,image/gif"  id="file_' + picId + '" multiple />' +
-          '<input  type="hidden"  id="' + picId + '" name="' + picId + '" value="' + image_val + '"/>' +
-          '</div></div>';
-      }
       $(this).html(html);
       var f = document.querySelector('#file_' + picId);
       f.onchange = function (e) {
@@ -468,17 +450,8 @@ if (J_upload_image.length) {
               xhr.onload = function () {
                 if (xhr.status === 200) {
                   var obj = eval('(' + xhr.responseText + ')');
-                  if (type == 'single') {
-                    $('#img_' + picId).html(
-                      '<li onclick="var delimg=$(this);var input=$(\'#' + picId + '\');layer.confirm(\'您确定要删除吗?\',{icon: 3, title:\'提示\',btn:[\'确定\',\'取消\']},function(){delimg.remove();input.val(\'\');layer.msg(\'删除成功\');},function(){});" ' +
-                      'class="weui_uploader_file weui_uploader_status" style="background-image:url(' + obj.data.path + ')">' +
-                      '<div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
-                    $("#" + picId).val(obj.data.id);
-                  } else {
-                    $('#img_' + picId).append('<li onclick="var delimg=$(this);var input=$(\'#' + picId + '\');layer.confirm(\'您确定要删除吗?\',{icon: 3, title:\'提示\',btn:[\'确定\',\'取消\']},function(){delimg.remove();var pics = input.val().split(\',\');pics.splice($.inArray(\'' + obj.data.id + '\',pics),1);input.val(pics.join());layer.msg(\'删除成功\');},function(){});" ' +
-                      'class="weui_uploader_file weui_uploader_status" style="background-image:url(' + obj.data.path + ')"><div class="weui_uploader_status_content"><i class="weui_icon_cancel"></i></div></li>');
-                    $("#" + picId).val($("#" + picId).val() + obj.data.id + ',');
-                  }
+                  $("#" + picId).val(obj.data.path);
+                  $(".portrait-cover").attr("src",obj.data.path);
                   layer.closeAll('loading');
                   layer.msg(obj.msg);
                 } else {

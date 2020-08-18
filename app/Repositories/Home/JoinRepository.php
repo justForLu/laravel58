@@ -2,17 +2,15 @@
 
 namespace App\Repositories\Home;
 
+use App\Enums\BasicEnum;
 use App\Repositories\BaseRepository;
 
-class UsersRepository extends BaseRepository
+class JoinRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Common\Users';
+        return 'App\Models\Common\Join';
     }
-
-
-
 
 
 }

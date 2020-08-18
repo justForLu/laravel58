@@ -25,9 +25,9 @@ Auth::routes();
 
 Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
 
-    Route::get('/login.html', 'LoginController@index');
+    Route::get('/login', 'LoginController@index');
     Route::post('/login', 'LoginController@login');
-    Route::get('/register.html', 'RegisterController@index');
+    Route::get('/register', 'RegisterController@index');
     Route::post('/register', 'RegisterController@register');
     Route::get('/logout', 'LoginController@logout');
 
@@ -38,19 +38,28 @@ Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
     Route::get('/shop/detail', 'ShopController@detail');
     Route::get('/news/index.html', 'NewsController@index');
     Route::get('/news/detail', 'NewsController@detail');
+    Route::get('/join/index.html', 'JoinController@index');
 
     Route::get('/smsCode', 'ImageController@smsCode');
-
+    Route::get('/get_city_list', 'CityController@get_city_list');
+    Route::post('/file/uploadPic','FileController@uploadPic');
+    Route::post('/file/uploadFile','FileController@uploadFile');
 
     Route::get('/ejectMap/{longitude}/{latitude}/{address}.html', 'EjectController@ejectMap');
 
     Route::group(['middleware' => ['home.auth']], function(){
-        Route::get('/user/message', 'UsersController@message');
-        Route::get('/user/cash_out', 'UsersController@cash_out');
-        Route::get('/user/info', 'UsersController@info');
-        Route::get('/user/collect', 'UsersController@collect');
-        Route::get('/user/portrait', 'UsersController@portrait');
-        Route::get('/user/account', 'UsersController@account');
+        Route::get('/user/message.html', 'UsersController@message');
+        Route::get('/user/cash_out.html', 'UsersController@cash_out');
+        Route::get('/user/info.html', 'UsersController@info');
+        Route::post('/user/sub_info', 'UsersController@sub_info');
+        Route::get('/user/collect_recruit.html', 'UsersController@collect_recruit');
+        Route::get('/user/collect_shop.html', 'UsersController@collect_shop');
+        Route::get('/user/portrait.html', 'UsersController@portrait');
+        Route::post('/user/sub_portrait', 'UsersController@sub_portrait');
+        Route::get('/user/account.html', 'UsersController@account');
+        Route::post('/user/sub_account_pwd', 'UsersController@sub_account_pwd');
+        Route::post('/user/sub_account_mobile', 'UsersController@sub_account_mobile');
+        Route::post('/join/join_in','JoinController@join_in');
     });
 });
 

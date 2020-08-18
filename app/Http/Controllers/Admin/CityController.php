@@ -111,7 +111,7 @@ class CityController extends BaseController
     /**
      * 获取区域id上级区域
      *
-     * @param CityRequest|Request $request
+     * @param Request|Request $request
      * @return \Illuminate\Http\Response
      */
     public function get_city_path(Request $request)

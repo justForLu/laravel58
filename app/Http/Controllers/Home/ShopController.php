@@ -18,9 +18,9 @@ class ShopController extends BaseController
     protected $recruit;
     protected $factory;
 
-    public function __construct(Request $request, Shop $shop, City $city, Recruit $recruit, Factory $factory)
+    public function __construct(Shop $shop, City $city, Recruit $recruit, Factory $factory)
     {
-        parent::__construct($request);
+        parent::__construct();
 
         $this->shop = $shop;
         $this->city = $city;

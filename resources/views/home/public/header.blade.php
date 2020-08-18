@@ -61,6 +61,9 @@
             <li>
                 <a href="{{url("/home/news/index.html")}}" @if($menu == 'News') class="cur" @endif>资讯<i class="ic_up"></i></a>
             </li>
+            <li>
+                <a href="{{url("/home/join/index.html")}}" @if($menu == 'Join') class="cur" @endif>加盟<i class="ic_up"></i></a>
+            </li>
         </ul>
         @if(isset($userInfo) && $userInfo)
             <div class="head_user">
@@ -68,15 +71,15 @@
                     <img src="@if($userInfo->image) {{$userInfo->image}}  @else {{asset("/assets/home/images/default_user_img.png")}}  @endif" alt="" class="head_avt">工立方_0778<i class="ic_down"></i>
                 </div>
                 <ul>
-                    <li><a href="{{url("/home/info")}}" rel="nofollow">个人中心</a></li>
-                    <li><a href="{{url("/home/portrait")}}" rel="nofollow">修改头像</a></li>
+                    <li><a href="{{url("/home/user/info.html")}}" rel="nofollow">个人中心</a></li>
+                    <li><a href="{{url("/home/user/portrait.html")}}" rel="nofollow">修改头像</a></li>
                     <li><a href="{{url("/home/logout")}}" rel="nofollow">退出</a></li>
                 </ul>
             </div>
         @else
             <div class="head_login">
-                <a class="btns hover" href="{{url("/home/login.html")}}" target="_blank" rel="nofollow">登录</a>
-                <a class="btns" href="{{url("/home/register.html")}}" target="_blank" rel="nofollow">注册</a>
+                <a class="btns hover" href="{{url("/home/login")}}" target="_blank" rel="nofollow">登录</a>
+                <a class="btns" href="{{url("/home/register")}}" target="_blank" rel="nofollow">注册</a>
             </div>
         @endif
     </div>

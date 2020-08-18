@@ -111,7 +111,7 @@
                 <img src="{{asset("/assets/home/images/app-ewm.png")}}" width="122" height="122"></p>
             <p>扫一扫即刻体验</p>
             <div class="reg_rfoot grey">
-                没有账号？<a href="" class="orange">立即注册</a>
+                没有账号？<a href="{{url("/home/register")}}" class="orange">立即注册</a>
                 <p class="mt_20">还可以使用以下方式登录</p>
                 <p class="reg_www mt_20">
                     <a href="">

@@ -21,9 +21,9 @@ class RecruitController extends BaseController
     protected $shop;
     protected $factory;
 
-    public function __construct(Request $request, Recruit $recruit, Label $label, Position $position, Shop $shop, Factory $factory)
+    public function __construct(Recruit $recruit, Label $label, Position $position, Shop $shop, Factory $factory)
     {
-        parent::__construct($request);
+        parent::__construct();
 
         $this->recruit = $recruit;
         $this->label = $label;

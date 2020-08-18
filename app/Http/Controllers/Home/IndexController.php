@@ -22,9 +22,9 @@ class IndexController extends BaseController
     protected $category;
     protected $news;
 
-    public function __construct(Request $request, Banner $banner, Recruit $recruit, Shop $shop, Category $category, News $news)
+    public function __construct(Banner $banner, Recruit $recruit, Shop $shop, Category $category, News $news)
     {
-        parent::__construct($request);
+        parent::__construct();
 
         $this->banner = $banner;
         $this->recruit = $recruit;

@@ -498,10 +498,10 @@ body {
 
 .uc_form .got_mark {
     width: 100px;
-    height: 38px;
-    line-height: 38px;
-    margin-left: -101px;
-    margin-top: 1px;
+    height: 37px;
+    line-height: 37px;
+    margin-left: -106px;
+    margin-top: 0px;
     background: #f8f8f8;
     text-align: center;
     display: inline-block;
@@ -1001,62 +1001,115 @@ body {
     margin-bottom: 30px;
     margin: 0 20px
 }
-
-.list_collect li {
+.list_collect li.first {
+    border-top: 0 !important;
+}
+.list_collect li.li_recruit {
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px dashed #dadbdf
 }
 
-.list_collect .last {
+.list_collect li.li_recruit .last {
     border: 0
 }
 
-.list_collect .img {
+.list_collect li.li_recruit .img {
     width: 200px;
     height: 145px;
     display: block;
     float: left
 }
 
-.list_collect img {
+.list_collect li.li_recruit img {
     display: block;
     width: 100%;
     height: 100%
 }
 
-.list_collect .con {
+.list_collect li.li_recruit .con {
     margin-left: 220px;
     line-height: 30px
 }
 
-.list_collect .names {
+.list_collect li.li_recruit .names {
     line-height: 1.5
 }
 
-.list_collect .name {
+.list_collect li.li_recruit .name {
     font-size: 16px
 }
 
-.list_collect .name:hover {
+.list_collect li.li_recruit .name:hover {
     color: #ff7325;
     text-decoration: underline
 }
 
-.list_collect .to_map {
+.list_collect li.li_recruit .to_map {
     float: right;
     color: #888
 }
 
-.list_collect .to_map i {
+.list_collect li.li_recruit .to_map i {
     margin-right: 5px;
     color: #ff7325
 }
 
-.list_collect .btn {
+.list_collect li.li_recruit .btn {
     float: right
 }
+.list_collect li.li_shop {
+    border-top: 1px solid #e6e6e6;
+    padding: 30px;
+    *padding-right: 0
+}
 
+.list_collect li.li_shop:hover {
+    background-color: #f7fdff
+}
+.list_collect li.li_shop .imgs {
+    width: 212px;
+    height: 145px;
+    float: left
+}
+
+.list_collect li.li_shop .imgs img {
+    display: block;
+    width: 100%
+}
+
+.list_collect li.li_shop .cons {
+    margin-left: 232px;
+    *float: left;
+    *margin-left: 20px
+}
+
+.list_collect li.li_shop .names {
+    margin-top: 10px
+}
+
+.list_collect li.li_shop .names h4 {
+    font-size: 18px;
+    font-weight: normal
+}
+
+.list_collect li.li_shop .to_store {
+    float: right;
+    color: #2698e4
+}
+
+.list_collect li.li_shop .des {
+    line-height: 30px;
+    margin-top: 16px
+}
+
+.list_collect li.li_shop .des .titles {
+    color: #888
+}
+
+.list_collect li.li_shop .nums {
+    color: #ff7325
+}
 .avt_sel {
     padding-top: 55px;
     padding-left: 40px

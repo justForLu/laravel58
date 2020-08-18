@@ -8,9 +8,9 @@ class EjectController extends BaseController
 {
 
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        parent::__construct($request);
+        parent::__construct();
 
 
     }

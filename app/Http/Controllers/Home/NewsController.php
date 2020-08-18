@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class NewsController extends BaseController
 {
 
-    public function __construct(Request $request)
+    public function __construct()
     {
-        parent::__construct($request);
+        parent::__construct();
 
 
         view()->share('menu','News');

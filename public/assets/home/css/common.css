@@ -675,7 +675,7 @@ h2.ztj_head{font-weight: normal;}
 .reg_getCode{ width:130px;border:1px solid #dadbdf;border-left:0; line-height:44px; text-align:center; background:#f8f8f8; color:#ff6c00;}
 .reg_getCode:hover{ background:#ff6c00; cursor:pointer; color:#fff; border-color:#ff6c00}
 .reg_tip{ color:#999}
-.reg_btn{ background:#ff6c00;color:#fff; line-height:50px; height:50px; display:block; border-radius:50px; text-align:center; width:240px;}
+.reg_btn{ background:#ff6c00;color:#fff; line-height:50px; height:50px; display:block; border-radius:50px; text-align:center; width:240px;border: none;}
 .reg_btn:hover{ background:#b94900; color:#fff;}
 .reg_right{ width:269px; border-left:1px dashed #dadbdf; height:600px; position:relative}
 .reg_rfoot{ position:absolute; left:0; bottom:30px; width:100%;}

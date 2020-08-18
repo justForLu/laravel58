@@ -12,5 +12,18 @@ class Collect extends Base
     protected $fillable = ['user_id','type','shop_id','recruit_id'];
 
 
+    /**
+     * 招工
+     */
+    public function recruit(){
+        return $this->hasOne(Recruit::class,'id','recruit_id');
+    }
+
+    /**
+     * 工厂
+     */
+    public function shop(){
+        return $this->hasOne(Shop::class,'id','shop_id');
+    }
 
 }

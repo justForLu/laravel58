@@ -12,4 +12,15 @@ class CollectRepository extends BaseRepository
     }
 
 
+    /**
+     * 获取收藏数量
+     * @param array $where
+     * @return mixed
+     */
+    public function getCollectCount($where = [])
+    {
+        $count = $this->model->where($where)->count();
+
+        return $count;
+    }
 }

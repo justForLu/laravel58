@@ -37,4 +37,17 @@ class FactoryRepository extends BaseRepository
 
         return $list;
     }
+
+
+    /**
+     * 根据ID获取工厂信息
+     * @param int $id
+     * @return mixed
+     */
+    public function getById($id = 0)
+    {
+        $data = $this->model->find($id);
+
+        return $data;
+    }
 }
