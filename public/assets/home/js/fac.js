@@ -31,7 +31,8 @@ function tabInit(a, b, act, callback) {
 	}
 
 function initMap() {
-
+    var longitude = $("#fac_maps").data("longitude");
+    var latitude = $("#fac_maps").data("latitude");
     // 百度地图API功能
     var map = new BMap.Map("fac_maps");
     map.enableScrollWheelZoom(true); //滚动鼠标可缩放
@@ -192,4 +193,57 @@ $(document).ready(function () {
             $(this).addClass('hover');
         });
     }
+    /*提问*/
+    var ask_layer;
+    $(document).on('click', '.btn_ask_layer', function (event) {
+        event.preventDefault();
+        ask_layer = layer.open({
+            type: 1,
+            title: "我要提问",
+            area: ['800px', 'auto'],
+            content: $('#wybm'),
+            success: function (layero, index) {}
+        });
+    });
+    $("#layer_ask").on('click', '.btn_b', function (event) {
+        event.preventDefault();
+        layer.close(join_ask);
+    });
 });
+
+//收藏
+function collect_func () {
+    var type = $("#collect").data("type");
+    var user_id = $("#collect").data("userid");
+    var id = $("#collect").data("id");
+    var is_collect = $("#collect").data("collect");
+    var _token = "{{ csrf_token() }}";
+    var add_cal = '';
+    if(is_collect){
+        add_cal = "cal";
+    }else{
+        add_cal = "add";
+    }
+
+    $.post("/home/collect/collect",{type:type,user_id:user_id,id:id,add_cal:add_cal,_token:_token},
+        function (data) {
+            if(data.status == 200){
+                layer.msg(data.msg);
+                if(add_cal == 'add'){
+                    $("#collect").addClass("btn_collect hover");
+                    $(".collect-info").html("取消收藏");
+                }else if(add_cal == 'cal'){
+                    $("#collect").addClass("btn_collect");
+                    $(".collect-info").html("收藏");
+                }
+            }else {
+                layer.msg(data.msg,{
+                    time:1000,
+                    end:function () {
+                        location.href = data.referrer
+                    }
+                })
+            }
+        }
+    );
+}

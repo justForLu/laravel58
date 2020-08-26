@@ -653,7 +653,7 @@
 }
 
 .fac_maps .con .titles {
-    float: left;
+    /*float: left;*/
     margin-left: -70px
 }
 
@@ -1255,7 +1255,7 @@
 }
 
 .fac_top_acts .ic {
-    margin-right: 6px
+    margin-right: 1px
 }
 
 .fac_top_acts .ich {
@@ -1817,7 +1817,8 @@ h3.title2 .line {
 }
 
 .fac_quelist {
-    padding-top: 15px
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .fac_quelist_more {
@@ -1904,7 +1905,7 @@ h3.title2 .line {
 }
 
 .fac_queitem .fac_que1 {
-    padding-bottom: 20px
+    padding-bottom: 60px
 }
 
 #btn_share {

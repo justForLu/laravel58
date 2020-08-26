@@ -629,7 +629,7 @@
                         <input type="text" name="years" id="workyear" value="">
                         <i>年</i>
                     </div>
-                    <button type="button" id="submit_btn" class="J_ajax_submit_btn">马上预约 &gt;</button>
+                    <button type="submit" class="J_ajax_submit_btn">马上预约 &gt;</button>
                 </form>
             </div>
             <div class="right">

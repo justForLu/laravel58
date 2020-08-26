@@ -9,7 +9,7 @@ class Enroll extends Base
     // 报名表
     protected $table = 'enroll';
 
-    protected $fillable = ['recruit_id','user_id','name','mobile'];
+    protected $fillable = ['type','factory_id','recruit_id','user_id','name','mobile','shop_id','status'];
 
 
 

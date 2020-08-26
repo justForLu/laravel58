@@ -12,5 +12,9 @@ class Question extends Base
     protected $fillable = ['recruit_id','shop_id','type','title','user_id','is_show','status','sort'];
 
 
+    public function user()
+    {
+        return $this->hasOne(Users::class,'id','user_id');
+    }
 
 }

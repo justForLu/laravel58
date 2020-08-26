@@ -8,7 +8,7 @@
     <div class="breadcrumb">
         <ul class="section">
             <li>您现在的位置：</li>
-            <li><a href="#">首页</a> <span class="divider">></span></li>
+            <li><a href="{{url("/home/index.html")}}">首页</a> <span class="divider">></span></li>
             <li class="active">找门店</li>
         </ul>
     </div>

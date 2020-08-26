@@ -63,7 +63,7 @@
                                         <img src="{{$v->factory['image']}}" alt="{{$v->factory['name']}}"></a>
                                     <div class="con">
                                         <p class="names">
-                                            <a href="" class="name">{{$v->factory['name']}}</a>
+                                            <a href="{{url("/home/recruit/detail/".$v->recruit['id'].".html")}}" class="name">{{$v->factory['name']}}</a>
                                             <a href="javascript:largeMap('{{$v->factory['longitude']}}', '{{$v->factory['latitude']}}', '{{$v->factory['address']}}')" class="to_map"><i class="iconfont"></i>电子地图</a>
                                         </p>
                                         <p>

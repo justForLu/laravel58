@@ -9,7 +9,7 @@
     <div class="breadcrumb">
         <ul class="section">
             <li>您现在的位置：</li>
-            <li><a href="">首页</a> <span class="divider">&gt;</span></li>
+            <li><a href="{{url("/home/index.html")}}">首页</a> <span class="divider">&gt;</span></li>
             <li class="active">找工作</li>
         </ul>
     </div>
@@ -104,7 +104,7 @@
                             <div class="cons">
                                 <div class="names">
                                     <span class="prices"><em>{{$data->salary_up}}-{{$data->salary_down}}</em>元/月</span>
-                                    <h4><a href="" target="_blank">{{$data->title}}</a></h4>
+                                    <h4><a href="{{url("/home/recruit/detail/".$data->id.".html")}}" target="_blank">{{$data->title}}</a></h4>
                                 </div>
                                 <p class="des">
                                     <a href="javascript:largeMap(&#39;{{$data->factory->longitude}}&#39;, &#39;{{$data->factory->latitude}}&#39;, &#39;{{$data->factory->address}}&#39;)" class="to_map">

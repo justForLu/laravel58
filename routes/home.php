@@ -33,12 +33,14 @@ Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
 
     Route::get('/index.html', 'IndexController@index');
     Route::get('/recruit/index.html', 'RecruitController@index');
-    Route::get('/recruit/detail', 'RecruitController@detail');
+    Route::get('/recruit/detail/{id}.html', 'RecruitController@detail');
     Route::get('/shop/index.html', 'ShopController@index');
-    Route::get('/shop/detail', 'ShopController@detail');
+    Route::get('/shop/detail/{id}.html', 'ShopController@detail');
     Route::get('/news/index.html', 'NewsController@index');
-    Route::get('/news/detail', 'NewsController@detail');
+    Route::get('/news/detail/{id}.html', 'NewsController@detail');
     Route::get('/join/index.html', 'JoinController@index');
+    Route::post('/enroll/sign_up','EnrollController@sign_up');
+    Route::post('/question/ask','QuestionController@ask');
 
     Route::get('/smsCode', 'ImageController@smsCode');
     Route::get('/get_city_list', 'CityController@get_city_list');
@@ -60,6 +62,7 @@ Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
         Route::post('/user/sub_account_pwd', 'UsersController@sub_account_pwd');
         Route::post('/user/sub_account_mobile', 'UsersController@sub_account_mobile');
         Route::post('/join/join_in','JoinController@join_in');
+        Route::post('/collect/collect','CollectController@collect');
     });
 });
 

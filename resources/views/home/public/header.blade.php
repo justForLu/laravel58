@@ -68,7 +68,7 @@
         @if(isset($userInfo) && $userInfo)
             <div class="head_user">
                 <div class="users">
-                    <img src="@if($userInfo->image) {{$userInfo->image}}  @else {{asset("/assets/home/images/default_user_img.png")}}  @endif" alt="" class="head_avt">工立方_0778<i class="ic_down"></i>
+                    <img src="@if($userInfo->image) {{$userInfo->image}}  @else {{asset("/assets/home/images/default_user_img.png")}}  @endif" alt="" class="head_avt">{{$userInfo->nickname}}<i class="ic_down"></i>
                 </div>
                 <ul>
                     <li><a href="{{url("/home/user/info.html")}}" rel="nofollow">个人中心</a></li>

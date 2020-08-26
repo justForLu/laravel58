@@ -22,7 +22,14 @@ class HomeAuthenticate
     {
         if (Auth::guard('home')->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
-                return response('Unauthorized.', 401);
+                $ajaxData = array();
+
+                $ajaxData['status'] = 'success';
+                $ajaxData['msg'] = '请先登录';
+                $ajaxData['code'] = '300';
+                $ajaxData['referrer'] = url('/home/login');
+
+                return response()->json($ajaxData);
             } else {
                 return redirect()->guest('home/login');
             }

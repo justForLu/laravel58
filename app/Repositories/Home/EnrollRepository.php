@@ -12,4 +12,15 @@ class EnrollRepository extends BaseRepository
     }
 
 
+    /**
+     * 获取报名数量
+     * @param array $where
+     * @return mixed
+     */
+    public function getCount($where = [])
+    {
+        $count = $this->model->where($where)->count();
+
+        return $count;
+    }
 }

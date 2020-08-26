@@ -23,4 +23,22 @@ class CollectRepository extends BaseRepository
 
         return $count;
     }
+
+    /**
+     * 取消收藏
+     * @param array $where
+     * @return int
+     */
+    public function cancelCollect($where = [])
+    {
+        if($where){
+            $result = $this->model->where($where)->delete();
+        }else{
+            return -1;
+        }
+
+        return $result;
+    }
+
+
 }

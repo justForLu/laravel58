@@ -5,25 +5,24 @@ namespace App\Repositories\Home;
 use App\Enums\BasicEnum;
 use App\Repositories\BaseRepository;
 
-class AnswerRepository extends BaseRepository
+class ShopRecruitRepository extends BaseRepository
 {
     public function model()
     {
-        return 'App\Models\Common\Answer';
+        return 'App\Models\Common\ShopRecruit';
     }
 
 
     /**
-     * 获取回答列表（无分页）
+     * 获取列表
      * @param array $where
      * @return array
      */
     public function getList($where = [])
     {
         $list = $this->model->where($where)
-            ->where('status',BasicEnum::ACTIVE)
-            ->orderBy('sort','DESC')
             ->get()->toArray();
+
 
         return $list;
     }

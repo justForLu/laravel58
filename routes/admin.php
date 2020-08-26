@@ -54,5 +54,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function (){
         Route::resource('/shop', 'ShopController');
         Route::resource('/users', 'UsersController');
         Route::resource('/factory', 'FactoryController');
+        Route::resource('/join', 'JoinController');
     });
 });
