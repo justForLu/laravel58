@@ -64,6 +64,18 @@ class ShopController extends BaseController
         $this->shop->pushCriteria(new ShopCriteria($params));
 
         $list = $this->shop->paginate(Config::get('home.page_size',10));
+        if ($list){
+            //处理招聘企业
+            foreach ($list as &$val){
+                $where1 = [
+                    'shop_id' => $val['id']
+                ];
+
+                $factory_name = $this->shop_recruit->getShopFactory($where1);
+
+                $val['factory_name'] = implode('，',$factory_name);
+            }
+        }
 
         //省份
         $where2['parent'] = 0;

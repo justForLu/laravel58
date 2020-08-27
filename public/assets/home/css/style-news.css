@@ -427,7 +427,7 @@
 
 .ne_rhot p {
     padding-top: 5px;
-    height: 47px
+    height: 90px
 }
 
 .ne_nav {
@@ -558,10 +558,10 @@
 }
 
 .ne_i_hot {
-    width: 474px;
+    /*width: 474px;*/
     height: 450px;
     padding-top: 10px;
-    float: right;
+    /*float: right;*/
     background: #fff;
     font-size: 16px;
     color: #666
@@ -820,7 +820,8 @@
 
 .neix_c {
     float: left;
-    width: 420px
+    /*width: 420px;*/
+    padding-left: 30px;
 }
 
 .neix_r {
@@ -880,6 +881,10 @@
     padding-top: 5px;
     height: 47px;
     overflow: hidden
+}
+
+.neix_img a img {
+    width: 100%;
 }
 
 .neix_img .first {

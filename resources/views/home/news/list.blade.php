@@ -5,56 +5,59 @@
 @endsection
 
 @section('content')
+    <div class="wrap ne_nav">
+        <div class="section clearfix">
+            <dl>
+                <dt>
+                    <i class="ic ic_n_type1"></i>
+                    <a href="" >资讯</a>
+                </dt>
+                @if($category)
+                    @foreach($category as $cat)
+                        <dd>
+                            <a href="{{url("/home/news/list.html?category_id=".$cat['id'])}}" @if($cat['id'] == $category_id) class="active" @endif >{{$cat['name']}}</a>
+                        </dd>
+                    @endforeach
+                @endif
+            </dl>
+        </div>
+    </div>
+
     <div class="breadcrumb">
         <ul class="section">
             <li>您现在的位置：</li>
             <li><a href="{{url("/home/index.html")}}">首页</a> <span class="divider">&gt;</span></li>
-            <li><a href="{{url("/home/news/index.html")}}">资讯</a> <span class="divider">&gt;</span></li>
-            <li><a href="{{url("/home/news/list.html?category_id=".$category_id)}}">{{$category_name}}</a> <span class="divider">&gt;</span></li>
-            <li class="active">资讯详情</li>
+            <li><a href="{{url("/home/news/index.html")}}">资讯</a> <span class="divider">&gt;</span></li><li class="active">{{$category_name}}</li>
         </ul>
     </div>
+
     <div class="wrap wrap_news">
         <div class="section clearfix">
             <div class="ne_fl">
-                <div class="ne_pg_main">
-                    <div class="ne_pg">
-                        <div class="ne_pg_title">
-                            <h2>{{$data->title}}</h2>
-                            <p><span>浏览次数：{{$data->read}}次</span><span>发布时间：{{$data->create_time}}</span><span>编辑：{{$data->author}}</span></p>
-                        </div>
-                        <div class="ne_pg_con">
-                            <?php echo $data->content ?>
-                        </div>
-                    </div>
+
+                <div class="ne_xlist_main">
+                    <ul class="ne_xlist">
+                        @if($list)
+                            @foreach($list as $data)
+                                <li>
+                                    <a href="{{url("/home/news/detail/".$data->id.".html")}}" class="imgs">
+                                        <img src="{{$data->image}}" alt="{{$data->title}}"></a>
+                                    <div class="cons">
+                                        <h3><a href="{{url("/home/news/detail/".$data->id.".html")}}">{{$data->title}}</a></h3>
+                                        <p></p>
+                                        <span class="times"><i class="ic ic_ne_time"></i>{{$data->create_time}}</span>
+                                    </div>
+                                </li>
+                            @endforeach
+                        @endif
+                    </ul>
+                    @include('home.public.pages')
                 </div>
-                <div class="ne_pg_recom ne_recom">
-                    <div class="fac_title">
-                        <i class="line"></i>
-                        <h3>相关文章推荐</h3>
-                    </div>
-                    <div class="ne_pg_recom_main">
-                        <ul class="neix_txt">
-                            @if($news_1)
-                                @foreach($news_1 as $news1)
-                                    <li>
-                                        <a href="{{url("/home/news/detail/".$news1['id'].".html")}}">
-                                            <span class="times">{{$news1['date']}}</span>
-                                            <i class="ic_dot"></i>{{$news1['title']}}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                </div>
+
             </div>
             <div class="ne_fr">
                 <div class="ne_rhot ne_rmain">
-                    <div class="ner_title">
-                        <i class="ic_line ic_ner_t"></i>
-                        <h3>热门文章</h3>
-                    </div>
+                    <div class="ner_title"><i class="ic_line ic_ner_t"></i><h3>热门文章</h3></div>
                     <ul class="ne_rhot_list clearfix">
                         @if($news_2)
                             @foreach($news_2 as $news2)
@@ -100,7 +103,6 @@
 @endsection
 
 @section('scripts')
-    <script src="{{asset("/assets/home/js/tvp.player_v2_jq.js")}}"></script>
     <script src="{{asset("/assets/home/js/news.js")}}"></script>
 @endsection
 

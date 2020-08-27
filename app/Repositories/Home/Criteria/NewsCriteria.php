@@ -19,7 +19,13 @@ class NewsCriteria extends Criteria {
      */
     public function apply($model, Repository $repository)
     {
+        if (isset($this->conditions['category_id']) && !empty($this->conditions['category_id'])){
+            $model = $model->where('category_id', $this->conditions['category_id']);
+        }
 
+        $model = $model->orderBy('is_top','DESC');
+        $model = $model->orderBy('is_recommend','DESC');
+        $model = $model->orderBy('sort','ASC');
         $model = $model->orderBy('id','ASC');
 
         return $model;

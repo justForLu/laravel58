@@ -81,7 +81,7 @@
                                     </div>
                                     <p class="des">
                                         <span class="titles">招聘岗位：</span><em class="nums">{{$v['job_num']}}</em>个<br><span
-                                                class="titles">招聘企业：</span><span class="tp">招聘企业</span><br>
+                                                class="titles">招聘企业：</span><span class="tp">{{$v['factory_name']}}</span><br>
                                         <span class="titles">门店地址：</span>{{$v['address']}} </p>
                                 </div>
                             </li>

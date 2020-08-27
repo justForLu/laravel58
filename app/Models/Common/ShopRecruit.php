@@ -9,7 +9,7 @@ class ShopRecruit extends Base
     // 门店
     protected $table = 'shop_recruit';
 
-    protected $fillable = ['shop_id','recruit_id'];
+    protected $fillable = ['shop_id','recruit_id','factory_id'];
     
 
 }
