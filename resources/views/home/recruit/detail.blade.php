@@ -418,8 +418,6 @@
     <script src="{{asset("/assets/home/js/hm.js")}}"></script>
     <script src="{{asset("/assets/home/js/push.js")}}"></script>
     <script src="{{asset("/assets/home/js/fac.js")}}"></script>
-
-
 @endsection
 
 

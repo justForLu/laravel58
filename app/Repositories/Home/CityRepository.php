@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Home;
 
+use App\Enums\BasicEnum;
 use App\Repositories\BaseRepository;
 
 class CityRepository extends BaseRepository
@@ -40,7 +41,7 @@ class CityRepository extends BaseRepository
         return $data;
     }
     public function getCityList($params){
-        return $this->model->where($params)->orderBy('sort','DESC')->orderBy('id','ASC')->get()->toArray();
+        return $this->model->where($params)->where('status', BasicEnum::ACTIVE)->orderBy('sort','DESC')->orderBy('id','ASC')->get()->toArray();
     }
     public static function getCityName($id){
         return City::where('id',$id)->pluck('title');

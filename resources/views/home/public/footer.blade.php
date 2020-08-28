@@ -52,7 +52,7 @@
     </div>
     <div class="section clearfix">
         <div class="ft_logo">
-            <img src="{{asset("/assets/home/images/logo_f.png")}}" alt="濮阳打工网"/>
+            <img src="{{asset("/assets/home/images/logo_f.png")}}" alt="本职工作网"/>
         </div>
         <ul class="ft_links">
             <li class="first">
@@ -94,13 +94,13 @@
         <ul class="ft_mark">
             <li>
                 <div class="img">
-                    <img src="{{asset("/assets/home/images/app-ewm.png")}}" alt="濮阳打工网APP"/>
+                    <img src="{{asset("/assets/home/images/app-ewm.png")}}" alt="本职工作网APP"/>
                 </div>
                 <p>APP下载</p>
             </li>
             <li class="last">
                 <div class="img">
-                    <img src="{{asset("/assets/home/images/weixin.jpg")}}" alt="濮阳打工网微信"/></div>
+                    <img src="{{asset("/assets/home/images/weixin.jpg")}}" alt="本职工作网微信"/></div>
                 <p>微信公众号</p>
             </li>
         </ul>
@@ -136,8 +136,8 @@
             <i class="ic_tool_mark"></i>
         </a>
         <span class="marks">
-            <img src="{{asset("/assets/home/images/app-ewm.png")}}" width="150px" height="150px" alt="濮阳打工网APP"/>
-            <p>下载“濮阳打工网APP”，随时随地轻松查询！</p>
+            <img src="{{asset("/assets/home/images/app-ewm.png")}}" width="150px" height="150px" alt="本职工作网APP"/>
+            <p>下载“本职工作网APP”，随时随地轻松查询！</p>
             <i class="ic_right"></i>
         </span>
     </div>

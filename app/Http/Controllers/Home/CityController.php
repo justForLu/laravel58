@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use App\Repositories\Home\CityRepository as City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CityController extends BaseController
 {
@@ -84,5 +85,26 @@ class CityController extends BaseController
         }else{
             return $cityArr;//返回数组
         }
+    }
+
+    /**
+     * 切换城市
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function changeCity(Request $request)
+    {
+        $params = $request->all();
+
+        $city_id = $params['city_id'] ?? 0;
+
+        $city_info = $this->city->find($city_id);
+
+        $city_info = ['id' => $city_info->id, 'province_id' => $city_info->parent, 'title' => $city_info->title];
+
+        Session::put('city_info', $city_info);
+        Session::save();
+
+        return response()->json($city_info);
     }
 }

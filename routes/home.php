@@ -45,6 +45,7 @@ Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
 
     Route::get('/smsCode', 'ImageController@smsCode');
     Route::get('/get_city_list', 'CityController@get_city_list');
+    Route::get('/changeCity', 'CityController@changeCity');
     Route::post('/file/uploadPic','FileController@uploadPic');
     Route::post('/file/uploadFile','FileController@uploadFile');
 

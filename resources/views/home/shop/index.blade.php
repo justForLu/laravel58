@@ -18,22 +18,24 @@
                 <span class="titles">搜索服务门店</span>
                 <div class="fac_filter_search">
                     <form id="search_form" action="{{url("/home/shop/index.html")}}" method="get">
-                        <input type="text" placeholder="请输入搜索关键字" name="keyword" value="">
+                        <input type="hidden" name="province_id" class="province_id" value="@if(isset($params['province_id']) && !empty($params['province_id'])) {{$params['province_id']}} @else 0 @endif">
+                        <input type="hidden" name="city_id" class="city_id" value="@if(isset($params['city_id']) && !empty($params['city_id'])) {{$params['city_id']}} @else 0 @endif">
+                        <input type="text" placeholder="请输入搜索关键字" name="keyword" value="@if(isset($params['keyword']) && !empty($params['keyword'])) {{$params['keyword']}}@endif">
                         <button type="submit" class="btn btn_orange btn_b">搜　索</button>
                     </form>
                 </div>
             </div>
-            <dl class="lists first">
-                <dt class="titles">地区选择：</dt>
+            <dl class="lists first province_list">
+                <dt class="titles">省份选择：</dt>
                 <dd>
                     <label>
-                        <input type="radio" checked class="province" name="province" value="0">
+                        <input type="radio" checked class="province" name="province" @if(!isset($params['province_id']) || $params['province_id'] == 0) checked @endif value="0" >
                         <div>不限</div>
                     </label>
                     @if($province)
                         @foreach($province as $v)
                             <label>
-                                <input type="radio" class="province" name="province" value="{{$v['id']}}">
+                                <input type="radio" class="province" name="province" @if(isset($params['province_id']) && $params['province_id'] == $v['id']) checked @endif value="{{$v['id']}}">
                                 <div>{{$v['title']}}</div>
                             </label>
                         @endforeach
@@ -41,17 +43,17 @@
                 </dd>
             </dl>
             <!-- 根据站点获得一个默认城市列表 -->
-            <dl class="lists">
+            <dl class="lists city_list">
                 <dt class="titles">城市选择：</dt>
                 <dd>
                     <label>
-                        <input type="radio" checked class="city" name="city" value="0">
+                        <input type="radio" checked class="city" name="city" @if(!isset($params['city_id']) || $params['city_id'] == 0) checked @endif value="0">
                         <div>不限</div>
                     </label>
                     @if($city)
                         @foreach($city as $v)
                             <label>
-                                <input type="radio" class="city" name="city" value="{{$v['id']}}">
+                                <input type="radio" class="city" name="city" @if(isset($params['city_id']) && $params['city_id'] == $v['id']) checked @endif value="{{$v['id']}}">
                                 <div>{{$v['title']}}</div>
                             </label>
                         @endforeach
@@ -217,6 +219,23 @@
 @section('scripts')
     <script src="{{asset("/assets/home/js/fac.js")}}"></script>
     <script src="{{asset("/assets/home/js/push.js")}}"></script>
+    <script type="text/javascript">
+        //选择地区
+        $(".province").on('click',function () {
+            var province = $("input[name='province']:checked").val();
+            $(".province_id").val(province);
+            var url = "/home/shop/index.html?province_id="+province;
+            window.location.href = url;
+        });
+        $(".city").on('click',function () {
+            var province = $("input[name='province']:checked").val();
+            var city = $("input[name='city']:checked").val();
+            $(".province_id").val(province);
+            $(".city_id").val(city);
+            var url = "/home/shop/index.html?province_id="+province+"&city_id="+city;
+            window.location.href = url;
+        });
+    </script>
 @endsection
 
 

@@ -258,9 +258,6 @@
 @section('scripts')
     <script src="{{asset("/assets/home/js/fac.js")}}"></script>
     <script type="text/javascript">
-
-
-
         //排行榜样式调整
         $("#fac_rank>li>a").hover(function(){
             $("#fac_rank>li>a").removeClass();

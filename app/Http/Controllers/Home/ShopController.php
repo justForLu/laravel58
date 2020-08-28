@@ -60,6 +60,11 @@ class ShopController extends BaseController
 	public function index(Request $request)
     {
         $params = $request->all();
+        if($params){
+            foreach ($params as &$param){
+                $param = trim($param);
+            }
+        }
 
         $this->shop->pushCriteria(new ShopCriteria($params));
 
@@ -82,7 +87,7 @@ class ShopController extends BaseController
         $province = $this->city->getCityList($where2);
 
         //默认城市（默认河南）
-        $where3['parent'] = 10;   //河南的ID是10
+        $where3['parent'] = isset($params['province_id']) && $params['province_id'] > 0 ? $params['province_id'] : 10;   //河南的ID是10
         $city = $this->city->getCityList($where3);
 
         //大家想去
@@ -111,7 +116,7 @@ class ShopController extends BaseController
         }
 
 
-        return view('home.shop.index',compact('list','province','city','recruit','shop','recruit_hot','factory_top'));
+        return view('home.shop.index',compact('params','list','province','city','recruit','shop','recruit_hot','factory_top'));
     }
 
 

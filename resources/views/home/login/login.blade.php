@@ -105,7 +105,7 @@
         </div>
 
         <div class="right reg_right ta_center">
-            <p class="mt_50 orange bold font_18">下载濮工网APP</p>
+            <p class="mt_50 orange bold font_18">下载本职工作网APP</p>
             <p>手机报名 入职速度快50%</p>
             <p class="mt_20">
                 <img src="{{asset("/assets/home/images/app-ewm.png")}}" width="122" height="122"></p>
