@@ -42,12 +42,12 @@
                     <span class="quick_ico ico2"></span><i>去咨询</i>
                 </a>
             </li>
-{{--            <li>--}}
-{{--                <a href="" id="btn_join_layer">--}}
-{{--                    <em>报名有奖</em>报名入职有大奖<br>在线报名还能领取现金大奖--}}
-{{--                    <span class="quick_ico ico3"></span><i>我要报名</i>--}}
-{{--                </a>--}}
-{{--            </li>--}}
+            <li>
+                <a href="javascript:void(0);" id="btn_join_layer">
+                    <em>报名有奖</em>报名入职有大奖<br>在线报名还能领取现金大奖
+                    <span class="quick_ico ico3"></span><i>我要报名</i>
+                </a>
+            </li>
 {{--            <li><a href="" id="btn_recom_layer">--}}
 {{--                    <em>推荐有奖</em>推荐好友入职有大奖<br>单笔最高奖2000元，累计奖金无上限--}}
 {{--                    <span class="quick_ico ico4"></span><i>我来推荐</i>--}}
@@ -209,11 +209,53 @@
             </div>
         </div>
     </div>
+
+    <div style="height:0;overflow:hidden;">
+        <div class="layer_join layers" id="layer_join">
+            <p style="text-align: right">
+                <span class="close_join" style="padding: 8px; color: #999;">关闭</span>
+            </p>
+            <p class="to_login">
+                <a href="{{url("/home/login")}}">我是会员>></a>
+            </p>
+            <form action="{{url("/home/enroll/sign_up")}}" class="form form-horizontal J_ajaxForm">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="type" value="2" />
+                <input type="hidden" name="user_id" value="{{$user_id}}" />
+                <div class="form-item">
+                    <label class="form-label" for="">姓名：</label>
+                    <div class="form-field">
+                        <input type="text" placeholder="请输入您的姓名" style="width: 60%;border: 1px solid #dadbdf;padding: 4px;height: 35px;line-height: 35px;border-radius: 4px;" name="name">
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label class="form-label" for="">电话：</label>
+                    <div class="form-field">
+                        <input type="text" placeholder="请输入您的联系电话" style="width: 60%;border: 1px solid #dadbdf;padding: 4px;height: 35px;line-height: 35px;border-radius: 4px;"  name="mobile">
+                    </div>
+                </div>
+
+                <div class="form-item">
+                    <button type="submit" class="btn btn_b btn_orange J_ajax_submit_btn">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
 @endsection
 
 @section('scripts')
     <script src="{{asset("/assets/home/js/index.js")}}"></script>
     <script src="{{asset("/assets/home/js/tvp.player_v2_jq.js")}}"></script>
+    <script type="text/javascript">
+        $("#btn_join_layer").click(function () {
+            $("#layer_join").css({"position": "fixed","bottom": "400px","left": "30%","background-color": "#fff","z-index": 99999999,"width": "40%","display":"block"});
+        });
+        $(".close_join").click(function () {
+            $("#layer_join").hide();
+            $(".layui-layer-shade").removeAttr("style");
+            $(".layui-layer-shade").removeAttr("class");
+        });
+    </script>
 @endsection
 
 

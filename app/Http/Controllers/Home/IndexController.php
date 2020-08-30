@@ -41,6 +41,7 @@ class IndexController extends BaseController
      */
 	public function index()
     {
+        $user_id = isset($this->userInfo->id) ? $this->userInfo->id : 0;
         //banner图
         $where1['type'] = BannerEnum::INDEX;
         $banner_arr = $this->banner->getList($where1);
@@ -76,7 +77,7 @@ class IndexController extends BaseController
         $news_arr2 = $this->news->getList('*',$where6,10);
 
         return view('home.index.index', compact('banner_arr','recruit_arr','recommend_arr','shop_arr',
-            'news_arr1','news_arr2','category_name2'));
+            'news_arr1','news_arr2','category_name2','user_id'));
     }
 
 }

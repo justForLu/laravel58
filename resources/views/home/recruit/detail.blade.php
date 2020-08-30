@@ -324,7 +324,7 @@
                     </script>
                     <div class="fac_maps">
                         <h4>工厂在哪？</h4>
-                        <div id="fac_maps" style="height: 190px;"></div>
+                        <div id="fac_maps" data-longitude="{{$data->factory->longitude}}" data-latitude="{{$data->factory->latitude}}" style="height: 190px;"></div>
                         <div class="con">
                             <p><span class="titles">企业位置：</span>{{$data->factory->address}}</p>
                             <p><span class="titles">乘车路线：</span>{{$data->factory->bus_line}}</p>
@@ -379,35 +379,32 @@
         </div>
     </div>
     <div style="height:0;overflow:hidden;">
-        <!--我要报名和工友推荐弹窗begin-->
-        <div id="wybm" class="layer_join layers">
-            <p class="to_login">
-                <a href="">我是会员>></a>
+        <div class="layer_join layers" id="layer_join">
+            <p style="text-align: right">
+                <span class="close_join" style="padding: 8px; color: #999;">关闭</span>
             </p>
-            <form action="" class="form form-horizontal" id="signup">
-                <input type="hidden" name="type" value="1" /><!-- 入口类型 -->
-                <input type="hidden" name="type_id" value="10011" /><!-- 公司ID -->
-                <input type="hidden" name="type_name" value="联滔电子（昆山）有限公司" /><!-- 公司名称 -->
-                <div class="form-item">
-                    <label class="form-label" for="">意向企业：</label>
-                    <div class="form-field form-field_txt">
-                        <input type="hidden" name="comp_old" value="联滔电子（昆山）有限公司" class="reg_input" disabled style="width:200px">联滔电子（昆山）有限公司
-                    </div>
-                </div>
+            <p class="to_login">
+                <a href="{{url("/home/login")}}">我是会员>></a>
+            </p>
+            <form action="{{url("/home/enroll/sign_up")}}" class="form form-horizontal J_ajaxForm">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="type" value="2" />
+                <input type="hidden" name="user_id" value="{{$user_id}}" />
                 <div class="form-item">
                     <label class="form-label" for="">姓名：</label>
                     <div class="form-field">
-                        <input type="text" placeholder="请输入您的姓名" class="form-text" name="user_name">
+                        <input type="text" placeholder="请输入您的姓名" style="width: 60%;border: 1px solid #dadbdf;padding: 4px;height: 35px;line-height: 35px;border-radius: 4px;" name="name">
                     </div>
                 </div>
                 <div class="form-item">
                     <label class="form-label" for="">电话：</label>
                     <div class="form-field">
-                        <input type="text" placeholder="请输入您的联系电话" class="form-text" name="mobile" id="inputMobile">
+                        <input type="text" placeholder="请输入您的联系电话" style="width: 60%;border: 1px solid #dadbdf;padding: 4px;height: 35px;line-height: 35px;border-radius: 4px;"  name="mobile">
                     </div>
                 </div>
+
                 <div class="form-item">
-                    <a href="javascript:signup()" class="btn btn_b btn_orange">确定</a>
+                    <button type="submit" class="btn btn_b btn_orange J_ajax_submit_btn">确定</button>
                 </div>
             </form>
         </div>
@@ -418,6 +415,16 @@
     <script src="{{asset("/assets/home/js/hm.js")}}"></script>
     <script src="{{asset("/assets/home/js/push.js")}}"></script>
     <script src="{{asset("/assets/home/js/fac.js")}}"></script>
+    <script type="text/javascript">
+        $("#btn_join_layer1").click(function () {
+            $("#layer_join").css({"position": "fixed","bottom": "400px","left": "30%","background-color": "#fff","z-index": 99999999,"width": "40%","display":"block"});
+        });
+        $(".close_join").click(function () {
+            $("#layer_join").hide();
+            $(".layui-layer-shade").removeAttr("style");
+            $(".layui-layer-shade").removeAttr("class");
+        });
+    </script>
 @endsection
 
 

@@ -54,6 +54,11 @@ class RecruitController extends BaseController
 	public function index(Request $request)
     {
         $params = $request->all();
+        if($params){
+            foreach ($params as &$param){
+                $param = trim($param);
+            }
+        }
 
         $this->recruit->pushCriteria(new RecruitCriteria($params));
 
@@ -115,7 +120,7 @@ class RecruitController extends BaseController
         //最近浏览职位（可把最近浏览职位存到Redis里，从Redis里取数据）
 
 
-        return view('home.recruit.index',compact('list','params','position','label','recruit','shop',
+        return view('home.recruit.index',compact('params','list','params','position','label','recruit','shop',
             'recruit_hot','factory_top'));
     }
 
@@ -131,7 +136,6 @@ class RecruitController extends BaseController
     {
         $params = $request->all();
         $shop_id = isset($params['shop_id']) && !empty($params['shop_id']) ? $params['shop_id'] : 0;
-
 
         //招工信息
         $data = $this->recruit->with(array('factory'))->find($id);
