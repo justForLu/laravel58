@@ -13,7 +13,7 @@
                     <div class="box-body">
                         <div class="form-horizontal col-sm-10"  style="margin:10px 20px;">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" name="parent" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="parent" value="{{ Auth::guard('admin')->user()->id }}">
                         <div class="form-group">
                             <label for="username" class="col-sm-3 control-label">用户名</label>
                             <div class="col-sm-8">

@@ -108,7 +108,7 @@ class NewsController extends BaseController
             'category_id' => $params['category_id'] ?? 0,
             'desc' => $params['desc'] ?? '',
             'image' => $image_path,
-            'author' => Auth::user()->id,
+            'author' => Auth::guard('admin')->user()->id,
             'sort' => $params['sort'] ?? 0,
             'status' => $params['status'] ?? BasicEnum::ACTIVE,
             'is_top' => $params['is_top'] ?? BoolEnum::NO,

@@ -20,7 +20,8 @@ class AdminAuthenticate
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->guest()) {
+        Log::info('=========11=======');
+        if (Auth::guard('admin')->guest()) {
             if ($request->ajax() || $request->wantsJson()) {
                 $ajaxData = array();
 

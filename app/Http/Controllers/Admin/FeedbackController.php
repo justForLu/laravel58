@@ -101,7 +101,7 @@ class FeedbackController extends BaseController
     public function update(FeedbackRequest $request, $id)
     {
         $params = $request->filterAll();
-        $userInfo = Auth::user();
+        $userInfo = Auth::guard('admin')->user();
 
         $data = [
             'status' => $params['status'] ?? 1,

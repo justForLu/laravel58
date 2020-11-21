@@ -28,7 +28,7 @@ class LogRepository extends BaseRepository
             unset($params['_token']);unset($params['_method']);
 
             $log = array(
-                'user_id' => Auth::guard()->user()->id,
+                'user_id' => Auth::guard('admin')->user()->id,
                 'operate_module' => $action['controller'],
                 'operate_action' => $action['method'],
                 'operate_url' => $request->getRequestUri(),

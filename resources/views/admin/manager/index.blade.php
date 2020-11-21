@@ -56,7 +56,7 @@
                     <a href="manager/{{$data->id}}/edit" class="btn bg-olive btn-xs"><i class="fa fa-pencil"></i>编辑</a>
                     @endcan
                     @if(!$data->is_system)
-                        @if($data->id != Auth::user()->id)
+                        @if($data->id != Auth::guard('admin')->user()->id)
                             @can('manager.destroy')
                             <a href="{{url('admin/manager',array($data->id))}}" class="btn btn-danger btn-xs J_layer_dialog_del" data-token="{{csrf_token()}}"><i class="fa fa-trash-o"></i>删除</a>
                             @endcan

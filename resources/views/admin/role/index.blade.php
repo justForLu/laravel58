@@ -53,7 +53,7 @@
                     <a href="role/{{$data->id}}/edit" class="btn bg-olive btn-xs J_layer_dialog" title="编辑"><i class="fa fa-pencil"></i> 编辑</a>
                     @endcan
                     @if(!$data->is_system)
-                        @if($data->parent == Auth::user()->roles[0]->id)
+                        @if($data->parent == Auth::guard('admin')->user()->roles[0]->id)
                             @can('role.authority')
                             <a href="{{url('admin/role/authority',array($data->id))}}" class="btn btn-info btn-xs layui-btn-normal" title="授权"><i class="fa fa-check-square-o"></i>授权</a>
                             @endcan

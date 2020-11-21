@@ -158,7 +158,7 @@ class MenuController extends BaseController
         // 更新用户缓存菜单
         if($result){
             // 获取用户菜单
-            $uid = Auth::user()->id;
+            $uid = Auth::guard('admin')->user()->id;
             $userMenus = $this->menu->getUserMenuTree();
 
             // 缓存用户菜单

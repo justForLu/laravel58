@@ -108,7 +108,7 @@
     <div class="copyright">
         <div class="section">
             <span class="adviser">法律支持：河南天坤律师事务所     法律顾问：梁文博</span>
-            Copyright © 2016 工立方打工网 www.gonglf.com 版权所有
+            Copyright © 2016 好工人工作网 版权所有
             <a href="http://www.beian.miit.gov.cn/" ref="nofollow" target="_blank">豫ICP备16088888号-2</a></div>
     </div>
 </div>

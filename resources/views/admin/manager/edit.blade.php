@@ -35,8 +35,8 @@
                                         <label class="radio-inline">
                                             <input type="radio" name="role_id" value="{{$role->id}}" title="{{$role->name}}"
                                             @if(in_array($role->id,array_column($data->roles->toArray(),'id')))checked="checked"@endif
-                                            @if($data->id == Auth::user()->id)disabled="disabled"@endif>{{$role->name}}
-                                            @if($data->id == Auth::user()->id)<input type="hidden" name="role_id" value="{{$role->id}}">@endif
+                                            @if($data->id == Auth::guard('admin')->user()->id)disabled="disabled"@endif>{{$role->name}}
+                                            @if($data->id == Auth::guard('admin')->user()->id)<input type="hidden" name="role_id" value="{{$role->id}}">@endif
                                         </label>
                                     @endforeach
                                 </div>

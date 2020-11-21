@@ -22,7 +22,7 @@ class BaseController extends Controller
      */
     public function __construct(){
         $this->middleware(function ($request, $next) {
-            if(Auth::check()){
+            if(Auth::guard('admin')->check()){
                 $userMenus = $this->getUserMenus();
                 $this->currentUser = $this->getCurrentUser();
 
@@ -43,7 +43,7 @@ class BaseController extends Controller
      * @throws \Psr\SimpleCache\InvalidArgumentException
      */
     public function getUserMenus(){
-        $uid = Auth::user()->id;
+        $uid = Auth::guard('admin')->user()->id;
         $menuTree = json_decode(Cache::store('file')->get('menu_user_' . $uid));
 
         $uri = Request::path();
@@ -74,7 +74,7 @@ class BaseController extends Controller
      * @return mixed
      */
     public function getCurrentUser(){
-        $uid = Auth::user()->id;
+        $uid = Auth::guard('admin')->user()->id;
 
         $currentUser = Manager::where('id',$uid)->with('roles')->first();
 

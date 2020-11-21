@@ -12,7 +12,6 @@
 */
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return redirect('/home/index.html');
@@ -20,8 +19,6 @@ Route::get('/', function () {
 Route::get('home', function () {
     return redirect('/home/index.html');
 });
-
-Auth::routes();
 
 Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
 

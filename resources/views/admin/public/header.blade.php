@@ -10,7 +10,7 @@
                 <li class="user user-menu">
                     <a href="javascript:void(0);">
                         <i class="fa fa-user-circle" aria-hidden="true"></i>
-                        <span class="hidden-xs">{{Auth::user()->username}}</span>
+                        <span class="hidden-xs">{{Auth::guard('admin')->user()->username}}</span>
                     </a>
                 </li>
 

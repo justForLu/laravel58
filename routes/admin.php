@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('/admin/index');
+    return redirect('home');
 });
 Route::get('admin', function () {
     return redirect('/admin/index');

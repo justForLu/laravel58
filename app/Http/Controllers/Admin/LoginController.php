@@ -13,6 +13,7 @@ use App\Repositories\Admin\ManagerRepository as Manager;
 use App\Repositories\Admin\LogRepository;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -67,10 +68,10 @@ class LoginController extends Controller
      * 自定义guard
      * @return mixed
      */
-//    protected function guard()
-//    {
-//        return Auth::guard('admin');
-//    }
+    protected function guard()
+    {
+        return Auth::guard('admin');
+    }
 
     /**
      * 登录校验处理(重写框架默认自带的登录校验)
@@ -91,13 +92,12 @@ class LoginController extends Controller
         }
 
         if ($this->attemptLogin($loginRequest)) {
-
             $this->updateLoginInfo($loginRequest);
 
-            session(['managerInfo' => Auth::user()]);
+            session(['managerInfo' => Auth::guard('admin')->user()]);
 
             // 获取用户菜单
-            $uid = Auth::user()->id;
+            $uid = Auth::guard('admin')->user()->id;
 
             $userMenus = $this->menu->getUserMenuTree();
 
@@ -120,7 +120,7 @@ class LoginController extends Controller
     {
         $data['last_ip'] = $loginRequest->ip();
         $data['gmt_last_login'] = get_date();
-        $uid = Auth::user()->id;
+        $uid = Auth::guard('admin')->user()->id;
         $this->manager->update($data,$uid);
     }
 
