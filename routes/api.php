@@ -1,6 +1,7 @@
 <?php
-
-use Illuminate\Http\Request;
+header('access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Headers:Content-Type,Access-Token,Access-Control-Allow-Origin');
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('home', function () {
+    return redirect('/home/index');
 });
+
+
+Route::group(['prefix' => 'api', 'namespace' => 'Api'], function (){
+
+    Route::any('/token/get_token', 'TokenController@getToken');
+
+    Route::group(['middleware' => ['api.auth']], function(){
+
+    });
+});
+
+
