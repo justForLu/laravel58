@@ -9,7 +9,6 @@
 namespace App\Repositories;
 
 use App\Enums\BasicEnum;
-use Redis;
 use Bosnadev\Repositories\Eloquent\Repository;
 
 abstract class BaseRepository extends Repository
@@ -28,18 +27,8 @@ abstract class BaseRepository extends Repository
      */
     public function redis()
     {
-        $redis = new Redis();
-        $redis->connect(config('admin.redis.host'), config('admin.redis.port'));
+        $redis = app('redis.connection');
 
-        if(config('admin.redis.prefix')){
-            $redis->setOption(Redis::OPT_PREFIX, config('admin.redis.prefix'));
-        }
-        if(config('admin.redis.password')){
-            $redis->auth(config('admin.redis.password'));
-        }
-        if(config('admin.redis.db')){
-            $redis->select(config('admin.redis.db'));
-        }
         return $redis;
     }
 

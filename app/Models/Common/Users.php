@@ -15,9 +15,9 @@ class Users extends Authenticatable
     // 用户
     protected $table = 'users';
 
-    protected $fillable = ['id','name','nickname','password','remember_token','login_ip','login_time','image','mobile','email','id_card','sex',
-        'age','birthday','province','city','area','bank_card','bank_name','bank_province','bank_city','bank_area',
-        'card_image1', 'card_image2','status'
+    protected $fillable = ['id','openid','name','nickname','headimgurl','password','salt','remember_token','login_ip',
+        'login_time','image','mobile','email','id_card','sex','age','gender','birthday','province','city','area','bank_card',
+        'bank_name','bank_province','bank_city','bank_area','card_image1', 'card_image2','status'
     ];
 
 

@@ -3,22 +3,15 @@ namespace App\Http\Controllers\Api;
 
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 class BaseController extends Controller
 {
 
     protected $userInfo;
-
-    protected $account;
-
-    protected $callback;
-
-    protected $accountConfig;
-
-    protected $check;
-
-    protected $business_id;
+    protected $redis;
+    protected $token;
 
     /**
      * 父类构造器(接口请求拦截)
@@ -26,16 +19,7 @@ class BaseController extends Controller
      * @param $request
      */
     public function __construct(){
-//        $this->account = $request->account;
-//        $this->accountConfig = json_decode($this->account['account_config'],true);
-//        //暂时定死的数据
-//        $this->business_id = 3;
-//        //$this->userInfo->id = 1;
-//        //$this->userInfo->name = '尼古拉斯';
-//        //$this->userInfo->mobile = '15924140778';
-//
-//        $this->callback = isset($_SERVER['HTTP_REFERER']) ? urlencode($_SERVER['HTTP_REFERER']) : '';
-//        view()->share('callback',$this->callback);
+        $this->redis = app('redis.connection');
     }
 
     /**
