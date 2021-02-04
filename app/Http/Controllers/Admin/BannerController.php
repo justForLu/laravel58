@@ -35,6 +35,7 @@ class BannerController extends BaseController
     {
         $params = $request->all();
 
+
         $this->banner->pushCriteria(new BannerCriteria($params));
 
         $list = $this->banner->paginate(Config::get('admin.page_size',10));
