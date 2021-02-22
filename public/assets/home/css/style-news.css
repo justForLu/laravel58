@@ -308,7 +308,7 @@
 }
 
 .ne_rzt_list .first:hover a {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_rzt_list .imgs {
@@ -338,7 +338,7 @@
 }
 
 .ne_rvideo_list a:hover .names {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_rvideo_list img {
@@ -416,7 +416,7 @@
 }
 
 .ne_rhot a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_rhot img {
@@ -452,11 +452,11 @@
 }
 
 .ne_nav dd a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_nav a.active {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_nav .ic {
@@ -550,7 +550,7 @@
 }
 
 .ne_i_swiper .ne_pagination .swiper-active-switch {
-    background: #2698e4
+    background: #1ea115
 }
 
 .ne_i_swiper:hover .arrow_ctr {
@@ -591,7 +591,7 @@
 }
 
 .ne_i_hot a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_i_hot p {
@@ -651,7 +651,7 @@
     height: 32px;
     line-height: 32px;
     font-size: 30px;
-    border-left: 4px solid #2698e4;
+    border-left: 4px solid #1ea115;
     padding-left: 16px;
     display: inline-block
 }
@@ -669,7 +669,7 @@
 }
 
 .ne_i_tit .types a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_i_xmain {
@@ -699,7 +699,7 @@
 }
 
 .ne_i_zlist a:hover {
-    color: #2698e4;
+    color: #1ea115;
     box-shadow: 0 0 13px rgba(34, 61, 72, 0.14)
 }
 
@@ -762,7 +762,7 @@
 }
 
 .ne_i_vlist ul a:hover p {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_i_vlist ul a:hover .ic_n_playh {
@@ -786,7 +786,7 @@
 }
 
 .ne_i_video a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_i_video .news_video {
@@ -845,7 +845,7 @@
 .neix_r h3 em {
     display: inline-block;
     font-size: 18px;
-    color: #2698e4;
+    color: #1ea115;
     padding-right: 10px;
     background: #fff;
     position: relative;
@@ -873,7 +873,7 @@
 }
 
 .neix_img a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .neix_img p {
@@ -896,7 +896,7 @@
 }
 
 .neix_img .first a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .neix_img .first p {
@@ -919,7 +919,7 @@
 }
 
 .neix_txt a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .neix_txt .ic_dot {
@@ -944,7 +944,7 @@
 }
 
 .neix_txt .tops a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .neix_txt .times {
@@ -1005,7 +1005,7 @@
 }
 
 .ne_ztlist h3 a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_ztlist p {
@@ -1018,7 +1018,7 @@
 }
 
 .ne_ztlist .links {
-    color: #2698e4;
+    color: #1ea115;
     margin-top: 12px;
     display: inline-block
 }
@@ -1062,7 +1062,7 @@
 }
 
 .ne_xlist h3 a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_xlist p {
@@ -1146,7 +1146,7 @@
 }
 
 .ne_vlist .editors {
-    color: #2698e4;
+    color: #1ea115;
     float: right
 }
 
@@ -1356,8 +1356,8 @@
     height: 66px;
     line-height: 66px;
     text-align: center;
-    color: #2698e4;
-    border: 2px solid #2698e4;
+    color: #1ea115;
+    border: 2px solid #1ea115;
     background: rgba(0, 0, 0, 0.7);
     display: none
 }
@@ -1396,7 +1396,7 @@
 }
 
 .ne_video_plist a:hover .names {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_video_tit {
@@ -1441,7 +1441,7 @@
 }
 
 .ne_video_tshare:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ne_video_tshare:hover .ic {
@@ -1489,7 +1489,7 @@
 .fac_title .line {
     width: 5px;
     height: 20px;
-    background: #2698e4;
+    background: #1ea115;
     border-radius: 2px;
     display: inline-block;
     vertical-align: middle;
@@ -1525,7 +1525,7 @@
 
 .fac_recom .fac_title h3 {
     background: none;
-    color: #2698e4;
+    color: #1ea115;
     font-weight: normal
 }
 
@@ -1535,7 +1535,7 @@
 
 .ne_recom .fac_title h3 {
     background: none;
-    color: #2698e4;
+    color: #1ea115;
     font-weight: normal
 }
 
@@ -1588,7 +1588,7 @@
 }
 
 .fac_recom .name:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .fac_recom .des {

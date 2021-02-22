@@ -48,24 +48,24 @@
 }
 
 .ii_key a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ii_key .hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ii_tit {
     height: 36px;
     line-height: 32px;
     font-size: 30px;
-    color: #2698e4;
+    color: #1ea115;
     margin-top: 30px;
     margin-bottom: 18px
 }
 
 .ii_tit em {
-    background: #2698e4;
+    background: #1ea115;
     color: #fff;
     display: inline-block;
     margin-right: 2px;
@@ -96,7 +96,7 @@
 }
 
 .ii_cont li:hover {
-    border-color: #2698e4
+    border-color: #1ea115
 }
 
 .ii_cont li:hover img {
@@ -112,7 +112,7 @@
 }
 
 .ii_cont .name:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ii_cont .price {
@@ -211,7 +211,7 @@ body {
 .uc_title .line {
     width: 5px;
     height: 20px;
-    background: #2698e4;
+    background: #1ea115;
     display: inline-block;
     margin-right: 10px;
     border-radius: 2px;
@@ -223,7 +223,7 @@ body {
     display: inline-block;
     margin-right: 10px;
     line-height: 20px;
-    color: #2698e4
+    color: #1ea115
 }
 
 .uc_title .notes {
@@ -305,12 +305,12 @@ body {
 }
 
 .list_no .other a {
-    color: #2698e4;
+    color: #1ea115;
     font-size: 18px
 }
 
 .list_no .links {
-    color: #2698e4;
+    color: #1ea115;
     font-size: 14px;
     text-decoration: underline
 }
@@ -430,18 +430,18 @@ body {
 }
 
 .user_left_nav li a:hover {
-    border-color: #2698e4;
+    border-color: #1ea115;
     background: #f8f8f8;
     color: #444
 }
 
 .user_left_nav li.active a {
-    border-color: #2698e4;
+    border-color: #1ea115;
     background: #f8f8f8
 }
 
 .user_left_nav .ic {
-    color: #2698e4;
+    color: #1ea115;
     margin-left: -30px;
     float: left;
     font-size: 18px
@@ -550,7 +550,7 @@ body {
 
 .leader_list .btn_showcmt {
     margin-right: 15px;
-    color: #2698e4
+    color: #1ea115
 }
 
 .leader_list .btn_showcmt:hover {
@@ -586,7 +586,7 @@ body {
 }
 
 .leader_list .info_main .name a {
-    color: #2698e4
+    color: #1ea115
 }
 
 .leader_list .ic_up {
@@ -733,7 +733,7 @@ body {
 }
 
 .leader_cmtsucc a {
-    color: #2698e4;
+    color: #1ea115;
     text-decoration: underline
 }
 
@@ -1095,7 +1095,7 @@ body {
 
 .list_collect li.li_shop .to_store {
     float: right;
-    color: #2698e4
+    color: #1ea115
 }
 
 .list_collect li.li_shop .des {
@@ -1440,7 +1440,7 @@ body {
 }
 
 .uc_recom .t_blue {
-    color: #2698e4
+    color: #1ea115
 }
 
 .uc_recom .price {
@@ -1500,7 +1500,7 @@ body {
 }
 
 .list_msg .name a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .list_msg .times {

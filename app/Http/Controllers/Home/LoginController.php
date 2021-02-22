@@ -66,7 +66,8 @@ class LoginController extends Controller
      */
     public function index()
     {
-        return view('home.login.login');
+        $title = '登录';
+        return view('home.login.login',compact('title'));
     }
 
     /**

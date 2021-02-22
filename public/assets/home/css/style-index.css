@@ -271,7 +271,7 @@
 
 .slide .num .cur {
     opacity: 1;
-    background-color: #2698e4
+    background-color: #1ea115
 }
 
 .ind_notice {
@@ -290,7 +290,7 @@
     color: #fff;
     padding: 0 20px;
     border-radius: 15px;
-    background: #2698e4;
+    background: #1ea115;
     font-size: 16px
 }
 
@@ -370,9 +370,9 @@
 }
 
 .ind_quick a:hover i {
-    background: #2698e4;
+    background: #1ea115;
     color: #fff;
-    border-color: #2698e4
+    border-color: #1ea115
 }
 
 .ind_quick i {
@@ -434,24 +434,24 @@
 }
 
 .ii_key a:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ii_key .hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ii_tit {
     height: 36px;
     line-height: 32px;
     font-size: 30px;
-    color: #2698e4;
+    color: #1ea115;
     margin-top: 30px;
     margin-bottom: 18px
 }
 
 .ii_tit em {
-    background: #2698e4;
+    background: #1ea115;
     color: #fff;
     display: inline-block;
     margin-right: 2px;
@@ -482,7 +482,7 @@
 }
 
 .ii_cont li:hover {
-    border-color: #2698e4
+    border-color: #1ea115
 }
 
 .ii_cont li:hover img {
@@ -498,7 +498,7 @@
 }
 
 .ii_cont .name:hover {
-    color: #2698e4
+    color: #1ea115
 }
 
 .ii_cont .price {
@@ -611,7 +611,7 @@
 }
 
 .ind_dggl a:hover {
-    color: #2698e4 !important
+    color: #1ea115 !important
 }
 
 .dggl_left {

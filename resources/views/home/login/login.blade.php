@@ -25,7 +25,7 @@
                             <td>
                                 <input type="text" name="username" class="reg_input3">
                             </td>
-                            <td class="reg_tip">请输入您的手机号或身份证号</td>
+                            <td class="reg_tip">请输入您的手机号</td>
                         </tr>
                         <tr>
                             <td class="reg_label">密码</td>
@@ -64,17 +64,6 @@
                             <td class="reg_tip">请输入您的手机号</td>
                         </tr>
                         <tr>
-                            <td class="reg_label">验证码</td>
-                            <td>
-                                <input type="text" name="verify" placeholder="输入验证码" class="reg_input3" id="inputVerify">
-                                <div class="right">
-                                    <img src="{{asset("/assets/home/images/recomSms_.html.png")}}" onclick="refreshVerify()" height="47" style="cursor:pointer;" id="imgVerify" data-ajax="">
-                                </div>
-                            </td>
-                            <td class="reg_tip">输入图片验证码</td>
-                        </tr>
-
-                        <tr>
                             <td class="reg_label">短信验证码</td>
                             <td>
                                 <input type="text" name="code" class="left reg_input2" placeholder="输入短信验证码">
@@ -86,7 +75,6 @@
                             <td></td>
                             <td class="grey">
                                 <a href="" class="right grey">忘记密码？</a>
-                                <label><input type="checkbox" value="1"> 下次自动登录</label>
                             </td>
                             <td></td>
                         </tr>
@@ -115,13 +103,13 @@
                 <p class="mt_20">还可以使用以下方式登录</p>
                 <p class="reg_www mt_20">
                     <a href="">
-                        <i id="i1" class="iconfont">微博</i>
+                        <img src="{{asset('/assets/home/images/weixin.png')}}" style="border: none;">
                     </a>
                     <a href="">
-                        <i id="i2" class="iconfont">QQ</i>
+                        <img src="{{asset('/assets/home/images/qq.png')}}" style="border: none;">
                     </a>
                     <a href="">
-                        <i id="i3" class="iconfont">微信</i>
+                        <img src="{{asset('/assets/home/images/weibo.png')}}" style="border: none;">
                     </a>
                 </p>
             </div>
