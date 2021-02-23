@@ -418,6 +418,56 @@
 .quick_ico.ico4 {
     background-position: 0px -330px
 }
+/*  推荐奖励  */
+.tjyj-box {
+    padding-bottom: 50px;
+    background-color: #F1F5F9;
+}
+.tjyj-box .tjgb {
+    padding: 15px 0px;
+    background-color: #fff;
+}
+.tjyj-box .tjgb>div {
+    overflow: hidden;
+    padding-left: 5%;
+}
+.tjyj-box .tjgb>div img {
+    float: left;
+    width: 26px;
+}
+.tjyj-box .tjgb>div p {
+    float: left;
+    line-height: 24px;
+    padding-left: 10px;
+}
+.tjyj-box .tjyj {
+    padding-top: 40px;
+}
+.tjyj-box .tjyj .title img {
+    width: 850px;
+}
+.tjyj-box .tjyj .title h1{
+    position: relative;
+    bottom: 30px;
+}
+.tjyj-box .tjyj .jl-box {
+    display: flex;
+    justify-content: center;
+}
+.tjyj-box .tjyj .jl-box .rzjl {
+    margin-right: 50px;
+    color: #14AC2D;
+}
+.tjyj-box .tjyj .jl-box .yqjl {
+    margin-left: 50px;
+    color: #000000;
+}
+.tjyj-box .tjyj .jl-box>div div {
+    font-size: 16px;
+    padding: 3px;
+    border-bottom: 3px #1ea115 solid;
+    border-radius: 5px;
+}
 
 .ii_key {
     float: right;
@@ -447,7 +497,8 @@
     font-size: 30px;
     color: #1ea115;
     margin-top: 30px;
-    margin-bottom: 18px
+    margin-bottom: 18px;
+    padding-left: 92px;
 }
 
 .ii_tit em {
@@ -614,12 +665,6 @@
 .ptjz .ptjz-title {
     padding: 20px 0px;
 }
-.ptjz .ptjz-title h2 {
-
-}
-.ptjz .ptjz-title h2 p {
-
-}
 .ptjz .ptjz-title h2 span {
     display: block;
     margin: 0px auto;
@@ -641,13 +686,12 @@
     margin: 15px;
 }
 .ptjz .jz-box .jz-item .jz-dsc {
-
-}
-.ptjz .jz-box .jz-item .jz-dsc h4 {
-
-}
-.ptjz .jz-box .jz-item .jz-dsc p {
-
+    width: 170px;
+    height: 80px;
+    margin-left: 75px;
+    margin-top: 43px;
+    background-color: #04AF65;
+    opacity: 0.8;
 }
 .ind_dggl {
     border-radius: 2px;

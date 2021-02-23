@@ -29,32 +29,30 @@
     </div>
 
     <div class="section">
-        <ul class="ind_quick">
-            <li>
-                <a href="{{url("/home/recruit/index.html")}}">
-                    <em>找工作</em>知名企业任您挑<br>100%优质的真实岗位等你入职
-                    <span class="quick_ico ico1"></span><i>挑岗位</i>
-                </a>
-            </li>
-            <li>
-                <a href="{{url("/home/shop/index.html")}}">
-                    <em>门店服务</em>服务就在家门口<br>全国800余家门店，时刻准备为您服务
-                    <span class="quick_ico ico2"></span><i>去咨询</i>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" id="btn_join_layer">
-                    <em>报名有奖</em>报名入职有大奖<br>在线报名还能领取现金大奖
-                    <span class="quick_ico ico3"></span><i>我要报名</i>
-                </a>
-            </li>
-{{--            <li><a href="" id="btn_recom_layer">--}}
-{{--                    <em>推荐有奖</em>推荐好友入职有大奖<br>单笔最高奖2000元，累计奖金无上限--}}
-{{--                    <span class="quick_ico ico4"></span><i>我来推荐</i>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-        </ul>
-
+        <div class="tjyj-box">
+            <div class="tjgb">
+                <div>
+                    <img src="{{asset('/assets/home/images/laba.png')}}">
+                    <p>最新消息：李XX成功入职郑州富士康</p>
+                </div>
+            </div>
+            <div class="tjyj">
+                <div class="title">
+                    <img src="{{asset('/assets/home/images/index-rebate.png')}}">
+                    <h1>推荐有奖</h1>
+                </div>
+                <div class="jl-box">
+                    <!--入职奖励-->
+                    <div class="rzjl">
+                        <div>159****5874报名成功获得奖金1000元</div>
+                    </div>
+                    <!--推荐奖励-->
+                    <div class="yqjl">
+                        <div>136****9845入职成功获得奖金1000元</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="ii_list">
             <div class="ii_head">
                 <div class="ii_key">
