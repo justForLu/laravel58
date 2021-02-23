@@ -86,10 +86,13 @@
                 <a href="{{url("/home/shop/index.html")}}" @if($menu == 'Shop') class="cur" @endif>找门店<i class="ic_up"></i></a>
             </li>
             <li>
-                <a href="{{url("/home/news/index.html")}}" @if($menu == 'News') class="cur" @endif>资讯<i class="ic_up"></i></a>
+                <a href="{{url("/home/join/index.html")}}" @if($menu == 'Join') class="cur" @endif>招商加盟<i class="ic_up"></i></a>
             </li>
             <li>
-                <a href="{{url("/home/join/index.html")}}" @if($menu == 'Join') class="cur" @endif>加盟<i class="ic_up"></i></a>
+                <a href="{{url("/home/news/index.html")}}" @if($menu == 'News') class="cur" @endif>新闻资讯<i class="ic_up"></i></a>
+            </li>
+            <li>
+                <a href="{{url("/home/join/index.html")}}" @if($menu == 'Join') class="cur" @endif>关于我们<i class="ic_up"></i></a>
             </li>
         </ul>
         @if(isset($userInfo) && $userInfo)
@@ -132,7 +135,7 @@
     // }
     //
     // showCityInfo();
-    
+
     $(".cur_site").click(function () {
         $("#PoPy").css("display","block");
     });

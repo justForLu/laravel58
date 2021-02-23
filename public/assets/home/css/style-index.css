@@ -322,7 +322,7 @@
 }
 
 .ind_notice a em {
-    color: #ff7325
+    color: #1ea115
 }
 
 .ind_notice a:hover {
@@ -503,7 +503,7 @@
 
 .ii_cont .price {
     font-size: 24px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .ii_cont p {
@@ -554,7 +554,7 @@
     text-align: center;
     right: 0;
     top: 0;
-    background: #ff7325;
+    background: #1ea115;
     color: #fff;
     padding: 0px 10px
 }
@@ -602,7 +602,53 @@
     width: 212px;
     height: 157px
 }
+/*  平台价值    */
+.ptjz {
+    width: 100%;
+    height: 490px;
+    color: #ffffff;
+    background: url("../images/bg_index.png") no-repeat;
+    background-size: 100%;
+    margin: 60px 0px;
+}
+.ptjz .ptjz-title {
+    padding: 20px 0px;
+}
+.ptjz .ptjz-title h2 {
 
+}
+.ptjz .ptjz-title h2 p {
+
+}
+.ptjz .ptjz-title h2 span {
+    display: block;
+    margin: 0px auto;
+    width: 46px;
+    height: 1px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+.ptjz .jz-box {
+    width: 705px;
+    margin: 0px auto;
+}
+.ptjz .jz-box .jz-item {
+    width: 320px;
+    height: 165px;
+    background: url(../images/img_index_jz.png) no-repeat;
+    background-size: 320px 165px;
+    float: left;
+    margin: 15px;
+}
+.ptjz .jz-box .jz-item .jz-dsc {
+
+}
+.ptjz .jz-box .jz-item .jz-dsc h4 {
+
+}
+.ptjz .jz-box .jz-item .jz-dsc p {
+
+}
 .ind_dggl {
     border-radius: 2px;
     background: #fff;

@@ -117,7 +117,7 @@
 
 .ii_cont .price {
     font-size: 24px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .ii_cont p {
@@ -168,7 +168,7 @@
     text-align: center;
     right: 0;
     top: 0;
-    background: #ff7325;
+    background: #1ea115;
     color: #fff;
     padding: 0px 10px
 }
@@ -199,7 +199,7 @@ body {
 }
 
 .t_org {
-    color: #ff7325
+    color: #1ea115
 }
 
 .uc_title {
@@ -231,7 +231,7 @@ body {
 }
 
 .uc_title .notes em {
-    color: #ff7325
+    color: #1ea115
 }
 
 .uc_title .more {
@@ -244,7 +244,7 @@ body {
 }
 
 .uc_title .more a:hover, .uc_title .more a.active {
-    color: #ff7325;
+    color: #1ea115;
     text-decoration: underline
 }
 
@@ -269,7 +269,7 @@ body {
 }
 
 .uc_title_msg a {
-    color: #ff7325
+    color: #1ea115
 }
 
 .uc_title_msg a:hover {
@@ -346,7 +346,7 @@ body {
 }
 
 .list_recom em {
-    color: #ff7325
+    color: #1ea115
 }
 
 .user_top {
@@ -378,7 +378,7 @@ body {
 
 .user_top_num em {
     display: block;
-    color: #ff7325
+    color: #1ea115
 }
 
 .user_top_avt {
@@ -407,7 +407,7 @@ body {
 }
 
 .user_top_avt em {
-    color: #ff7325
+    color: #1ea115
 }
 
 .user_top .to_avt {
@@ -474,7 +474,7 @@ body {
 }
 
 .uc_form .required {
-    color: #ff7325
+    color: #1ea115
 }
 
 .uc_form .btn_b {
@@ -505,7 +505,7 @@ body {
     background: #f8f8f8;
     text-align: center;
     display: inline-block;
-    color: #ff7325
+    color: #1ea115
 }
 
 .uc_form .got_mark:hover {
@@ -513,7 +513,7 @@ body {
 }
 
 .uc_form .form-text:focus, .uc_form .form-textarea:focus, .uc_form .form-select:focus {
-    border-color: #ff7325
+    border-color: #1ea115
 }
 
 .leader_list {
@@ -687,23 +687,23 @@ body {
 }
 
 .cmt_str .st1 .ic1 {
-    color: #ff7325
+    color: #1ea115
 }
 
 .cmt_str .st2 .ic1, .cmt_str .st2 .ic2 {
-    color: #ff7325
+    color: #1ea115
 }
 
 .cmt_str .st3 .ic1, .cmt_str .st3 .ic2, .cmt_str .st3 .ic3 {
-    color: #ff7325
+    color: #1ea115
 }
 
 .cmt_str .st4 .ic1, .cmt_str .st4 .ic2, .cmt_str .st4 .ic3, .cmt_str .st4 .ic4 {
-    color: #ff7325
+    color: #1ea115
 }
 
 .cmt_str .st5 .ic_star {
-    color: #ff7325
+    color: #1ea115
 }
 
 .leader_cmtsucc {
@@ -781,7 +781,7 @@ body {
 }
 
 .leader_cmtlist .cmt_val .active {
-    color: #ff7325
+    color: #1ea115
 }
 
 .leader_cmtlist .info_main {
@@ -1041,7 +1041,7 @@ body {
 }
 
 .list_collect li.li_recruit .name:hover {
-    color: #ff7325;
+    color: #1ea115;
     text-decoration: underline
 }
 
@@ -1052,7 +1052,7 @@ body {
 
 .list_collect li.li_recruit .to_map i {
     margin-right: 5px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .list_collect li.li_recruit .btn {
@@ -1108,7 +1108,7 @@ body {
 }
 
 .list_collect li.li_shop .nums {
-    color: #ff7325
+    color: #1ea115
 }
 .avt_sel {
     padding-top: 55px;
@@ -1136,7 +1136,7 @@ body {
     margin-left: 220px;
     line-height: 38px;
     padding-top: 62px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .avt_show {
@@ -1404,7 +1404,7 @@ body {
 }
 
 .uc_recom_stp .time_lost {
-    color: #ff7325;
+    color: #1ea115;
     position: absolute;
     left: -28px;
     top: 38px;
@@ -1436,7 +1436,7 @@ body {
 }
 
 .uc_recom .t_orange {
-    color: #ff7325
+    color: #1ea115
 }
 
 .uc_recom .t_blue {
@@ -1445,7 +1445,7 @@ body {
 
 .uc_recom .price {
     font-size: 16px;
-    color: #ff7325;
+    color: #1ea115;
     font-style: italic;
     display: inline-block;
     padding: 0 2px 0 0px
@@ -1551,7 +1551,7 @@ body {
 .form-item_card .upload_note {
     height: 40px;
     line-height: 40px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .upload_card {

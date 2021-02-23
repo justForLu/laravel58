@@ -24,6 +24,14 @@
                         <td class="reg_tip">请输入手机号</td>
                     </tr>
                     <tr>
+                        <td class="reg_label">短信验证码</td>
+                        <td>
+                            <input type="text" name="code" class="left reg_input2" placeholder="输入短信验证码">
+                            <span class="left reg_getCode send-sms" data-ajax="/Sms/loginSend.html">获取验证码</span>
+                        </td>
+                        <td class="reg_tip">点击获取短信验证码</td>
+                    </tr>
+                    <tr>
                         <td class="reg_label">请输入密码</td>
                         <td>
                             <input type="password" name="password" class="reg_input" placeholder="输入密码">
@@ -40,10 +48,10 @@
                     <tr>
                         <td></td>
                         <td class="grey">
-                            <label>
+                            <label style="font-size: 12px;">
                                 <input type="checkbox" name="agreement" onchange="agreeInput()" value="1" checked="">点击注册表示您已经阅读并同意
                             </label>
-                            <a href="javascript:agreement(&#39;/Login/agreement.html&#39;)" data-href="" style="color:#3a84cf;">《好工人用户协议》</a>
+                            <a href="javascript:agreement(&#39;/Login/agreement.html&#39;)" data-href="" style="font-size:12px;color:#3a84cf;">《好工人用户协议》</a>
                         </td>
                         <td></td>
                     </tr>

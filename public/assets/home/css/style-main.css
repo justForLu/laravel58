@@ -660,8 +660,8 @@ p.form-des {
 
 .btn_orange {
     color: #fff;
-    background-color: #ff7325;
-    border: 1px solid #ff7325
+    background-color: #1ea115;
+    border: 1px solid #1ea115
 }
 
 .btn_orange:hover {
@@ -2038,12 +2038,12 @@ html #layui_layer_skinlayercss {
 }
 
 .layers .to_login a {
-    color: #ff7325
+    color: #1ea115
 }
 
 .layers .recom_note {
     margin-left: -90px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .layers .form {
@@ -2724,7 +2724,7 @@ em, i {
     display: block;
     font-size: 16px;
     font-weight: 700;
-    color: #ff7325;
+    color: #1ea115;
     font-style: italic;
     margin-top: 3px
 }
@@ -2811,7 +2811,7 @@ em, i {
 .cur_site {
     height: 20px;
     line-height: 20px;
-    color: #ff7325;
+    color: #1ea115;
     cursor: pointer;
     font-size: 16px
 }
@@ -3223,7 +3223,7 @@ em, i {
 }
 
 .fix_tool .service .phones {
-    color: #ff7325;
+    color: #1ea115;
     display: block;
     margin-bottom: 10px
 }

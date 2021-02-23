@@ -628,7 +628,7 @@
 }
 
 .fac_info_con .price {
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_info_con .vals {
@@ -732,7 +732,7 @@
 }
 
 .fac_hot_list a:hover {
-    color: #ff7325;
+    color: #1ea115;
     border-color: #1ea115
 }
 
@@ -854,7 +854,7 @@
 
 .fac_vhistory .prices {
     font-size: 14px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_title {
@@ -1007,7 +1007,7 @@
 }
 
 .fac_recom .price {
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_imgshow {
@@ -1082,7 +1082,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid #ff7325;
+    border: 1px solid #1ea115;
     display: none;
     cursor: pointer
 }
@@ -1269,7 +1269,7 @@
 }
 
 .fac_top_acts a:hover, .fac_top_acts a.hover {
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_top_acts a:hover .ic, .fac_top_acts a.hover .ic {
@@ -1325,7 +1325,7 @@
 }
 
 .fac_top .des em {
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_top .des .ic {
@@ -1335,7 +1335,7 @@
 .fac_top .prices {
     height: 40px;
     line-height: 40px;
-    color: #ff7325;
+    color: #1ea115;
     font-size: 28px
 }
 
@@ -1445,7 +1445,7 @@
 }
 
 .fac_acts .award_con em {
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_acts .award_con span {
@@ -1693,7 +1693,7 @@ h3.title2 .line {
 }
 
 .fac_salary .prices {
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_salary em.prices {
@@ -1803,7 +1803,7 @@ h3.title2 .line {
 }
 
 .fac_des_note .titles {
-    color: #ff7325;
+    color: #1ea115;
     margin-left: 0
 }
 
@@ -2128,7 +2128,7 @@ h3.title2 .line {
 .fac_list .prices {
     float: right;
     font-size: 16px;
-    color: #ff7325
+    color: #1ea115
 }
 
 .fac_list .prices em {
@@ -2391,7 +2391,7 @@ h3.title2 .line {
 }
 
 .store_list .nums {
-    color: #ff7325
+    color: #1ea115
 }
 
 .store_list + .pagenation {
@@ -2604,7 +2604,7 @@ h3.title2 .line {
 }
 
 .store_local .t_price {
-    color: #ff7325
+    color: #1ea115
 }
 
 .store_local + .pagenation {
@@ -2794,7 +2794,7 @@ h3.title2 .line {
 
 .lc_recom_list .t_price {
     float: right;
-    color: #ff7325
+    color: #1ea115
 }
 
 .lc_recom_list .hover h4 .ic {
