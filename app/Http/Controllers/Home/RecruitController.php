@@ -96,10 +96,6 @@ class RecruitController extends BaseController
         $where4['is_recommend']['EQ'] = BasicEnum::ACTIVE;
         $recruit = $this->recruit->getList('*',$where4,5,['factory']);
 
-        //附近门店
-        $where5['is_recommend']['EQ'] = BasicEnum::ACTIVE;
-        $shop = $this->shop->getList('*',$where5,5);
-
         //热门招聘企业
         $where6['is_recommend']['EQ'] = BasicEnum::ACTIVE;
         $recruit_hot = $this->recruit->getList('*',$where6,5,['factory']);
@@ -117,11 +113,9 @@ class RecruitController extends BaseController
             }
         }
 
-        //最近浏览职位（可把最近浏览职位存到Redis里，从Redis里取数据）
 
-
-        return view('home.recruit.index',compact('params','list','params','position','label','recruit','shop',
-            'recruit_hot','factory_top'));
+        return view('home.recruit.index',compact('params','list','params','position','label','recruit',
+            'recruit_hot'));
     }
 
 
@@ -176,20 +170,12 @@ class RecruitController extends BaseController
             }
         }
 
-        //大家想去
-        $where4['is_recommend']['EQ'] = BasicEnum::ACTIVE;
-        $recruit = $this->recruit->getList('*',$where4,5,['factory']);
-
-        //热门招聘企业
-        $where5['is_recommend']['EQ'] = BasicEnum::ACTIVE;
-        $recruit_hot = $this->recruit->getList('*',$where5,5,['factory']);
-
         $user_id = isset($this->userInfo->id) ? $this->userInfo->id : 0;
         //收藏信息
         $is_collect = Collect::where('user_id',$user_id)->where('type',2)->where('shop_id',$id)->count();
 
 
-        return view('home.recruit.detail',compact('data','count_pic','count_enroll','question','count_ques',
-            'recruit','recruit_hot','user_id','is_collect'));
+        return view('home.recruit.detail',compact('data','count_pic','count_enroll','count_ques',
+            'user_id','is_collect'));
     }
 }

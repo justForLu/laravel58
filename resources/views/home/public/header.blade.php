@@ -15,21 +15,11 @@
         </p>
         <div class="fr">
             <div class="tol_links">
-                <a href="javascript:void(0);" rel="nofollow">
-                    <i class="ic ic_top_phone"></i>手机站
-                </a>
-                <div class="mark_con">
-                    <span class="ic_up"><i></i></span>
-                    <img src="{{asset("/assets/home/images/mobile.png")}}" alt="本职工作网移动版">
-                    <p>扫码打开触屏版</p>
-                </div>
-            </div>
-            <div class="tol_links">
-                <a href="javascript:void(0);" rel="nofollow"><i class="ic ic_top_weixin"></i>微信</a>
+                <a href="javascript:void(0);" rel="nofollow"><i class="ic ic_top_weixin"></i>微信公众号</a>
                 <div class="mark_con">
                     <span class="ic_up"><i></i></span>
                     <img src="{{asset("/assets/home/images/weixin.jpg")}}" alt="本职工作网公众号">
-                    <p>关注本职工作网公众号</p>
+                    <p>好工人公众号</p>
                 </div>
             </div>
             <div class="tol_links tol_appdownload">
@@ -39,8 +29,13 @@
                 <div class="mark_con">
                     <span class="ic_up"><i></i></span>
                     <img src="{{asset("/assets/home/images/app-ewm.png")}}" alt="本职工作网APP">
-                    <p>下载本职工作网APP</p>
+                    <p>好工人APP</p>
                 </div>
+            </div>
+            <div class="tol_links">
+                <a href="javascript:void(0);" rel="nofollow">
+                    物料下载
+                </a>
             </div>
         </div>
     </div>

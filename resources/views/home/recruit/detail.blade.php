@@ -7,12 +7,7 @@
 
 @section('content')
     <div class="breadcrumb">
-        <ul class="section">
-            <li>您现在的位置：</li>
-            <li><a href="{{url("/home/index.html")}}" >首页</a> <span class="divider">></span></li>
-            <li><a href="{{url("/home/recruit.html")}}">找工作</a> <span class="divider">></span></li>
-            <li class="active">{{$data->factory->name}}</li>
-        </ul>
+
     </div>
     <div class="fac_wrap wrap">
         <div class="section">
@@ -257,47 +252,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="fac_main_question">
-                    <div class="fac_title">
-                        <span class="fr">
-                            <em class="nums">（共{{$count_ques}}条）</em>
-                            <a href="" target="_blank" class="btn btn_s btn_orange">我要提问</a>
-                        </span>
-                        <i class="ic ic_fac_t3"></i>
-                        <h3>岗位问答</h3>
-                        <span class="notes">该企业相关问题答案由工立方网和热心网友共同提供</span>
-                    </div>
-                    <ul class="fac_quelist">
-                        @if($question)
-                            @foreach($question as $v)
-                                <li class="fac_queitem">
-                                    <i class="ic ic_fac_ques1"></i>
-                                    <i class="ic ic_fac_ques2"></i>
-                                    <i class="ic ic_fac_ques3"></i>
-                                    <i class="ic ic_fac_ques4"></i>
-                                    <div class="items item_ask">
-                                        <span class="ic_type type1">问</span>
-                                        <div class="con">
-                                            <p class="tit">{{$v['title']}}</p>
-                                            <p class="des">{{$v['create_time']}}  @if($v['is_show']) {{$v['user']['nickname']}} @else 匿名 @endif</p>
-                                        </div>
-                                    </div>
-                                    <div class="items fac_que1">
-                                        <span class="ic_type type2">答</span>
-                                        @if($v['answer'])
-                                            @foreach($v['answer'] as $asw)
-                                                <div class="con">
-                                                    <p>{{$asw['content']}}</p>
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                </li>
-                            @endforeach
-                        @endif
-                    </ul>
-                    <a href="" target="_blank" class="fac_quelist_more">查看全部回答>></a>
-                </div>
             </div>
             <div class="s_r">
                 <div class="fac_info fac_rlist">
@@ -330,52 +284,9 @@
                             <p><span class="titles">乘车路线：</span>{{$data->factory->bus_line}}</p>
                             <p><span class="titles">接站地址：</span>{{$data->factory->meet}}</p>
                         </div>
-                        <div class="fac_maps_join">
-                            <h4>我怎么去？</h4>
-                            <a href="" class="btn btn_s btn_blue btn_act btn_phone">门店就近报名</a>
-                            <a href="javascript:void(0);" class="btn btn_s btn_blue btn_phone">电话报名：{{$data->factory->phone}}</a>
-                        </div>
                     </div>
                 </div>
-                <div class="fac_hot fac_rlist">
-                    <h3 class="titles">
-                        <i class="ic ic_fac_hottitle"></i>
-                    </h3>
-                    <ul class="fac_hot_list">
-                        @if($recruit_hot)
-                            @foreach($recruit as $v)
-                                <li><a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank">{{$v['factory']['name']}} （{{$v['salary_up']}}--{{$v['salary_down']}}元/月）</a></li>
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
             </div>
-        </div>
-        <div class="fac_recom section">
-            <div class="fac_title">
-                <i class="line"></i>
-                <h3>大家都想去</h3>
-            </div>
-            <ul class="fac_recom_list">
-                @if($recruit)
-                    @foreach($recruit as $v)
-                        <li>
-                            <a href="{{url("/home/recruit/detail/".$v['id'].'.html')}}" class="imgs" target="_blank">
-                                <img src="{{$v['factory']['image']}}" alt="{{$v['factory']['name']}}">
-                            </a>
-                            <div class="con">
-                                <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank" class="name">{{$v['factory']['name']}}</a>
-                                <p class="des">
-                                    @if($v['edu_ask']) {{$v['edu_ask']}}<i class="line"></i> @endif
-                                    @if($v['sex_ask']) {{$v['sex_ask']}}<i class="line"></i> @endif
-                                    @if($v['age_ask']) {{$v['age_ask']}} @endif
-                                </p>
-                                <p class="price">￥{{$v['salary_up']}}-{{$v['salary_down']}}元/月</p>
-                            </div>
-                        </li>
-                    @endforeach
-                @endif
-            </ul>
         </div>
     </div>
     <div style="height:0;overflow:hidden;">

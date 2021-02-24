@@ -186,7 +186,7 @@ to{transform:scaleX(1)}
 .sites a{width:60px;display:block;float:left}
 .tese{background:#1ea115;text-align:center}
 .tese img{display:block;margin:0 auto}
-.foot{background:#222222;padding-top: 30px;}
+.foot{background:#222222;padding-top: 30px;margin-top:30px;}
 .foot .ft_logo{float:left;width:160px}
 .foot .ft_logo img{margin-top:33px;margin-left:10px}
 .foot .ft_links{float:left;padding-top:30px}
@@ -261,7 +261,7 @@ to{left:-180px;opacity:1}
 .fix_tool .tool_item:hover .marks{display:block;left:-180px;animation:myfirstq .5s;-moz-animation:myfirstq .5s;-webkit-animation:myfirstq .5s;-o-animation:myfirstq .5s}
 .fix_tool_index{bottom:380px;display:none}
 .fix_tool_index .tool_item_top{display:inline-block}
-.breadcrumb{height:50px}
+.breadcrumb{height:30px;background-color: #F1F5F9;}
 .breadcrumb .active{color:#888}
 .breadcrumb ul{padding-top:15px}
 .breadcrumb li{float:left}
@@ -981,7 +981,24 @@ tr.thead td,tr.thead:hover td{ background:#feefe6;font-size:16px;}
 	border: 0;
     background-position:center center
 }
+/*报名弹窗*/
+.layer_join {
 
+}
+.layer_join .to_login {
+	padding-left: 50px;
+}
+.layer_join form {
+	padding: 10px 50px 30px;
+}
+.layer_join form .btn {
+	margin: 15px 0px 0px 50px;
+	background-color: #1ea115;
+	color: #fff;
+	border: none;
+	padding: 5px 30px;
+	border-radius: 5px;
+}
 /*页码*/
 .pull-left {
 
@@ -1017,7 +1034,7 @@ tr.thead td,tr.thead:hover td{ background:#feefe6;font-size:16px;}
 	height: 32px;
 }
 .pull-right .pagination li.active {
-	background-color: #2798e4;
+	background-color: #1ea115;
 	color: #fff;
 }
 .pull-right .pagination li.disabled {
