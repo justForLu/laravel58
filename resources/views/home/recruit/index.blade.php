@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <div class="breadcrumb" style="text-align: center;height: 400px;">
+    <div class="breadcrumb" style="text-align: center;height: 400px;background-color: #ffffff;">
         <img src="{{asset('/assets/home/images/job-banner.png')}}" style="width:1200px;height: 400px;">
     </div>
     <div class="fac_wrap wrap">

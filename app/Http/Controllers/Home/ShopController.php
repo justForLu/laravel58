@@ -94,10 +94,6 @@ class ShopController extends BaseController
         $where4['is_recommend']['EQ'] = BasicEnum::ACTIVE;
         $recruit = $this->recruit->getList('*',$where4,5,['factory']);
 
-        //附近门店
-        $where5['is_recommend']['EQ'] = BasicEnum::ACTIVE;
-        $shop = $this->shop->getList('*',$where5,5);
-
         //热门招聘企业
         $where6['is_recommend']['EQ'] = BasicEnum::ACTIVE;
         $recruit_hot = $this->recruit->getList('*',$where6,5,['factory']);
@@ -116,7 +112,7 @@ class ShopController extends BaseController
         }
 
 
-        return view('home.shop.index',compact('params','list','province','city','recruit','shop','recruit_hot','factory_top'));
+        return view('home.shop.index',compact('params','list','province','city','recruit','recruit_hot'));
     }
 
 

@@ -1691,7 +1691,8 @@ h3.title2 .line {
 
 .fac_salary td {
     color: #444;
-    border: 1px solid #ddd
+    border: 1px solid #ddd;
+    text-align: left;
 }
 
 .fac_salary .prices {
@@ -1713,7 +1714,8 @@ h3.title2 .line {
 }
 
 .fac_salary .t1 td {
-    background: #f7f9fa
+    background: #f7f9fa;
+    text-align: left;
 }
 
 .salary_con {
@@ -2122,8 +2124,7 @@ h3.title2 .line {
 
 .fac_list .cons {
     margin-left: 245px;
-    *float: left;
-    *margin-left: 20px
+    text-align: left;
 }
 
 .fac_list .names h4 {
@@ -2370,8 +2371,7 @@ h3.title2 .line {
 
 .store_list .cons {
     margin-left: 232px;
-    *float: left;
-    *margin-left: 20px
+    text-align: left;
 }
 
 .store_list .names {

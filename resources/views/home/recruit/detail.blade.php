@@ -97,8 +97,8 @@
                     <div class="fac_salary">
                         <div class="fac_title">
                             <em class="lines"></em>
-                            <i class="ic ic_fac_t1"></i>
                             <h3>工资待遇</h3>
+                            <span></span>
                         </div>
                         <table width="100%" class="salary_con" style="display: table;" cellpadding="10">
                             <tbody>
@@ -166,7 +166,6 @@
                     <div class="fac_salary fac_des">
                         <div class="fac_title">
                             <em class="lines"></em>
-                            <i class="ic ic_fac_t2"></i>
                             <h3>招聘要求</h3>
                         </div>
                         <table width="100%" cellspacing="0" cellpadding="10">
@@ -250,6 +249,62 @@
                             @endif
                             </tbody>
                         </table>
+                    </div>
+                    <div class="fac_salary fac_des">
+                        <div class="fac_title">
+                            <em class="lines"></em>
+                            <h3>工作要求</h3>
+                        </div>
+                        <table width="100%" cellspacing="0" cellpadding="10">
+                            <tbody>
+                            @if($data->edu_ask)
+                                <tr>
+                                    <th>学历要求</th>
+                                    <td>
+                                        {{$data->edu_ask}}
+                                    </td>
+                                </tr>
+                            @endif
+                            @if($data->sex_ask || $data->age_ask)
+                                <tr>
+                                    <th>年龄要求</th>
+                                    <td>
+                                        @if($data->sex_ask)
+                                            {{$data->sex_ask}}<i class="line"></i>
+                                        @endif
+                                        @if($data->age_ask)
+                                            {{$data->age_ask}}
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endif
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fac_salary fac_des">
+                        <div class="fac_title">
+                            <em class="lines"></em>
+                            <h3>面试地址</h3>
+                        </div>
+                        <table width="100%" cellspacing="0" cellpadding="10">
+                            <tbody>
+                            <tr>
+                                <th>面试地址</th>
+                                <td>
+                                    郑州市金水区CBD
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="fac_salary fac_des">
+                        <div class="fac_title">
+                            <em class="lines"></em>
+                            <h3>入职步骤</h3>
+                        </div>
+                        <div style="text-align: left;padding-top: 50px;">
+                            <img src="{{asset('/assets/home/images/rzbz.png')}}" alt="入职步骤" style="width: 60%;">
+                        </div>
                     </div>
                 </div>
             </div>
