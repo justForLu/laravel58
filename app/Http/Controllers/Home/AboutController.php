@@ -9,7 +9,7 @@ class AboutController extends BaseController
     public function __construct()
     {
         parent::__construct();
-
+        view()->share('menu','About');
     }
 
 

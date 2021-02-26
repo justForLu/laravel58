@@ -17,10 +17,10 @@
                 <p>欢迎你，亲爱的 <em>{{$userInfo->nickname}}</em>！</p>
             </div>
             <div class="user_top_num">
-                <a href="" class="nums">
+                <a href="{{url("/home/user/message.html")}}" class="nums">
                     消息<em>0</em>
                 </a>
-                <a href="" class="nums">
+                <a href="{{url("/home/user/collect_recruit.html")}}" class="nums">
                     我的收藏<em>{{$count_collect}}</em>
                 </a>
             </div>

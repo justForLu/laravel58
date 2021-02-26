@@ -2,11 +2,12 @@
     width: 100%
 }
 .join-section {
-    width: 1200px;
-    margin: 0px auto;
+
 }
 /*  加入申请表单  */
 .join-form {
+    width: 1200px;
+    margin: 0px auto;
     padding: 15px;
     background-color: #e5e5e5;
     overflow: hidden;
@@ -56,3 +57,185 @@
     font-size: 28px;
 }
 /*  我们的优势  */
+.youshi {
+    width: 1200px;
+    margin: 0px auto;
+}
+.youshi-box {
+    display: flex;
+    margin: 50px 0px;
+}
+.youshi-box .item .youshi-img {
+    width: 400px;
+    height: 221px;
+}
+.youshi-box .item .youshi-word {
+    width: 400px;
+    height: 221px;
+    color: #000000;
+    display: table;
+}
+.youshi-box .item .youshi-word p{
+    padding: 0px 25px;
+    display: table-cell;
+    vertical-align: middle;
+}
+.youshi-box .item img {
+    width: 400px;
+    height: 221px;
+}
+/*  加盟扶持  */
+.fuchi {
+    padding-top: 30px;
+}
+.fuchi .fuchi-box {
+    background-color: #C7DEDC;
+    margin: 80px 0px 50px;
+}
+.fuchi .fuchi-box>div {
+    width: 1200px;
+    margin: 0px auto;
+    display: flex;
+}
+.fuchi .fuchi-box .fuchi-img {
+    margin-top: -40px;
+}
+.fuchi .fuchi-box .fuchi-img img {
+    width: 400px;
+}
+.fuchi .fuchi-box .fuchi-word {
+    padding-left: 50px;
+}
+.fuchi .fuchi-box .fuchi-word .fuchi-title {
+    padding: 50px 0px 30px;
+    font-size: 18px;
+    color: #181515;
+}
+.fuchi .fuchi-box .fuchi-word .fuchi-item {
+    padding-left: 20px;
+}
+.fuchi .fuchi-word .fuchi-item ul li {
+    list-style: disc;
+    color: red;
+    line-height: 36px;
+    font-size: 18px;
+}
+.fuchi .fuchi-word .fuchi-item ul li p {
+    color: #181515;
+    font-size: 14px;
+}
+/*  合作愿景  */
+.yuanjing {
+    width: 1000px;
+    margin: 0px auto;
+    padding-top: 30px;
+}
+.yuanjing .yuanjing-box {
+    display: flex;
+    justify-content: flex-start;
+}
+.yuanjing .yuanjing-word {
+    width: 280px;
+}
+.yuanjing .yuanjing-word .small-title {
+    padding: 50px 0px 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.yuanjing .yuanjing-img {
+    width: 500px;
+    padding-left: 180px;
+}
+.yuanjing .yuanjing-img img {
+    width: 500px;
+}
+/*  加盟条件  */
+.tiaojian {
+    clear: both;
+    width: 1000px;
+    margin: 0px auto;
+    padding-top: 80px;
+}
+.tiaojian .tiaojian-box {
+    display: flex;
+    justify-content: flex-start;
+}
+.tiaojian .tiaojian-img {
+    width: 400px;
+    height: 373px;
+}
+.tiaojian .tiaojian-img img {
+    width: 400px;
+    height: 373px;
+}
+.tiaojian .tiaojian-word {
+    height: 373px;
+    display: table;
+    padding-left: 50px;
+}
+.tiaojian .tiaojian-word ul {
+    display: table-cell;
+    vertical-align: middle;
+}
+.tiaojian .tiaojian-word li {
+    overflow: hidden;
+    margin: 30px 0px;
+}
+.tiaojian .tiaojian-word li span {
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 10px;
+    display: block;
+    color: #fff;
+    background-color: #15cbd2;
+    float: left;
+}
+.tiaojian .tiaojian-word li p {
+    line-height: 20px;
+    margin-left: 50px;
+}
+/*  加盟流程图  */
+.liucheng {
+    background-color: #F5F5F5;
+    padding-top: 20px;
+    margin-top: 80px;
+}
+.liucheng>div {
+    width: 1200px;
+    margin: 0px auto;
+    padding-bottom: 50px;
+}
+.liucheng .liucheng-box {
+    width: 1168px;
+    margin: 0px auto;
+    padding-top: 50px;
+}
+.liucheng .liucheng-img {
+    width: 1166px;
+    text-align: center;
+}
+.liucheng .liucheng-img img {
+    width: 1000px;
+}
+.liucheng .buzhou-dec {
+    display: flex;
+    justify-content: flex-start;
+}
+.liucheng .buzhou-dec .item {
+    width: 233px;
+    text-align: center;
+    padding: 0px 30px;
+}
+.liucheng .buzhou-dec .item .buzhou-title {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+
+
+
+
+

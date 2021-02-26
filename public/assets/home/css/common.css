@@ -1040,3 +1040,87 @@ tr.thead td,tr.thead:hover td{ background:#feefe6;font-size:16px;}
 .pull-right .pagination li.disabled {
 
 }
+/*	关于我们	*/
+.about-section {
+
+}
+.about-section .about-title {
+	text-align: center;
+	padding-bottom: 40px;
+}
+.about-section .about-title .title {
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 15px;
+}
+.about-section .about-title span {
+	display: block;
+	width: 40px;
+	height: 3px;
+	background-color: #1ea115;
+	margin: 0px auto;
+}
+.about-section .about-company {
+	width: 1200px;
+	margin: 0px auto;
+	padding-top: 80px;
+}
+.about-section .about-company .company-box {
+	display: flex;
+	justify-content: flex-start;
+}
+.about-section .about-company .company-img {
+	width: 500px;
+	height: 398px;
+}
+.about-section .about-company .company-img img {
+	width: 500px;
+	height: 398px;
+}
+.about-section .about-company .company-dec {
+	padding-left: 50px;
+	width: 500px;
+}
+.about-section .about-company .company-dec p {
+	text-indent: 2em;
+}
+.about-section .about-contact {
+	background-color: #F1F5F9;
+	margin-top: 80px;
+}
+.about-section .about-contact>div {
+	width: 1200px;
+	margin: 0px auto;
+	background-color: #F1F5F9;
+	padding-top: 30px;
+}
+.about-section .about-contact .contact-box {
+	padding-bottom: 40px;
+}
+.about-section .contact-box .contact-info {
+	text-align: center;
+	width: 800px;
+	margin: 0px auto;
+}
+.about-section .contact-box .contact-info .address {
+	padding-bottom: 30px;
+}
+.about-section .contact-box .contact-info .fangshi {
+	overflow: hidden;
+	width: 600px;
+	margin: 0px auto;
+}
+.about-section .contact-box .contact-info .fangshi>div {
+	width: 300px;
+	float: left;
+	text-align: left;
+}
+.about-section .contact-box .about-map {
+	width: 900px;
+	height: 500px;
+	margin: 0px auto;
+	margin-top: 50px;
+}
+
+
+

@@ -426,7 +426,8 @@ body {
     padding: 15px 0 15px 85px;
     display: block;
     position: relative;
-    border-left: 2px solid #fff
+    border-left: 2px solid #fff;
+    text-align: left;
 }
 
 .user_left_nav li a:hover {
@@ -455,7 +456,7 @@ body {
 }
 
 .user_lapp img {
-    width: 215px;
+    width: 180px;
     display: block;
     margin: 15px auto 10px
 }
@@ -466,21 +467,41 @@ body {
 }
 
 .uc_form .form-label {
-    font-size: 16px
+    font-size: 16px;
+    width: 100px;
+    float: left;
+    text-align: right;
+    line-height: 32px;
 }
 
 .uc_form .form-item {
-    margin-right: -20px
+    padding: 20px 0px;
+}
+.uc_form .form-item .form-field {
+    text-align: left;
+}
+.uc_form .form-item .form-field .form-text {
+    width: 300px;
+    height: 35px;
+    border: 1px #dadbdf solid;
+    border-radius: 3px;
+}
+.uc_form .form-item .form-field input::placeholder {
+    color: #dadbdf;
+    font-size: 14px;
 }
 
 .uc_form .required {
-    color: #1ea115
+    color: #1ea115;
+    overflow: hidden;
 }
 
 .uc_form .btn_b {
-    width: 188px;
-    height: 38px;
-    line-height: 40px
+    padding: 10px 50px;
+    border-radius: 5px;
+    border: none;
+    background-color: #1ea115;
+    color: #fff;
 }
 
 .uc_form .form-select.inline-ele {
@@ -994,7 +1015,8 @@ body {
 }
 
 .user_collect {
-    min-height: 460px
+    min-height: 460px;
+    text-align: left;
 }
 
 .list_collect {
@@ -1148,6 +1170,12 @@ body {
 .avt_show .avt_f {
     width: 280px;
     float: left
+}
+.avt_show .avt_f #saveImgBtn {
+    background-color: #1ea116;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
 }
 
 .avt_show .avt_f img {

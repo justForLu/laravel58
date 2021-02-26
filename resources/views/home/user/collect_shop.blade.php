@@ -17,10 +17,10 @@
                 <p>欢迎你，亲爱的 <em>{{$userInfo->nickname}}</em>！</p>
             </div>
             <div class="user_top_num">
-                <a href="" class="nums">
+                <a href="{{url("/home/user/message.html")}}" class="nums">
                     消息<em>0</em>
                 </a>
-                <a href="" class="nums">
+                <a href="{{url("/home/user/collect_recruit.html")}}" class="nums">
                     我的收藏<em>{{$count_collect}}</em>
                 </a>
             </div>
@@ -88,58 +88,6 @@
                     @endif
                 </div>
             </div><br><br>
-            <div class="uc_title">
-                <i class="line"></i>
-                <h3>大家都想去</h3>
-            </div>
-
-            <ul class="list_recom" id="mem_djxq">
-                <li>
-                    <a href="" class="img">
-                        <img src="{{asset("/assets/home/images/shop1.jpg")}}" alt=""></a>
-                    <div class="con">
-                        <p class="name"><a href="">常州瑞声</a></p>
-                        <p>年龄：
-                            18-40岁，男女不限
-                        </p>
-                        <p>薪资：<em>5500-6500</em>元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="img">
-                        <img src="{{asset("/assets/home/images/shop2.jpg")}}" alt="">
-                    </a>
-                    <div class="con">
-                        <p class="name"><a href="">立讯精密工业（滁州）有限公司</a></p>
-                        <p>年龄：
-                            男:16-40岁						女:16-45岁
-                        </p>
-                        <p>薪资：<em>6000-7000</em>元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="img">
-                        <img src="{{asset("/assets/home/images/shop3.jpg")}}" alt="">
-                    </a>
-                    <div class="con">
-                        <p class="name"><a href="">昆山淳华</a></p>
-                        <p>年龄：
-                            16-40岁，男女不限
-                        </p>
-                        <p>薪资：<em>4000-5000</em>元/月</p>
-                    </div>
-                </li>
-                <li>
-                    <a href="" class="img"><img src="{{asset("/assets/home/images/shop4.jpg")}}" alt=""></a>
-                    <div class="con">
-                        <p class="name"><a href="">华宝（南京）科技有限公司</a></p>
-                        <p>年龄：
-                            男:18-40岁						女:18-45岁
-                        </p>
-                        <p>薪资：<em>7000-7500</em>元/月</p>
-                    </div>
-                </li>
-            </ul>
         </div>
     </div>
 @endsection
