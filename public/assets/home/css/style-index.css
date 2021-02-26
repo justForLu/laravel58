@@ -435,10 +435,20 @@
     float: left;
     width: 26px;
 }
-.tjyj-box .tjgb>div p {
+.tjyj-box .tjgb>div .new-ruzhi {
     float: left;
     line-height: 24px;
     padding-left: 10px;
+    height: 30px;
+}
+.tjyj-box .tjgb>div .new-ruzhi p {
+    color: #000000;
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    animation: myMove 11s linear infinite;
+    animation-fill-mode: forwards;
 }
 .tjyj-box .tjyj {
     padding-top: 40px;
@@ -467,8 +477,58 @@
     padding: 3px;
     border-bottom: 3px #1ea115 solid;
     border-radius: 5px;
+    height: 30px;
+    overflow: hidden;
 }
-
+.tjyj-box .tjyj .jl-box>div div p {
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    animation-fill-mode: forwards;
+}
+.tjyj-box .tjyj .jl-box .rzjl div p {
+    animation: myMove 10s linear infinite;
+}
+.tjyj-box .tjyj .jl-box .yqjl div p {
+    animation: myMove 12s linear infinite;
+}
+/*文字无缝滚动*/
+@keyframes myMove {
+    0% {
+        transform: translateY(0);
+    }
+    10% {
+        transform: translateY(-30px);
+    }
+    20% {
+        transform: translateY(-60px);
+    }
+    30% {
+        transform: translateY(-90px);
+    }
+    40% {
+        transform: translateY(-120px);
+    }
+    50% {
+        transform: translateY(-150px);
+    }
+    60% {
+        transform: translateY(-180px);
+    }
+    70% {
+        transform: translateY(-210px);
+    }
+    80% {
+        transform: translateY(-240px);
+    }
+    90% {
+        transform: translateY(-270px);
+    }
+    100% {
+        transform: translateY(-300px);
+    }
+}
 .ii_key {
     float: right;
     color: #888;
