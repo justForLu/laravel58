@@ -3,7 +3,7 @@
 @section('content')
     <div class="wrap">
         <div>
-            <img class="main" src="{{asset("/assets/home/images/about-banner.png")}}">
+            <img class="main" src="{{asset("/assets/home/images/about-banner.png")}}" style="width: 100%">
         </div>
     </div>
     <div class="about-section">

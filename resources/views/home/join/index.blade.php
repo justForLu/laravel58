@@ -7,7 +7,7 @@
 @section('content')
     <div class="wrap">
         <div>
-            <img class="main" src="{{asset("/assets/home/images/join-banner.png")}}">
+            <img class="main" src="{{asset("/assets/home/images/join-banner.png")}}" style="width: 100%">
         </div>
     </div>
     <div class="join-section">
