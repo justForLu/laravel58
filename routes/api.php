@@ -20,6 +20,7 @@ Route::get('home', function () {
 
 Route::group(['prefix' => 'api', 'namespace' => 'Api'], function (){
 
+    Route::any('/index/index', 'IndexController@index');
     Route::any('/index/oauth', 'IndexController@oauth');
     Route::any('/index/get_user', 'IndexController@getUser');
     Route::any('/index/job', 'IndexController@job');
