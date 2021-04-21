@@ -37,7 +37,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        return view('home.login.register');
+        $title = '注册';
+        return view('home.login.register',compact('title'));
     }
 
     /**

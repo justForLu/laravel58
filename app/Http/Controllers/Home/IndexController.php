@@ -51,33 +51,11 @@ class IndexController extends BaseController
         $with2 = ['factory'];
         $recruit_arr = $this->recruit->getList('*',$where2,4,$with2);
 
-        //推荐企业
-        $recommend_arr = $recruit_arr;
-
         //门店服务
         $where3['is_recommend']['EQ'] = BasicEnum::ACTIVE;
         $shop_arr = $this->shop->getList('*',$where3,5);
 
-        //新闻资讯
-        $where4['type'] = CategoryEnum::NEWS;
-        $category_arr = $this->category->getList($where4,2);
-        $category_id1 = isset($category_arr[0]['id']) ? $category_arr[0]['id'] : 0;
-        $category_id2 = isset($category_arr[1]['id']) ? $category_arr[1]['id'] : 0;
-        $category_name2 =isset($category_arr[1]['name']) ? $category_arr[1]['name'] : '';
-
-        $where5['category_id']['EQ'] = $category_id1;
-        $news_arr1 = $this->news->getList('*',$where5,7);
-        if($news_arr1){
-            foreach ($news_arr1 as &$v){
-                $v['create_time'] = date('Y-m-d H:i:s', $v['create_time']);
-            }
-        }
-
-        $where6['category_id']['EQ'] = $category_id2;
-        $news_arr2 = $this->news->getList('*',$where6,10);
-
-        return view('home.index.index', compact('banner_arr','recruit_arr','recommend_arr','shop_arr',
-            'news_arr1','news_arr2','category_name2','user_id'));
+        return view('home.index.index', compact('banner_arr','recruit_arr','shop_arr','user_id'));
     }
 
 }

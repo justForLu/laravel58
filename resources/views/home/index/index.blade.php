@@ -29,32 +29,66 @@
     </div>
 
     <div class="section">
-        <ul class="ind_quick">
-            <li>
-                <a href="{{url("/home/recruit/index.html")}}">
-                    <em>找工作</em>知名企业任您挑<br>100%优质的真实岗位等你入职
-                    <span class="quick_ico ico1"></span><i>挑岗位</i>
-                </a>
-            </li>
-            <li>
-                <a href="{{url("/home/shop/index.html")}}">
-                    <em>门店服务</em>服务就在家门口<br>全国800余家门店，时刻准备为您服务
-                    <span class="quick_ico ico2"></span><i>去咨询</i>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0);" id="btn_join_layer">
-                    <em>报名有奖</em>报名入职有大奖<br>在线报名还能领取现金大奖
-                    <span class="quick_ico ico3"></span><i>我要报名</i>
-                </a>
-            </li>
-{{--            <li><a href="" id="btn_recom_layer">--}}
-{{--                    <em>推荐有奖</em>推荐好友入职有大奖<br>单笔最高奖2000元，累计奖金无上限--}}
-{{--                    <span class="quick_ico ico4"></span><i>我来推荐</i>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-        </ul>
-
+        <div class="tjyj-box">
+            <div class="tjgb">
+                <div>
+                    <img src="{{asset('/assets/home/images/laba.png')}}">
+                    <div class="new-ruzhi">
+                        <p>最新消息：李XX成功入职郑州富士康</p>
+                        <p>最新消息：长XX成功入职郑州富士康</p>
+                        <p>最新消息：找XX成功入职郑州富士康</p>
+                        <p>最新消息：王XX成功入职郑州富士康</p>
+                        <p>最新消息：李XX成功入职郑州富士康</p>
+                        <p>最新消息：长XX成功入职郑州富士康</p>
+                        <p>最新消息：找XX成功入职郑州富士康</p>
+                        <p>最新消息：王XX成功入职郑州富士康</p>
+                        <p>最新消息：李XX成功入职郑州富士康</p>
+                        <p>最新消息：长XX成功入职郑州富士康</p>
+                        <p>最新消息：王XX成功入职郑州富士康</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tjyj">
+                <div class="title">
+                    <img src="{{asset('/assets/home/images/index-rebate.png')}}">
+                    <h1>推荐有奖</h1>
+                </div>
+                <div class="jl-box">
+                    <!--入职奖励-->
+                    <div class="rzjl">
+                        <div>
+                            <p>159****5874报名成功获得奖金1000元</p>
+                            <p>152****5874报名成功获得奖金1000元</p>
+                            <p>151****5874报名成功获得奖金1000元</p>
+                            <p>156****5874报名成功获得奖金1000元</p>
+                            <p>158****5874报名成功获得奖金1000元</p>
+                            <p>159****5874报名成功获得奖金1000元</p>
+                            <p>152****5874报名成功获得奖金1000元</p>
+                            <p>151****5874报名成功获得奖金1000元</p>
+                            <p>156****5874报名成功获得奖金1000元</p>
+                            <p>158****5874报名成功获得奖金1000元</p>
+                            <p>151****5874报名成功获得奖金1000元</p>
+                        </div>
+                    </div>
+                    <!--推荐奖励-->
+                    <div class="yqjl">
+                        <div>
+                            <p>131****9845入职成功获得奖金1000元</p>
+                            <p>132****9845入职成功获得奖金1000元</p>
+                            <p>133****9845入职成功获得奖金1000元</p>
+                            <p>134****9845入职成功获得奖金1000元</p>
+                            <p>135****9845入职成功获得奖金1000元</p>
+                            <p>131****9845入职成功获得奖金1000元</p>
+                            <p>132****9845入职成功获得奖金1000元</p>
+                            <p>133****9845入职成功获得奖金1000元</p>
+                            <p>134****9845入职成功获得奖金1000元</p>
+                            <p>135****9845入职成功获得奖金1000元</p>
+                            <p>134****9845入职成功获得奖金1000元</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="ii_list">
             <div class="ii_head">
                 <div class="ii_key">
@@ -86,39 +120,40 @@
                 @endif
             </ul>
         </div>
-
-        <div class="ii_list">
-            <div class="ii_head">
-                <div class="ii_key">
-                    <div class="ii_key">
-                        <a href="{{url("/home/shop/index.html")}}" target="_blank">更多企业 ></a>
+        <div class="ptjz">
+            <div class="ptjz-title">
+                <h2>
+                    <p>平台价值</p>
+                    <span></span>
+                </h2>
+            </div>
+            <div class="jz-box">
+                <div class="jz-item">
+                    <div class="jz-dsc">
+                        <h4>热门岗位</h4>
+                        <p>知名企业rennin挑选，100%靠谱工作等你入职</p>
                     </div>
                 </div>
-                <h2 class="ii_tit"><em>推荐</em>企业</h2>
+                <div class="jz-item">
+                    <div class="jz-dsc">
+                        <h4>热门岗位</h4>
+                        <p>知名企业rennin挑选，100%靠谱工作等你入职</p>
+                    </div>
+                </div>
+                <div class="jz-item">
+                    <div class="jz-dsc">
+                        <h4>热门岗位</h4>
+                        <p>知名企业rennin挑选，100%靠谱工作等你入职</p>
+                    </div>
+                </div>
+                <div class="jz-item">
+                    <div class="jz-dsc">
+                        <h4>热门岗位</h4>
+                        <p>知名企业rennin挑选，100%靠谱工作等你入职</p>
+                    </div>
+                </div>
             </div>
-            <ul class="ii_cont">
-                @if($recommend_arr)
-                    @foreach($recommend_arr as $v)
-                        <li>
-                            <div class="ii_pic">
-                                <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" target="_blank">
-                                    <img src="{{$v['factory']['image']}}" alt="{{$v['title']}}"/></a>
-                            </div>
-                            <div class="ii_con">
-                                <a href="{{url("/home/recruit/detail/".$v['id'].".html")}}" class="name" target="_blank">{{$v['title']}}</a>
-                                <p>招聘岗位：{{$v['posts']}}<br>
-                                    招聘要求：@if($v['edu_ask']) {{$v['edu_ask']}}<i class="line"></i> @endif
-                                    @if($v['sex_ask']) {{$v['sex_ask']}}<i class="line"></i> @endif
-                                    @if($v['age_ask']) {{$v['age_ask']}} @endif <br>
-                                    综合薪资：<span class="price">{{$v['salary_up']}}-{{$v['salary_down']}}元/月</span>
-                                </p>
-                            </div>
-                        </li>
-                    @endforeach
-                @endif
-            </ul>
         </div>
-
         <div class="ii_list ii_store">
             <div class="ii_head">
                 <div class="ii_key">
@@ -147,66 +182,6 @@
                     @endforeach
                 @endif
             </ul>
-        </div>
-
-        <div class="index_item">
-            <div class="ii_head">
-                <h2 class="ii_tit"><em>新闻</em>资讯</h2>
-            </div>
-            <div class="ind_dggl" id="dgggl">
-                <div class="dggl_left">
-                    <div class="dggl_top">
-                        @if($news_arr1)
-                            @foreach($news_arr1 as $k => $v)
-                                @if($k == 0)
-                                    <a href="{{url("/home/news/detail/".$v['id'].".html")}}" target="_blank">
-                                        <img src="{{$v['image']}}" alt="{{$v['title']}}"/>
-                                    </a>
-                                    <div class="con">
-                                        <a href="{{url("/home/news/detail/".$v['id'].".html")}}" class="" target="_blank">{{$v['title']}}</a>
-                                        <p class=""></p>
-                                        <span class="times">{{$v['create_time']}}</span>
-                                    </div>
-                                @endif
-                            @endforeach
-                        @endif
-                    </div>
-                    <ul class="dggl_mid">
-                        @if($news_arr1)
-                            @foreach($news_arr1 as $k => $v)
-                                @if($k > 0)
-                                    <li>
-                                        <a href="{{url("/home/news/detail/".$v['id'].".html")}}" class="">
-                                            <img src="{{$v['image']}}" alt="{{$v['title']}}"/>
-                                        </a>
-                                        <div class="con">
-                                            <a class="" href="{{url("/home/news/detail/".$v['id'].".html")}}" target="_blank">{{$v['title']}}</a>
-                                            <span class="times">{{$v['create_time']}}</span>
-                                        </div>
-                                    </li>
-                                @endif
-                            @endforeach
-                        @endif
-                    </ul>
-                </div>
-                <div class="dggl_right">
-                    <div class="news_video">
-                    </div>
-                    <div class="list_news">
-                        <h3 class="ic ic_ind_stit">{{$category_name2}}</h3>
-                        <ul class="">
-                            @if($news_arr2)
-                                @foreach($news_arr2 as $v)
-                                    <li>
-                                        <i class="ic_dot"></i>
-                                        <a href="{{url("/home/news/detail/".$v['id'].".html")}}" target="_blank">{{$v['title']}}</a>
-                                    </li>
-                                @endforeach
-                            @endif
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 

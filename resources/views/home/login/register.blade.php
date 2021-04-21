@@ -23,24 +23,14 @@
                         </td>
                         <td class="reg_tip">请输入手机号</td>
                     </tr>
-{{--                    <tr>--}}
-{{--                        <td class="reg_label">验证码</td>--}}
-{{--                        <td>--}}
-{{--                            <input type="text" name="verify" placeholder="输入验证码" class="reg_input3" id="inputVerify">--}}
-{{--                            <div class="right">--}}
-{{--                                <img src="./【电子厂招聘_普工招工网_工厂直招信息平台】-工立方打工网_files/regSms_.html" onclick="refreshVerify()" height="47" style="cursor:pointer;" id="imgVerify" data-ajax="/Public/checkCode.html">--}}
-{{--                            </div>--}}
-{{--                        </td>--}}
-{{--                        <td class="reg_tip">输入图片验证码</td>--}}
-{{--                    </tr>--}}
-{{--                    <tr>--}}
-{{--                        <td class="reg_label">短信验证码</td>--}}
-{{--                        <td>--}}
-{{--                            <input type="text" name="code" class="left reg_input2" placeholder="输入短信验证码">--}}
-{{--                            <span class="left reg_getCode send-sms" data-ajax="/Sms/regSend.html">获取验证码</span>--}}
-{{--                        </td>--}}
-{{--                        <td class="reg_tip">点击获取短信验证码</td>--}}
-{{--                    </tr>--}}
+                    <tr>
+                        <td class="reg_label">短信验证码</td>
+                        <td>
+                            <input type="text" name="code" class="left reg_input2" placeholder="输入短信验证码">
+                            <span class="left reg_getCode send-sms" data-ajax="/Sms/loginSend.html">获取验证码</span>
+                        </td>
+                        <td class="reg_tip">点击获取短信验证码</td>
+                    </tr>
                     <tr>
                         <td class="reg_label">请输入密码</td>
                         <td>
@@ -58,10 +48,10 @@
                     <tr>
                         <td></td>
                         <td class="grey">
-                            <label>
+                            <label style="font-size: 12px;">
                                 <input type="checkbox" name="agreement" onchange="agreeInput()" value="1" checked="">点击注册表示您已经阅读并同意
                             </label>
-                            <a href="javascript:agreement(&#39;/Login/agreement.html&#39;)" data-href="" style="color:#3a84cf;">《工立方用户协议》</a>
+                            <a href="javascript:agreement(&#39;/Login/agreement.html&#39;)" data-href="" style="font-size:12px;color:#3a84cf;">《好工人用户协议》</a>
                         </td>
                         <td></td>
                     </tr>
@@ -90,13 +80,13 @@
                 <p class="mt_20">还可以使用以下方式登录</p>
                 <p class="reg_www mt_20">
                     <a href="">
-                        <i id="i1" class="iconfont">微博</i>
+                        <img src="{{asset('/assets/home/images/weixin.png')}}" style="border: none;">
                     </a>
                     <a href="">
-                        <i id="i2" class="iconfont">QQ</i>
+                        <img src="{{asset('/assets/home/images/qq.png')}}" style="border: none;">
                     </a>
                     <a href="">
-                        <i id="i3" class="iconfont">微信</i>
+                        <img src="{{asset('/assets/home/images/weibo.png')}}" style="border: none;">
                     </a>
                 </p>
             </div>

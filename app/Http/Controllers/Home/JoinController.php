@@ -32,7 +32,7 @@ class JoinController extends BaseController
         $params = $request->all();
 
 
-        return view('home.join.index',compact(''));
+        return view('home.join.index');
     }
 
 

@@ -34,60 +34,22 @@ class NewsController extends BaseController
 
     /**
      * 新闻首页
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-	public function index()
-    {
-        //新闻资讯分类
-        $where1['type'] = CategoryEnum::NEWS;
-        $category = $this->category->getList($where1);
-
-        //8条推荐新闻
-        $where2['is_recommend']['EQ'] = BoolEnum::YES;
-        $news_list1 = $this->news->getList('*',$where2,8);
-
-        //根据新闻分类获取6条新闻数据
-        if($category){
-            foreach ($category as &$v){
-                $where3 = [
-                    'category_id' => ['EQ' => $v['id']]
-                ];
-                $v['news'] = $this->news->getList('*',$where3,6);
-            }
-        }
-
-        return view('home.news.index',compact('category','news_list1'));
-    }
-
-    public function list(Request $request)
+	public function index(Request $request)
     {
         $params = $request->all();
 
         $this->news->pushCriteria(new NewsCriteria($params));
 
         $list = $this->news->paginate(Config::get('home.page_size',10));
-        //咨询分类
-        $where1['type'] = CategoryEnum::NEWS;
-        $category = $this->category->getList($where1);
-        $category_id = $params['category_id'] ?? 0;
-        $category_name = '';
-        if($category){
-            foreach ($category as $cat){
-                if($cat['id'] == $category_id){
-                    $category_name = $cat['name'];
-                    break;
-                }
-            }
-        }
+
         //热门文章
         $where2['is_recommend']['EQ'] = BoolEnum::YES;
         $news_2 = $this->news->getList('*',$where2,6);
 
-        //大家想去
-        $where4['is_recommend']['EQ'] = BasicEnum::ACTIVE;
-        $recruit = $this->recruit->getList('*',$where4,5,['factory']);
-
-        return view('home.news.list', compact('list','category','category_id','category_name','news_2','recruit'));
+        return view('home.news.index', compact('list','news_2'));
     }
 
     /**
@@ -101,8 +63,7 @@ class NewsController extends BaseController
         $data->content = htmlspecialchars_decode($data->content);
         //分类名称
         $category_id = isset($data->category_id) ? $data->category_id : 0;
-        $category_info = $this->category->find($category_id);
-        $category_name = isset($category_info->name) ? $category_info->name : '';
+
         //发布作者
         $user = $this->manager->find($data->author);
         $data->author = isset($user->username) ? $user->username : '';
@@ -121,17 +82,13 @@ class NewsController extends BaseController
         $where2['is_recommend']['EQ'] = BoolEnum::YES;
         $news_2 = $this->news->getList('*',$where2,6);
 
-        //大家想去
-        $where4['is_recommend']['EQ'] = BasicEnum::ACTIVE;
-        $recruit = $this->recruit->getList('*',$where4,5,['factory']);
-
         //增加一次阅读量
         $data_read = [
             'read' => $data->read + 1
         ];
         $this->news->update($data_read, $id);
 
-        return view('home.news.detail',compact('data','category_id','category_name','news_1','news_2','recruit'));
+        return view('home.news.detail',compact('data','news_2'));
     }
 
 }

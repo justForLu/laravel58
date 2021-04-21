@@ -19,7 +19,7 @@
                 <img src="{{asset("/assets/home/images/logo.png")}}">
             </a>
         </div>
-        <h1 class="reg_title">注册</h1>
+        <h1 class="reg_title">{{$title}}</h1>
         <div class="head_phone">免费服务热线<em>0371-55338888</em></div>
     </div>
 </div>

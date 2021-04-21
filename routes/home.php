@@ -37,6 +37,7 @@ Route::group(['prefix' => 'home', 'namespace' => 'Home'], function (){
     Route::get('/news/list.html', 'NewsController@list');
     Route::get('/news/detail/{id}.html', 'NewsController@detail');
     Route::get('/join/index.html', 'JoinController@index');
+    Route::get('/about/index.html', 'AboutController@index');
     Route::post('/enroll/sign_up','EnrollController@sign_up');
     Route::post('/question/ask','QuestionController@ask');
 
