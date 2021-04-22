@@ -30,6 +30,14 @@ class Base extends Model{
     /**
      * 软删暂时还有问题，暂时不要使用laravel的软删
      */
-
+    /**
+     * Prepare a date for array / JSON serialization.
+     * @param \DateTimeInterface $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date) : string
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
 
 }

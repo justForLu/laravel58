@@ -12,6 +12,15 @@ class Users extends Authenticatable
     const DELETED_AT='delete_time';
 
     protected $dateFormat = 'U';
+    /**
+     * Prepare a date for array / JSON serialization.
+     * @param \DateTimeInterface $date
+     * @return string
+     */
+    protected function serializeDate(\DateTimeInterface $date) : string
+    {
+        return $date->format('Y-m-d H:i:s');
+    }
     // 用户
     protected $table = 'users';
 
