@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use App\Services\Wechat\ServerService as Server;
 use App\Repositories\Api\UserRepository as User;
+use App\Services\AliaiService;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redis;
 
@@ -15,13 +15,22 @@ class IndexController extends BaseController
     protected $server;
     protected $user;
 
-    public function __construct(User $user, Server $server)
+    public function __construct(User $user,AliaiService $server)
     {
         parent::__construct();
 
         $this->server = $server;
         $this->user = $user;
 
+    }
+
+    public function index()
+    {
+        $img_url = '/public/uploads/admin/images/test.jpg';
+
+        $res = $this->server->getContent($img_url);
+
+        return $this->ajaxSuccess($res,'OK');
     }
 
     /**
